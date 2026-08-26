@@ -1,4 +1,3 @@
-cat > README.md <<'EOF'
 # Akedmi
 
 Akedmi is a multi-company management system built with React. It provides a centralized dashboard for managing companies, employees, partners, payroll, projects, inventory, users, and accounting information.
