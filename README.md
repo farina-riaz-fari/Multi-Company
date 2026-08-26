@@ -48,7 +48,3 @@ Check the installed versions:
 node -v
 npm -v
 ```
-
-#### Screenshots
-
-![Akedmi Sign Up Screen](screenshots/signUp.png)
