@@ -1,10 +1,7 @@
-
+import ComingSoon from "../../components/ComingSoon";
 
 const InventoryItem = () => {
-    return (
-        <div className="flex w-full h-screen">
-            InventoryItem
-        </div>
-    )
-}
+  return <ComingSoon title="Product Management" />;
+};
+
 export default InventoryItem;

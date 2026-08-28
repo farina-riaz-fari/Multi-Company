@@ -1,10 +1,7 @@
-
+import ComingSoon from "../../components/ComingSoon";
 
 const Payroll = () => {
-    return (
-        <div className="flex w-full h-screen">
-            Payroll
-        </div>
-    )
-}
+  return <ComingSoon title="Payroll Management" />;
+};
+
 export default Payroll;

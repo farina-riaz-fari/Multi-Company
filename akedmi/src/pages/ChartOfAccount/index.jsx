@@ -1,10 +1,7 @@
-
+import ComingSoon from "../../components/ComingSoon";
 
 const ChartOfAccount = () => {
-    return (
-        <div className="flex w-full h-screen">
-            ChartOfAccount
-        </div>
-    )
-}
+  return <ComingSoon title="Chart of Accounts" />;
+};
+
 export default ChartOfAccount;

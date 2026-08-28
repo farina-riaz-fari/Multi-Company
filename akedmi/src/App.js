@@ -23,6 +23,7 @@ import PartnerForm from "./pages/Partner/partnerform";
 import UserForm from "./pages/Users/Userform";
 import SignupAndLogin from "./pages/SignupAndLogin";
 import Settings from "./pages/Settings";
+import ProductCategory from "./pages/ProductCategory";
 
 import { AuthProvider, AuthContext } from "./store/signupAndLoginContext";
 import { CompanyProvider } from "./store/CompanyContext";
@@ -61,8 +62,9 @@ const AppContent = () => {
                     <Route path="/addEmployee" element={<AddEmployee />} />
                     <Route path="/users" element={<Users />} />
                     <Route path="/add-user" element={<UserForm />} />
+                    <Route path="/product-category" element={<ProductCategory />} />
+                    <Route path="/products" element={<InventoryItem />} />
                     <Route path="/chart" element={<ChartOfAccount />} />
-                    <Route path="/inventory" element={<InventoryItem />} />
                     <Route path="/settings" element={<Settings />} />
                   </Routes>
                 </div>

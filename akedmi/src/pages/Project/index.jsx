@@ -1,10 +1,8 @@
-
+import ComingSoon from "../../components/ComingSoon";
 
 const Project = () => {
-    return (
-        <div className="flex w-full h-screen">
-            Project
-        </div>
-    )
-}
+  return <ComingSoon title="Project Management" />;
+};
+
 export default Project;
+
