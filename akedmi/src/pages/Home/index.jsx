@@ -10,8 +10,9 @@ import {
   Filler,
   Tooltip,
   Legend,
+  BarElement,
 } from "chart.js";
-import { Line } from "react-chartjs-2";
+import { Line, Bar } from "react-chartjs-2";
 import ProfileSidebar from "../../components/ProfileSidebar";
 import Searchbar from "../../components/Searchbar";
 import { IoCaretBackOutline, IoCaretForwardOutline } from "react-icons/io5";
@@ -29,7 +30,8 @@ ChartJS.register(
   LinearScale,
   Filler,
   Tooltip,
-  Legend
+  Legend,
+  BarElement
 );
 
 const ITEMS_PER_PAGE = 5;
@@ -114,6 +116,37 @@ const chartOptions = {
       ticks: { stepSize: 25, padding: 8 },
       grid: { display: false, drawBorder: false },
       border: { display: false },
+    },
+  },
+};
+
+const financeChartData = {
+  labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+  datasets: [
+    {
+      label: "Revenue",
+      data: [42000, 48000, 55000, 62000, 70000, 78000],
+      borderRadius: 6,
+    },
+    {
+      label: "Expenses",
+      data: [28000, 32000, 35000, 39000, 43000, 47000],
+      borderRadius: 6,
+    },
+  ],
+};
+
+const financeChartOptions = {
+  responsive: true,
+  maintainAspectRatio: false,
+  plugins: {
+    legend: {
+      position: "bottom",
+    },
+  },
+  scales: {
+    y: {
+      beginAtZero: true,
     },
   },
 };
@@ -208,14 +241,93 @@ const Dashboard = () => {
         </div>
 
         <div className="mt-6 flex flex-col lg:flex-row gap-4">
-          {["Company Calendar", "Company Finance"].map((title, index) => (
-            <div
-              key={index}
-              className="flex-1 bg-white p-6 rounded-xl shadow-md h-[400px]"
-            >
-              <h3 className="text-2xl font-bold text-[#303972]">{title}</h3>
+          {/* Company Calendar */}
+          <div className="flex-1 bg-white p-6 rounded-xl shadow-md">
+            <h3 className="text-2xl font-bold text-[#303972] mb-6">
+              Company Calendar
+            </h3>
+
+            <div className="space-y-4">
+              {[
+                {
+                  date: "28",
+                  month: "AUG",
+                  title: "Team Meeting",
+                  time: "10:00 AM",
+                },
+                {
+                  date: "30",
+                  month: "AUG",
+                  title: "Payroll Processing",
+                  time: "09:00 AM",
+                },
+                {
+                  date: "02",
+                  month: "SEP",
+                  title: "Project Review",
+                  time: "02:00 PM",
+                },
+                {
+                  date: "04",
+                  month: "SEP",
+                  title: "Partner Meeting",
+                  time: "11:30 AM",
+                },
+              ].map((event, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-4 border-b border-gray-100 pb-3 last:border-0"
+                >
+                  <div className="w-14 h-14 bg-[#F3F4FF] rounded-lg flex flex-col items-center justify-center">
+                    <span className="text-xs font-bold text-[#4D44B5]">
+                      {event.month}
+                    </span>
+                    <span className="text-lg font-bold text-[#303972]">
+                      {event.date}
+                    </span>
+                  </div>
+
+                  <div>
+                    <p className="font-bold text-[#303972]">{event.title}</p>
+                    <p className="text-sm text-gray-400">{event.time}</p>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Company Finance */}
+          <div className="flex-1 bg-white p-6 rounded-xl shadow-md">
+            <h3 className="text-2xl font-bold text-[#303972] mb-4">
+              Company Finance
+            </h3>
+
+            <div className="grid grid-cols-2 gap-3 mb-4">
+              <div className="bg-[#F3F4FF] rounded-lg p-3">
+                <p className="text-sm text-gray-400">Revenue</p>
+                <p className="text-xl font-bold text-[#303972]">$125,000</p>
+              </div>
+
+              <div className="bg-[#FFF4EF] rounded-lg p-3">
+                <p className="text-sm text-gray-400">Expenses</p>
+                <p className="text-xl font-bold text-[#303972]">$78,500</p>
+              </div>
+
+              <div className="bg-[#F0FDF4] rounded-lg p-3">
+                <p className="text-sm text-gray-400">Net Profit</p>
+                <p className="text-xl font-bold text-[#303972]">$46,500</p>
+              </div>
+
+              <div className="bg-[#FFF9E6] rounded-lg p-3">
+                <p className="text-sm text-gray-400">Pending</p>
+                <p className="text-xl font-bold text-[#303972]">$12,300</p>
+              </div>
+            </div>
+
+            <div className="h-[180px]">
+              <Bar data={financeChartData} options={financeChartOptions} />
+            </div>
+          </div>
         </div>
 
         <div className="mt-6 bg-white p-6 rounded-xl shadow-md overflow-auto">
