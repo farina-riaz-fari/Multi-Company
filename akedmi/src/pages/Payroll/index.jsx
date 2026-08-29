@@ -93,15 +93,21 @@ const Payroll = () => {
               onChange={(e) => setSearch(e.target.value)}
             />
 
-            <select
-              value={statusFilter}
-              onChange={(e) => setStatusFilter(e.target.value)}
-              className="border border-gray-200 rounded-lg px-4 py-2 text-[#303972] outline-none"
-            >
-              <option value="All">All Status</option>
-              <option value="Paid">Paid</option>
-              <option value="Pending">Pending</option>
-            </select>
+            <div className="relative">
+              <select
+                value={statusFilter}
+                onChange={(e) => setStatusFilter(e.target.value)}
+                className="appearance-none w-full sm:w-[170px] h-[46px] bg-white border border-[#D9D7EF] rounded-full px-5 pr-10 text-[#303972] font-medium outline-none focus:border-[#4D44B5] cursor-pointer"
+              >
+                <option value="All">All Status</option>
+                <option value="Paid">Paid</option>
+                <option value="Pending">Pending</option>
+              </select>
+
+              <span className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 text-[#4D44B5]">
+                ▼
+              </span>
+            </div>
           </div>
         </div>
 
