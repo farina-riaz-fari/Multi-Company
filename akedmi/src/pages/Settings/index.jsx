@@ -91,16 +91,34 @@ const Settings = () => {
                   Date Format
                 </label>
 
-                <select
-                  name="dateFormat"
-                  value={formData.dateFormat}
-                  onChange={handleChange}
-                  className="bg-white w-full border border-[#C1BBEB] text-gray-700 text-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 block py-3 px-4"
-                >
-                  <option value="DD/MM/YYYY">DD/MM/YYYY</option>
-                  <option value="MM/DD/YYYY">MM/DD/YYYY</option>
-                  <option value="YYYY-MM-DD">YYYY-MM-DD</option>
-                </select>
+                <div className="relative">
+                  <select
+                    name="dateFormat"
+                    value={formData.dateFormat}
+                    onChange={handleChange}
+                    className="bg-white w-full border border-[#C1BBEB] text-gray-700 text-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 block py-3 px-4 pr-10 appearance-none"
+                  >
+                    <option value="DD/MM/YYYY">DD/MM/YYYY</option>
+                    <option value="MM/DD/YYYY">MM/DD/YYYY</option>
+                    <option value="YYYY-MM-DD">YYYY-MM-DD</option>
+                  </select>
+
+                  <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-400">
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </div>
+                </div>
               </div>
 
               <div className="flex flex-col pb-6">
@@ -108,15 +126,33 @@ const Settings = () => {
                   Time Format
                 </label>
 
-                <select
-                  name="timeFormat"
-                  value={formData.timeFormat}
-                  onChange={handleChange}
-                  className="bg-white w-full border border-[#C1BBEB] text-gray-700 text-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 block py-3 px-4"
-                >
-                  <option value="12-hour">12-hour</option>
-                  <option value="24-hour">24-hour</option>
-                </select>
+                <div className="relative">
+                  <select
+                    name="timeFormat"
+                    value={formData.timeFormat}
+                    onChange={handleChange}
+                    className="bg-white w-full border border-[#C1BBEB] text-gray-700 text-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 block py-3 px-4 pr-10 appearance-none"
+                  >
+                    <option value="12-hour">12-hour</option>
+                    <option value="24-hour">24-hour</option>
+                  </select>
+
+                  <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-400">
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </div>
+                </div>
               </div>
             </div>
 
