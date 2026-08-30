@@ -1,15 +1,20 @@
 import { FaRegBell } from "react-icons/fa";
 import { PiGearBold } from "react-icons/pi";
+import { useNavigate } from "react-router-dom";
 
 const ProfileGroup = ({ gap = "none" }) => {
+  const navigate = useNavigate();
   return (
     <div className={`flex justify-between items-center ${gap}`}>
       <div className="flex flex-row gap-2">
         <div className="p-3 rounded-full shadow bg-white">
           <FaRegBell className="text-[24px] sm:text-[24px]  text-[#A098AE]" />
         </div>
-        <div className="p-3 rounded-full shadow bg-white">
-          <PiGearBold className="text-[24px] sm:text-[24px]  text-[#A098AE]" />
+        <div
+          className="p-3 rounded-full shadow bg-white cursor-pointer"
+          onClick={() => navigate("/settings")}
+        >
+          <PiGearBold className="text-[24px] sm:text-[24px] text-[#A098AE]" />
         </div>
       </div>
       <div className="flex flex-row items-center gap-4">
