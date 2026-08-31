@@ -1,49 +1,37 @@
-# Akedmi
+# Multi-Company
 
-Akedmi is a multi-company management system built with React. It provides a centralized dashboard for managing companies, employees, partners, payroll, projects, inventory, users, and accounting information.
+A React-based multi-company management system for managing business operations across companies, employees, partners, users, and other business modules.
 
-## Features
+## Project
 
-- User Sign Up and Login
-- Dashboard
-- Company management
-- Employee management
-- Partner management
-- Payroll management
-- Project management
-- Inventory management
-- User management
-- Chart of Accounts
-- Settings
-- Currency selection
-- Date and time selection
-- Charts and data visualization
-- Local data persistence using IndexedDB
-- Client-side routing with React Router
+### Akedmi
 
-## Tech Stack
+Akedmi is the main application in this repository. It includes a centralized dashboard with modules for company management, employee management, partner management, users, accounting, settings, and more.
 
-- React 19
-- React Router 7
-- Tailwind CSS
-- Axios
-- Chart.js
-- React Chart.js 2
-- React Calendar
-- React Icons
-- Moment.js
-- IndexedDB
-- Create React App
+**Technologies:** React, React Router, Tailwind CSS, Chart.js, Axios, IndexedDB
+
+Some modules are currently under development.
+
+## Screenshots
+
+<table>
+  <tr>
+    <td><img src="screenshots/home.png" alt="Dashboard" width="400"/></td>
+    <td><img src="screenshots/company.png" alt="Company Management" width="400"/></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/employee.png" alt="Employee Management" width="400"/></td>
+    <td><img src="screenshots/partner.png" alt="Partner Management" width="400"/></td>
+  </tr>
+</table>
 
 ## Getting Started
 
-### Prerequisites
-
-Make sure Node.js and npm are installed.
-
-Check the installed versions:
-
 ```bash
-node -v
-npm -v
+git clone https://github.com/farina-riaz-fari/Multi-Company.git
+cd Multi-Company/akedmi
+npm install
+npm start
 ```
+
+For complete project details, features, tech stack, and screenshots, see the [`akedmi/README.md`](akedmi/README.md).
