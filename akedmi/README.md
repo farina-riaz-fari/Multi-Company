@@ -97,6 +97,6 @@ http://localhost:3000
   </tr>
   <tr>
     <td><img src="../screenshots/user.png" alt="User Management" width="400"/></td>
-    <td><img src="../screenshots/setting.png" alt="Settings" width="400"/></td>
+    <td><img src="../screenshots/settings.png" alt="Settings" width="400"/></td>
   </tr>
 </table>
