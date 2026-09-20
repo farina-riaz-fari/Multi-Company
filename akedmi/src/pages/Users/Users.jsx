@@ -34,9 +34,7 @@ const User = () => {
   const navigate = useNavigate();
   const itemsPerPage = 6;
 
-  /* --------------------------------------------------
-     Combine users + employees + partners
-  -------------------------------------------------- */
+  // Combine users + employees + partners
 
   const allUsers = useMemo(() => {
     const userEmployeeCodes = new Set(
@@ -101,9 +99,7 @@ const User = () => {
     ];
   }, [users, employees, partners]);
 
-  /* --------------------------------------------------
-     Status helpers
-  -------------------------------------------------- */
+    //Status helpers
 
   const normalizeStatus = (status = "") => {
     const value = status.toLowerCase();
@@ -129,9 +125,7 @@ const User = () => {
       status.toLowerCase()
     );
 
-  /* --------------------------------------------------
-     Statistics
-  -------------------------------------------------- */
+  // Statistics
 
   const totalUsers = allUsers.length;
 
@@ -145,9 +139,7 @@ const User = () => {
       isSuspended(user.status)
   ).length;
 
-  /* --------------------------------------------------
-     Search + filter
-  -------------------------------------------------- */
+  //Search + filter
 
   const filteredUsers = useMemo(() => {
     return allUsers.filter((user) => {
@@ -180,9 +172,7 @@ const User = () => {
     });
   }, [allUsers, search, activeFilter]);
 
-  /* --------------------------------------------------
-     Edit
-  -------------------------------------------------- */
+    //Edit
 
   const handleEdit = (user) => {
     const isUser = users.some(
@@ -286,9 +276,7 @@ const User = () => {
     }
   };
 
-  /* --------------------------------------------------
-     Delete
-  -------------------------------------------------- */
+  // Delete
 
   const handleConfirmDelete = () => {
     selectedItems.forEach((id) => {
@@ -305,9 +293,7 @@ const User = () => {
     setShowDeletePopup(false);
   };
 
-  /* --------------------------------------------------
-     User row
-  -------------------------------------------------- */
+  //User row
 
   const UserRow = ({ user }) => {
     const status = normalizeStatus(user.status);
@@ -442,9 +428,7 @@ const User = () => {
     );
   };
 
-  /* --------------------------------------------------
-     Main
-  -------------------------------------------------- */
+  //Main
 
   return (
     <div className="flex-1 min-h-screen bg-[#F7F7FC] px-4 sm:px-7 lg:px-10 py-5 sm:py-7 lg:py-9">
