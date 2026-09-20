@@ -320,22 +320,25 @@ const Company = () => {
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
-                <div className="w-full sm:w-[260px]">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full lg:w-auto">
+                <div className="w-full sm:w-[320px] lg:w-[360px]">
                   <Searchbar
                     value={searchQuery}
                     onChange={handleSearchChange}
                   />
                 </div>
 
-                <Button
-                  text="Newest"
-                  iconPostfix={
-                    <FaSortDown className="text-[16px] mb-[6px]" />
-                  }
-                  hasBorder={true}
-                  borderColor="#4D44B5"
-                />
+                <div className="w-full sm:w-[130px] shrink-0">
+                  <Button
+                    text="Newest"
+                    iconPostfix={
+                      <FaSortDown className="text-[16px] mb-[6px]" />
+                    }
+                    hasBorder={true}
+                    borderColor="#4D44B5"
+                    className="w-full justify-center"
+                  />
+                </div>
               </div>
             </div>
           </div>
