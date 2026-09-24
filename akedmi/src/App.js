@@ -12,7 +12,7 @@ import Home from "./pages/Home";
 import Company from "./pages/Company";
 import ChartOfAccount from "./pages/ChartOfAccount";
 import Employee from "./pages/Employee";
-import InventoryItem from "./pages/InventoryItem";
+import Products from "./pages/Products";
 import Payroll from "./pages/Payroll";
 import Project from "./pages/Project";
 import Users from "./pages/Users/Users";
@@ -24,6 +24,7 @@ import UserForm from "./pages/Users/Userform";
 import SignupAndLogin from "./pages/SignupAndLogin";
 import Settings from "./pages/Settings";
 import ProductCategory from "./pages/ProductCategory";
+import AddProduct from "./pages/Products/addProduct";
 
 import { AuthProvider, AuthContext } from "./store/signupAndLoginContext";
 import { CompanyProvider } from "./store/CompanyContext";
@@ -63,9 +64,10 @@ const AppContent = () => {
                     <Route path="/users" element={<Users />} />
                     <Route path="/add-user" element={<UserForm />} />
                     <Route path="/product-category" element={<ProductCategory />} />
-                    <Route path="/products" element={<InventoryItem />} />
+                    <Route path="/products" element={<Products />} />
                     <Route path="/chart" element={<ChartOfAccount />} />
                     <Route path="/settings" element={<Settings />} />
+                    <Route path="/add-product" element={<AddProduct />} />
                   </Routes>
                 </div>
               </div>

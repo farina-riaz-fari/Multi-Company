@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import ProfileGroup from "../../components/ProfileGroup";
 
@@ -72,6 +73,8 @@ const productsData = [
 ];
 
 const Products = () => {
+  const navigate = useNavigate();
+
   const [products, setProducts] = useState(productsData);
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All Categories");
@@ -146,7 +149,7 @@ const Products = () => {
 
   return (
     <div className="min-h-screen px-4 py-5 md:px-8 lg:px-10">
-      {/* Header */}
+      {/* Top Navigation */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-7">
         <Navbar title="Product Management" />
 
@@ -154,32 +157,137 @@ const Products = () => {
       </div>
 
       {/* Hero */}
-      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#4D44B5] via-[#5C52C5] to-[#756CE2] shadow-md">
-        <div className="absolute -right-16 -top-24 w-72 h-72 rounded-full bg-white/10" />
-        <div className="absolute right-32 -bottom-32 w-80 h-80 rounded-full bg-white/5" />
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#39318F] via-[#4D44B5] to-[#7067D8] shadow-lg">
+        {/* Decorative Shapes */}
+        <div className="absolute -right-20 -top-28 w-80 h-80 rounded-full border border-white/10 bg-white/[0.04]" />
 
-        <div className="relative flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 p-6 md:p-8">
-          <div className="text-white">
-            <p className="text-sm text-white/70 mb-2">
-              Inventory Overview
-            </p>
+        <div className="absolute right-16 -bottom-28 w-64 h-64 rounded-full border border-white/10 bg-white/[0.03]" />
 
-            <h1 className="text-2xl md:text-3xl font-bold">
+        <div className="absolute left-[45%] top-0 w-32 h-32 rounded-full bg-white/[0.04] blur-2xl" />
+
+        <div className="relative grid lg:grid-cols-[1fr_auto] items-center gap-8 px-6 py-7 md:px-8 md:py-8 lg:px-10">
+          {/* Left Content */}
+          <div className="text-white max-w-2xl">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="w-2 h-2 rounded-full bg-white" />
+
+              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-white/70">
+                Inventory Management
+              </span>
+            </div>
+
+            <h1 className="text-2xl md:text-3xl lg:text-[34px] font-bold tracking-tight">
               Manage your products
             </h1>
 
-            <p className="text-sm md:text-base text-white/70 mt-2 max-w-xl">
-              Keep track of products, stock levels, pricing and
-              company inventory from one place.
+            <p className="mt-2.5 text-sm md:text-[15px] leading-6 text-white/70 max-w-xl">
+              Keep your products, stock levels, pricing and company
+              inventory organized from one place.
             </p>
+
+            <div className="flex flex-wrap items-center gap-3 mt-5">
+              <button
+                type="button"
+                onClick={() => navigate("/add-product")}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-[#4D44B5] font-semibold text-sm shadow-md hover:bg-gray-50 hover:-translate-y-0.5 transition-all duration-200"
+              >
+                <span className="text-lg leading-none">+</span>
+                Add Product
+              </button>
+
+              <div className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 border border-white/10">
+                <span className="text-sm font-semibold text-white">
+                  {totalProducts}
+                </span>
+
+                <span className="text-xs text-white/60">
+                  products tracked
+                </span>
+              </div>
+            </div>
           </div>
 
-          <button
-            type="button"
-            className="w-full lg:w-auto px-6 py-3 rounded-xl bg-white text-[#4D44B5] font-semibold text-sm shadow-sm hover:bg-gray-50 transition-colors"
-          >
-            + Add Product
-          </button>
+          {/* Right Overview Panel */}
+          <div className="relative w-full lg:w-[270px]">
+            <div className="relative rounded-2xl border border-white/10 bg-white/[0.10] backdrop-blur-md p-5">
+              <div className="flex items-center justify-between mb-5">
+                <div>
+                  <p className="text-xs text-white/60">
+                    Inventory overview
+                  </p>
+
+                  <p className="text-lg font-bold text-white mt-1">
+                    {totalProducts} Products
+                  </p>
+                </div>
+
+                <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-white text-lg">
+                  ▦
+                </div>
+              </div>
+
+              <div className="grid grid-cols-3 gap-2">
+                <div className="rounded-xl bg-white/[0.08] p-3">
+                  <p className="text-lg font-bold text-white">
+                    {inStock}
+                  </p>
+
+                  <p className="text-[10px] text-white/50 mt-1">
+                    In Stock
+                  </p>
+                </div>
+
+                <div className="rounded-xl bg-white/[0.08] p-3">
+                  <p className="text-lg font-bold text-white">
+                    {lowStock}
+                  </p>
+
+                  <p className="text-[10px] text-white/50 mt-1">
+                    Low Stock
+                  </p>
+                </div>
+
+                <div className="rounded-xl bg-white/[0.08] p-3">
+                  <p className="text-lg font-bold text-white">
+                    {outOfStock}
+                  </p>
+
+                  <p className="text-[10px] text-white/50 mt-1">
+                    Out
+                  </p>
+                </div>
+              </div>
+
+              {/* Stock Health */}
+              <div className="mt-5">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-[11px] text-white/50">
+                    Stock health
+                  </span>
+
+                  <span className="text-[11px] font-medium text-white/70">
+                    {totalProducts > 0
+                      ? Math.round((inStock / totalProducts) * 100)
+                      : 0}
+                    %
+                  </span>
+                </div>
+
+                <div className="h-1.5 rounded-full bg-white/10 overflow-hidden">
+                  <div
+                    className="h-full rounded-full bg-white/80 transition-all duration-500"
+                    style={{
+                      width: `${
+                        totalProducts > 0
+                          ? (inStock / totalProducts) * 100
+                          : 0
+                      }%`,
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -329,7 +437,9 @@ const StatCard = ({ title, value, subtitle, icon }) => {
     <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="text-sm text-gray-400">{title}</p>
+          <p className="text-sm text-gray-400">
+            {title}
+          </p>
 
           <h3 className="text-2xl font-bold text-[#303972] mt-2">
             {value}
