@@ -25,6 +25,7 @@ import SignupAndLogin from "./pages/SignupAndLogin";
 import Settings from "./pages/Settings";
 import ProductCategory from "./pages/ProductCategory";
 import AddProduct from "./pages/Products/addProduct";
+import AddAccount from "./pages/ChartOfAccount/AddAccount";
 
 import { AuthProvider, AuthContext } from "./store/signupAndLoginContext";
 import { CompanyProvider } from "./store/CompanyContext";
@@ -68,6 +69,7 @@ const AppContent = () => {
                     <Route path="/chart" element={<ChartOfAccount />} />
                     <Route path="/settings" element={<Settings />} />
                     <Route path="/add-product" element={<AddProduct />} />
+                    <Route path="/add-account" element={<AddAccount />} />
                   </Routes>
                 </div>
               </div>
