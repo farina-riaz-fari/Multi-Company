@@ -217,7 +217,7 @@ const ChartOfAccount = () => {
                       accounts
                     </div>
 
-                    <div className="rounded-full bg-emerald-400/20 px-4 py-2 text-sm font-medium text-emerald-50 backdrop-blur-sm">
+                    <div className="rounded-full bg-[#8A83DD]/35 px-4 py-2 text-sm font-medium text-white">
                       <span className="font-bold">{activeAccounts}</span>{" "}
                       active
                     </div>
