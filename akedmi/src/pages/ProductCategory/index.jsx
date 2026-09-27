@@ -151,31 +151,36 @@ const ProductCategory = () => {
 
   return (
     <div className="min-h-screen bg-[#F7F7FB] p-4 md:p-6 lg:p-8">
-      {/* Page Header */}
-      <div className="mb-6 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <div className="mb-2 flex items-center gap-2 text-sm font-medium text-[#5B52C7]">
-            <FiLayers size={16} />
-            Product Organization
+      {/* Page Header Card */}
+      <div className="mb-6 overflow-hidden rounded-2xl bg-[#5B52C7] shadow-lg shadow-indigo-200/30">
+        <div className="flex flex-col gap-5 px-5 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-7">
+          <div>
+            <div className="mb-2 flex items-center gap-2 text-sm font-medium text-indigo-100">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/15">
+                <FiLayers size={16} />
+              </div>
+
+              Product Organization
+            </div>
+
+            <h1 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+              Product Categories
+            </h1>
+
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-indigo-100">
+              Organize your inventory with a clear category structure and
+              hierarchy.
+            </p>
           </div>
 
-          <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
-            Product Categories
-          </h1>
-
-          <p className="mt-2 max-w-2xl text-sm leading-6 text-gray-500">
-            Organize your inventory with a clear category structure and
-            hierarchy.
-          </p>
+          <button
+            onClick={() => navigate("/add-category")}
+            className="flex w-fit items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-[#5B52C7] shadow-sm transition hover:bg-indigo-50 hover:shadow-md"
+          >
+            <FiPlus size={18} />
+            Add Category
+          </button>
         </div>
-
-        <button
-          onClick={() => navigate("/add-category")}
-          className="flex w-fit items-center gap-2 rounded-xl bg-[#5B52C7] px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#4F46B8] hover:shadow-md"
-        >
-          <FiPlus size={18} />
-          Add Category
-        </button>
       </div>
 
       {/* Search & Filters */}
@@ -231,7 +236,6 @@ const ProductCategory = () => {
       <div className="grid gap-6 lg:grid-cols-[330px_minmax(0,1fr)]">
         {/* Category Structure */}
         <div className="overflow-hidden rounded-2xl border border-[#4F46B8] bg-[#5B52C7] shadow-lg shadow-indigo-200/40">
-          {/* Category Header */}
           <div className="border-b border-white/15 bg-[#4F46B8] px-5 py-4">
             <div className="flex items-center justify-between">
               <div>
@@ -250,7 +254,6 @@ const ProductCategory = () => {
             </div>
           </div>
 
-          {/* Category Tree */}
           <div className="p-3">
             {visibleMainCategories.length > 0 ? (
               <div className="space-y-1">
@@ -414,7 +417,6 @@ const ProductCategory = () => {
         <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
           {selectedCategory ? (
             <>
-              {/* Details Header */}
               <div className="border-b border-gray-100 p-5 sm:p-6">
                 <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
                   <div className="flex items-start gap-4">
@@ -464,9 +466,7 @@ const ProductCategory = () => {
                 </div>
               </div>
 
-              {/* Details Content */}
               <div className="p-5 sm:p-6">
-                {/* Quick Details */}
                 <div className="grid gap-3 sm:grid-cols-3">
                   <div className="rounded-xl bg-gray-50 p-4">
                     <div className="flex items-center gap-2 text-gray-400">
@@ -508,7 +508,6 @@ const ProductCategory = () => {
                   </div>
                 </div>
 
-                {/* Description */}
                 <div className="mt-6">
                   <h3 className="text-sm font-bold text-gray-900">
                     Description
@@ -519,7 +518,6 @@ const ProductCategory = () => {
                   </p>
                 </div>
 
-                {/* Subcategories */}
                 <div className="mt-7 border-t border-gray-100 pt-6">
                   <div className="flex items-center justify-between">
                     <div>
