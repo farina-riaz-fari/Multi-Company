@@ -15,6 +15,7 @@ import Employee from "./pages/Employee";
 import Products from "./pages/Products";
 import Payroll from "./pages/Payroll";
 import Project from "./pages/Project";
+import AddProject from "./pages/Project/AddProject";
 import Users from "./pages/Users/Users";
 import NewCompany from "./pages/Company/NewCompany";
 import AddEmployee from "./pages/Employee/AddEmployee";
@@ -60,6 +61,7 @@ const AppContent = () => {
                     <Route path="/add-partner" element={<PartnerForm />} />
                     <Route path="/payroll" element={<Payroll />} />
                     <Route path="/project" element={<Project />} />
+                    <Route path="/add-project" element={<AddProject />} />
                     <Route path="/employee" element={<Employee />} />
                     <Route path="/addEmployee" element={<AddEmployee />} />
                     <Route path="/users" element={<Users />} />
