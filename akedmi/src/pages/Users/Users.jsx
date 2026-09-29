@@ -99,7 +99,7 @@ const User = () => {
     ];
   }, [users, employees, partners]);
 
-    //Status helpers
+  // Status helpers
 
   const normalizeStatus = (status = "") => {
     const value = status.toLowerCase();
@@ -139,7 +139,7 @@ const User = () => {
       isSuspended(user.status)
   ).length;
 
-  //Search + filter
+  // Search + filter
 
   const filteredUsers = useMemo(() => {
     return allUsers.filter((user) => {
@@ -172,7 +172,7 @@ const User = () => {
     });
   }, [allUsers, search, activeFilter]);
 
-    //Edit
+  // Edit
 
   const handleEdit = (user) => {
     const isUser = users.some(
@@ -293,7 +293,7 @@ const User = () => {
     setShowDeletePopup(false);
   };
 
-  //User row
+  // User row
 
   const UserRow = ({ user }) => {
     const status = normalizeStatus(user.status);
@@ -305,6 +305,7 @@ const User = () => {
         <div className="flex flex-col lg:grid lg:grid-cols-[minmax(260px,2.2fr)_1.15fr_1fr_110px] lg:items-center gap-4 lg:gap-6">
 
           {/* User identity */}
+
           <div className="flex items-center gap-4 min-w-0">
             <div className="relative shrink-0">
               <img
@@ -349,6 +350,7 @@ const User = () => {
           </div>
 
           {/* Company */}
+
           <div className="flex items-center justify-between lg:block pl-[68px] lg:pl-0">
             <span className="text-[10px] uppercase tracking-wider text-gray-300 lg:hidden">
               Company
@@ -360,6 +362,7 @@ const User = () => {
           </div>
 
           {/* Role */}
+
           <div className="flex items-center justify-between lg:block pl-[68px] lg:pl-0">
             <span className="text-[10px] uppercase tracking-wider text-gray-300 lg:hidden">
               Role
@@ -371,6 +374,7 @@ const User = () => {
           </div>
 
           {/* Status + actions */}
+
           <div className="flex items-center justify-between pl-[68px] lg:pl-0">
             <div>
               <span className="text-[10px] uppercase tracking-wider text-gray-300 lg:hidden block mb-1">
@@ -428,12 +432,13 @@ const User = () => {
     );
   };
 
-  //Main
+  // Main
 
   return (
     <div className="flex-1 min-h-screen bg-[#F7F7FC] px-4 sm:px-7 lg:px-10 py-5 sm:py-7 lg:py-9">
 
       {/* Header */}
+
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-5">
         <div>
           <Navbar title="Users" />
@@ -447,10 +452,12 @@ const User = () => {
       </div>
 
       {/* Statistics */}
+
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-7">
 
         {/* Total */}
-        <div className="relative overflow-hidden bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
+
+        <div className="relative overflow-hidden bg-[#EAE6FF] rounded-2xl border border-[#DDD6FE] shadow-sm p-5">
           <div className="absolute -right-6 -top-6 w-24 h-24 rounded-full bg-[#F1EFFF]" />
 
           <div className="relative flex items-center justify-between">
@@ -475,7 +482,8 @@ const User = () => {
         </div>
 
         {/* Active */}
-        <div className="relative overflow-hidden bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
+
+        <div className="relative overflow-hidden bg-[#DDF7EA] rounded-2xl border border-emerald-100 shadow-sm p-5">
           <div className="absolute -right-6 -top-6 w-24 h-24 rounded-full bg-emerald-50" />
 
           <div className="relative flex items-center justify-between">
@@ -500,7 +508,8 @@ const User = () => {
         </div>
 
         {/* Inactive */}
-        <div className="relative overflow-hidden bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
+
+        <div className="relative overflow-hidden bg-[#FFF0DC] rounded-2xl border border-orange-100 shadow-sm p-5">
           <div className="absolute -right-6 -top-6 w-24 h-24 rounded-full bg-orange-50" />
 
           <div className="relative flex items-center justify-between">
@@ -526,10 +535,12 @@ const User = () => {
       </div>
 
       {/* Search + actions */}
+
       <div className="mt-7 bg-white rounded-2xl border border-gray-100 shadow-sm p-3 sm:p-4">
         <div className="flex flex-col sm:flex-row items-stretch gap-3">
 
           {/* Search */}
+
           <div className="relative flex-1 min-w-0">
             <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-300 text-sm pointer-events-none" />
 
@@ -545,6 +556,7 @@ const User = () => {
           </div>
 
           {/* Filter */}
+
           <div className="relative shrink-0">
             <button
               type="button"
@@ -592,6 +604,7 @@ const User = () => {
           </div>
 
           {/* Add User */}
+
           <Button
             text="Add User"
             iconPrefix={<FaPlus size={12} />}
@@ -606,9 +619,11 @@ const User = () => {
       </div>
 
       {/* User list */}
+
       <div className="mt-6 bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
 
         {/* List header */}
+
         <div className="px-5 sm:px-6 py-5 border-b border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div>
             <h2 className="text-lg font-semibold text-[#303972]">
@@ -638,6 +653,7 @@ const User = () => {
         </div>
 
         {/* Column labels */}
+
         <div className="hidden lg:grid grid-cols-[minmax(260px,2.2fr)_1.15fr_1fr_110px] gap-6 px-6 py-3 bg-[#FBFBFD] border-b border-gray-100">
           <span className="text-[10px] uppercase tracking-wider font-semibold text-gray-300">
             User
@@ -657,6 +673,7 @@ const User = () => {
         </div>
 
         {/* User list */}
+
         {filteredUsers.length > 0 ? (
           <div>
             {filteredUsers.map((user) => (
@@ -696,6 +713,7 @@ const User = () => {
         )}
 
         {/* Pagination */}
+
         {filteredUsers.length > itemsPerPage && (
           <div className="border-t border-gray-100">
             <TableWithPagination
@@ -709,16 +727,19 @@ const User = () => {
         {filteredUsers.length > 0 && (
           <div className="px-5 sm:px-6 py-3 bg-[#FBFBFD] border-t border-gray-100">
             <p className="text-[11px] text-gray-400">
-              Showing {Math.min(
+              Showing{" "}
+              {Math.min(
                 filteredUsers.length,
                 itemsPerPage
-              )} of {filteredUsers.length} accounts
+              )}{" "}
+              of {filteredUsers.length} accounts
             </p>
           </div>
         )}
       </div>
 
       {/* Delete popup */}
+
       {showDeletePopup && (
         <DeletePopup
           onConfirm={handleConfirmDelete}
