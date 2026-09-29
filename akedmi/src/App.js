@@ -25,6 +25,7 @@ import UserForm from "./pages/Users/Userform";
 import SignupAndLogin from "./pages/SignupAndLogin";
 import Settings from "./pages/Settings";
 import ProductCategory from "./pages/ProductCategory";
+import AddCategory from "./pages/ProductCategory/AddCategory";
 import AddProduct from "./pages/Products/addProduct";
 import AddAccount from "./pages/ChartOfAccount/AddAccount";
 
@@ -67,6 +68,7 @@ const AppContent = () => {
                     <Route path="/users" element={<Users />} />
                     <Route path="/add-user" element={<UserForm />} />
                     <Route path="/product-category" element={<ProductCategory />} />
+                    <Route path="/add-category" element={<AddCategory />} />
                     <Route path="/products" element={<Products />} />
                     <Route path="/chart" element={<ChartOfAccount />} />
                     <Route path="/settings" element={<Settings />} />
