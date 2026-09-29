@@ -28,14 +28,13 @@ const Employee = () => {
   const [filterOpen, setFilterOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const { employees, deleteEmployee } =
-    useContext(EmployeeContext);
+  const { employees, deleteEmployee } = useContext(EmployeeContext);
 
   const navigate = useNavigate();
 
   const itemsPerPage = 6;
 
-  //Status helpers
+  // Status helpers
 
   const isActive = (status = "") =>
     status.toLowerCase() === "active";
@@ -57,7 +56,7 @@ const Employee = () => {
     return "other";
   };
 
-  //Statistics
+  // Statistics
 
   const totalEmployees = employees.length;
 
@@ -69,7 +68,7 @@ const Employee = () => {
     (employee) => !isActive(employee.status)
   ).length;
 
-  //Employment filter options
+  // Employment filter options
 
   const employmentTypes = useMemo(() => {
     const types = employees
@@ -79,7 +78,7 @@ const Employee = () => {
     return ["All", ...new Set(types)];
   }, [employees]);
 
-  //Search + filters
+  // Search + filters
 
   const filteredEmployees = useMemo(() => {
     const query = searchQuery.toLowerCase().trim();
@@ -94,15 +93,12 @@ const Employee = () => {
         ${employee.email || ""}
       `.toLowerCase();
 
-      const matchesSearch =
-        searchableText.includes(query);
+      const matchesSearch = searchableText.includes(query);
 
       const matchesStatus =
         statusFilter === "All" ||
-        (statusFilter === "Active" &&
-          isActive(employee.status)) ||
-        (statusFilter === "Other" &&
-          !isActive(employee.status));
+        (statusFilter === "Active" && isActive(employee.status)) ||
+        (statusFilter === "Other" && !isActive(employee.status));
 
       const matchesEmployment =
         employmentFilter === "All" ||
@@ -121,7 +117,7 @@ const Employee = () => {
     employmentFilter,
   ]);
 
-  //Pagination
+  // Pagination
 
   const totalPages = Math.ceil(
     filteredEmployees.length / itemsPerPage
@@ -167,7 +163,7 @@ const Employee = () => {
     setFilterOpen(false);
   };
 
-  //Delete
+  // Delete
 
   const handleDelete = () => {
     if (selectedEmployee) {
@@ -190,7 +186,7 @@ const Employee = () => {
     setShowDeletePopup(false);
   };
 
-  //Status styling
+  // Status styling
 
   const getStatusStyles = (status = "") => {
     const type = getStatusType(status);
@@ -215,12 +211,10 @@ const Employee = () => {
     };
   };
 
-  //Employee card
+  // Employee card
 
   const EmployeeCard = ({ employee }) => {
-    const statusStyles = getStatusStyles(
-      employee.status
-    );
+    const statusStyles = getStatusStyles(employee.status);
 
     const fullName =
       `${employee.first_name || ""} ${
@@ -228,7 +222,7 @@ const Employee = () => {
       }`.trim();
 
     return (
-      <div className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden">
+      <div className="group bg-red-500 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden">
         {/* Top accent */}
         <div className="h-1 bg-gradient-to-r from-[#4D44B5] via-[#746BDA] to-[#9B95EA] opacity-70 group-hover:opacity-100 transition-opacity" />
 
@@ -258,8 +252,7 @@ const Employee = () => {
                 </h3>
 
                 <p className="text-xs text-gray-400 mt-1 truncate">
-                  {employee.employee_code ||
-                    "No employee code"}
+                  {employee.employee_code || "No employee code"}
                 </p>
               </div>
             </div>
@@ -312,8 +305,7 @@ const Employee = () => {
               </p>
 
               <p className="text-xs font-medium text-gray-600 mt-1 capitalize truncate">
-                {employee.employment_type ||
-                  "Not specified"}
+                {employee.employment_type || "Not specified"}
               </p>
             </div>
 
@@ -337,7 +329,7 @@ const Employee = () => {
     );
   };
 
-  //Page
+  // Page
 
   return (
     <div className="flex-1 min-h-screen bg-[#F7F7FC] px-4 sm:px-7 lg:px-10 py-5 sm:py-7 lg:py-9">
@@ -442,9 +434,7 @@ const Employee = () => {
             <input
               type="text"
               value={searchQuery}
-              onChange={(e) =>
-                changeSearch(e.target.value)
-              }
+              onChange={(e) => changeSearch(e.target.value)}
               placeholder="Search employees by name, code, job title..."
               className="w-full h-12 pl-11 pr-4 rounded-xl bg-[#F8F8FC] border border-transparent text-sm text-gray-600 outline-none transition-all focus:bg-white focus:border-[#4D44B5]/30 focus:ring-4 focus:ring-[#4D44B5]/5 placeholder:text-gray-400"
             />
@@ -486,9 +476,7 @@ const Employee = () => {
                     <button
                       key={type}
                       type="button"
-                      onClick={() =>
-                        changeEmploymentFilter(type)
-                      }
+                      onClick={() => changeEmploymentFilter(type)}
                       className={`w-full text-left px-3 py-2.5 rounded-lg text-sm transition-colors ${
                         employmentFilter === type
                           ? "bg-[#F2F0FF] text-[#4D44B5] font-medium"
@@ -528,24 +516,20 @@ const Employee = () => {
 
               {filterOpen === "status" && (
                 <div className="absolute left-0 top-[56px] z-40 w-full bg-white rounded-xl border border-gray-100 shadow-xl p-1.5">
-                  {["All", "Active", "Other"].map(
-                    (status) => (
-                      <button
-                        key={status}
-                        type="button"
-                        onClick={() =>
-                          changeStatusFilter(status)
-                        }
-                        className={`w-full text-left px-3 py-2.5 rounded-lg text-sm transition-colors ${
-                          statusFilter === status
-                            ? "bg-[#F2F0FF] text-[#4D44B5] font-medium"
-                            : "text-gray-500 hover:bg-gray-50"
-                        }`}
-                      >
-                        {status}
-                      </button>
-                    )
-                  )}
+                  {["All", "Active", "Other"].map((status) => (
+                    <button
+                      key={status}
+                      type="button"
+                      onClick={() => changeStatusFilter(status)}
+                      className={`w-full text-left px-3 py-2.5 rounded-lg text-sm transition-colors ${
+                        statusFilter === status
+                          ? "bg-[#F2F0FF] text-[#4D44B5] font-medium"
+                          : "text-gray-500 hover:bg-gray-50"
+                      }`}
+                    >
+                      {status}
+                    </button>
+                  ))}
                 </div>
               )}
             </div>
@@ -555,9 +539,7 @@ const Employee = () => {
               <Button
                 text="Add Employee"
                 iconPrefix={<FaPlus size={12} />}
-                onClick={() =>
-                  navigate("/addEmployee")
-                }
+                onClick={() => navigate("/addEmployee")}
                 hasBackground={true}
                 bgColor="#4D44B5"
                 className="h-12 w-full text-white px-5"
@@ -648,9 +630,7 @@ const Employee = () => {
                 type="button"
                 disabled={safeCurrentPage === 1}
                 onClick={() =>
-                  setCurrentPage(
-                    safeCurrentPage - 1
-                  )
+                  setCurrentPage(safeCurrentPage - 1)
                 }
                 className="w-9 h-9 rounded-lg border border-gray-200 bg-white text-gray-400 flex items-center justify-center hover:border-[#4D44B5]/40 hover:text-[#4D44B5] disabled:opacity-40 disabled:cursor-not-allowed transition-all"
               >
@@ -664,9 +644,7 @@ const Employee = () => {
                 <button
                   key={page}
                   type="button"
-                  onClick={() =>
-                    setCurrentPage(page)
-                  }
+                  onClick={() => setCurrentPage(page)}
                   className={`w-9 h-9 rounded-lg text-xs font-medium transition-all ${
                     safeCurrentPage === page
                       ? "bg-[#4D44B5] text-white shadow-sm"
@@ -679,13 +657,9 @@ const Employee = () => {
 
               <button
                 type="button"
-                disabled={
-                  safeCurrentPage === totalPages
-                }
+                disabled={safeCurrentPage === totalPages}
                 onClick={() =>
-                  setCurrentPage(
-                    safeCurrentPage + 1
-                  )
+                  setCurrentPage(safeCurrentPage + 1)
                 }
                 className="w-9 h-9 rounded-lg border border-gray-200 bg-white text-gray-400 flex items-center justify-center hover:border-[#4D44B5]/40 hover:text-[#4D44B5] disabled:opacity-40 disabled:cursor-not-allowed transition-all"
               >
