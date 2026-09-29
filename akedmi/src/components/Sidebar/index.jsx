@@ -91,16 +91,17 @@ const Sidebar = () => {
         </div>
 
         {/* Footer Info */}
-        <div className="mt-auto ml-6 md:ml-8 mb-4">
-          <div className="text-white text-[13px] md:text-[14px] font-bold">
-            ERP - Multicompany Dashboard
+        <div className="mt-auto mx-6 md:mx-8 mb-6 pt-5 border-t border-white/15">
+          <div className="text-white/90 text-sm font-semibold">
+            Multi-Company ERP
           </div>
-          <div className="text-white text-[13px] md:text-[14px] font-poppins font-normal flex items-center">
-            Made with{" "}
-            <span className="text-red-500 px-2">
-              <IoMdHeart />
-            </span>
-            by Peterdraw
+
+          <div className="text-white/50 text-xs mt-1">
+            Business Management System
+          </div>
+
+          <div className="text-white/40 text-[11px] mt-3">
+            © E-C-P
           </div>
         </div>
       </div>
