@@ -349,7 +349,7 @@ const Employee = () => {
       {/* Statistics */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-7">
         {/* Total */}
-        <div className="relative bg-white rounded-2xl border border-gray-100 shadow-sm p-5 overflow-hidden">
+        <div className="relative bg-[#F1EFFF] rounded-2xl border border-[#D8D2F5] shadow-sm p-5 overflow-hidden">
           <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#4D44B5]" />
 
           <div className="flex items-center justify-between gap-4">
@@ -367,14 +367,14 @@ const Employee = () => {
               </p>
             </div>
 
-            <div className="w-11 h-11 shrink-0 rounded-xl bg-[#F1EFFF] text-[#4D44B5] flex items-center justify-center">
+            <div className="w-11 h-11 shrink-0 rounded-xl bg-[#E2DCF9] text-[#4D44B5] flex items-center justify-center">
               <FaUsers size={16} />
             </div>
           </div>
         </div>
 
         {/* Active */}
-        <div className="relative bg-white rounded-2xl border border-gray-100 shadow-sm p-5 overflow-hidden">
+        <div className="relative bg-[#ECF9F2] rounded-2xl border border-[#C8E8D6] shadow-sm p-5 overflow-hidden">
           <div className="absolute left-0 top-0 bottom-0 w-1 bg-emerald-400" />
 
           <div className="flex items-center justify-between gap-4">
@@ -392,14 +392,14 @@ const Employee = () => {
               </p>
             </div>
 
-            <div className="w-11 h-11 shrink-0 rounded-xl bg-emerald-50 text-emerald-500 flex items-center justify-center">
+            <div className="w-11 h-11 shrink-0 rounded-xl bg-[#D8F2E4] text-emerald-500 flex items-center justify-center">
               <FaUserCheck size={16} />
             </div>
           </div>
         </div>
 
         {/* Other */}
-        <div className="relative bg-white rounded-2xl border border-gray-100 shadow-sm p-5 overflow-hidden">
+        <div className="relative bg-[#FFF5E8] rounded-2xl border border-[#F0D8B5] shadow-sm p-5 overflow-hidden">
           <div className="absolute left-0 top-0 bottom-0 w-1 bg-orange-400" />
 
           <div className="flex items-center justify-between gap-4">
@@ -417,7 +417,7 @@ const Employee = () => {
               </p>
             </div>
 
-            <div className="w-11 h-11 shrink-0 rounded-xl bg-orange-50 text-orange-500 flex items-center justify-center">
+            <div className="w-11 h-11 shrink-0 rounded-xl bg-[#FBE7C9] text-orange-500 flex items-center justify-center">
               <FaUserClock size={16} />
             </div>
           </div>
