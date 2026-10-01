@@ -273,7 +273,9 @@ const Partner = () => {
 
       <div className="mt-6 bg-[#4D44B5] rounded-2xl border border-[#6B63C7] shadow-sm p-3 sm:p-4">
         <div className="flex flex-col gap-3">
+
           {/* Search */}
+
           <div className="relative w-full">
             <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-[#4D44B5] text-sm pointer-events-none" />
 
@@ -291,8 +293,11 @@ const Partner = () => {
           </div>
 
           {/* Controls */}
+
           <div className="flex flex-col sm:flex-row gap-3">
+
             {/* Verification filter */}
+
             <div className="relative sm:w-[190px]">
               <button
                 type="button"
@@ -349,6 +354,7 @@ const Partner = () => {
             </div>
 
             {/* Add Partner */}
+
             <div className="sm:ml-auto">
               <Button
                 text="Add Partner"
@@ -411,30 +417,34 @@ const Partner = () => {
       {/* Partner list */}
 
       <div className="mt-4 bg-white rounded-2xl border border-gray-100 shadow-sm overflow-visible">
+
         {/* Desktop column header */}
-        <div className="hidden lg:grid grid-cols-[minmax(240px,1.5fr)_minmax(180px,1fr)_minmax(130px,0.8fr)_130px_70px] items-center gap-4 px-6 py-3 bg-[#FAFAFD] border-b border-gray-100 rounded-t-2xl">
-          <p className="text-[10px] uppercase tracking-wider font-semibold text-gray-400">
+
+        <div className="hidden lg:grid grid-cols-[minmax(240px,1.5fr)_minmax(180px,1fr)_minmax(130px,0.8fr)_130px_70px] items-center gap-4 px-6 py-3 bg-[#4D44B5] border-b border-[#6B63C7] rounded-t-2xl">
+
+          <p className="text-[10px] uppercase tracking-wider font-semibold text-white">
             Partner
           </p>
 
-          <p className="text-[10px] uppercase tracking-wider font-semibold text-gray-400">
+          <p className="text-[10px] uppercase tracking-wider font-semibold text-white">
             Location
           </p>
 
-          <p className="text-[10px] uppercase tracking-wider font-semibold text-gray-400">
+          <p className="text-[10px] uppercase tracking-wider font-semibold text-white">
             Tax ID
           </p>
 
-          <p className="text-[10px] uppercase tracking-wider font-semibold text-gray-400">
+          <p className="text-[10px] uppercase tracking-wider font-semibold text-white">
             Status
           </p>
 
-          <p className="text-[10px] uppercase tracking-wider font-semibold text-gray-400 text-right">
+          <p className="text-[10px] uppercase tracking-wider font-semibold text-white text-right">
             Action
           </p>
         </div>
 
         {/* Rows */}
+
         {paginatedPartners.length > 0 ? (
           <div>
             {paginatedPartners.map(
@@ -457,9 +467,13 @@ const Partner = () => {
                         : ""
                     }`}
                   >
+
                     {/* Desktop */}
+
                     <div className="hidden lg:grid grid-cols-[minmax(240px,1.5fr)_minmax(180px,1fr)_minmax(130px,0.8fr)_130px_70px] items-center gap-4">
+
                       {/* Partner */}
+
                       <div className="flex items-center gap-3 min-w-0">
                         <div className="w-11 h-11 rounded-xl bg-[#F1EFFF] text-[#4D44B5] flex items-center justify-center font-semibold text-sm shrink-0">
                           {getInitials(
@@ -480,6 +494,7 @@ const Partner = () => {
                       </div>
 
                       {/* Location */}
+
                       <div className="min-w-0">
                         <div className="flex items-start gap-2">
                           <FaMapMarkerAlt className="text-[#746BDA] text-[11px] mt-1 shrink-0" />
@@ -503,6 +518,7 @@ const Partner = () => {
                       </div>
 
                       {/* Tax */}
+
                       <div className="min-w-0">
                         <p className="text-xs font-medium text-gray-600 truncate">
                           {partner.taxId ||
@@ -515,6 +531,7 @@ const Partner = () => {
                       </div>
 
                       {/* Status */}
+
                       <div>
                         <span
                           className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[11px] font-semibold ${
@@ -538,6 +555,7 @@ const Partner = () => {
                       </div>
 
                       {/* Action */}
+
                       <div className="flex justify-end">
                         <div className="relative">
                           <button
@@ -560,6 +578,7 @@ const Partner = () => {
                           {actionOpen ===
                             partner.userId && (
                             <div className="absolute right-0 top-11 z-50 w-32 bg-white rounded-xl border border-gray-100 shadow-xl p-1.5">
+
                               <button
                                 type="button"
                                 onClick={() =>
@@ -592,8 +611,10 @@ const Partner = () => {
                     </div>
 
                     {/* Tablet / Mobile */}
+
                     <div className="lg:hidden">
                       <div className="flex items-start justify-between gap-3">
+
                         <div className="flex items-center gap-3 min-w-0">
                           <div className="w-11 h-11 rounded-xl bg-[#F1EFFF] text-[#4D44B5] flex items-center justify-center font-semibold text-sm shrink-0">
                             {getInitials(
@@ -634,6 +655,7 @@ const Partner = () => {
                           {actionOpen ===
                             partner.userId && (
                             <div className="absolute right-0 top-11 z-50 w-32 bg-white rounded-xl border border-gray-100 shadow-xl p-1.5">
+
                               <button
                                 type="button"
                                 onClick={() =>
@@ -665,6 +687,7 @@ const Partner = () => {
                       </div>
 
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-5 pt-4 border-t border-gray-100">
+
                         <div className="flex items-start gap-2">
                           <FaMapMarkerAlt className="text-[#746BDA] text-[11px] mt-1" />
 
@@ -728,6 +751,7 @@ const Partner = () => {
           </div>
         ) : (
           <div className="py-20 px-6 text-center">
+
             <div className="w-14 h-14 mx-auto rounded-2xl bg-[#F1EFFF] text-[#4D44B5] flex items-center justify-center">
               <FaSearch size={16} />
             </div>
@@ -744,9 +768,10 @@ const Partner = () => {
       </div>
 
       {/* Pagination */}
-      
+
       {filteredPartners.length > 0 && (
         <div className="mt-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+
           <p className="text-xs text-gray-400">
             Showing{" "}
             <span className="font-medium text-gray-600">
@@ -762,6 +787,7 @@ const Partner = () => {
 
           {totalPages > 1 && (
             <div className="flex items-center gap-1.5">
+
               <button
                 type="button"
                 disabled={
@@ -825,6 +851,7 @@ const Partner = () => {
       )}
 
       {/* Delete popup */}
+
       {showDeletePopup && (
         <DeletePopup
           onConfirm={
