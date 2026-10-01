@@ -371,7 +371,7 @@ const Products = () => {
         </div>
 
         {/* Table Header */}
-        <div className="hidden lg:grid grid-cols-[2fr_1fr_1.3fr_1fr_1fr_50px] gap-4 px-6 py-4 bg-gray-50/70 text-xs font-semibold uppercase tracking-wide text-gray-400">
+        <div className="hidden lg:grid grid-cols-[2fr_1fr_1.3fr_1fr_1fr_50px] gap-4 px-6 py-4 bg-[#4D44B5] border-b border-[#6B63C7] text-xs font-semibold uppercase tracking-wide text-white">
           <span>Product</span>
           <span>Category</span>
           <span>Company</span>
