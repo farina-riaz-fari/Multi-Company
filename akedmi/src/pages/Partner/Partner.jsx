@@ -271,11 +271,11 @@ const Partner = () => {
 
       {/* Toolbar */}
 
-      <div className="mt-6 bg-white rounded-2xl border border-gray-100 shadow-sm p-3 sm:p-4">
+      <div className="mt-6 bg-[#4D44B5] rounded-2xl border border-[#6B63C7] shadow-sm p-3 sm:p-4">
         <div className="flex flex-col gap-3">
           {/* Search */}
           <div className="relative w-full">
-            <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-300 text-sm pointer-events-none" />
+            <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-[#4D44B5] text-sm pointer-events-none" />
 
             <input
               type="text"
@@ -286,7 +286,7 @@ const Partner = () => {
                 )
               }
               placeholder="Search partners by name, location, tax ID..."
-              className="w-full h-12 pl-11 pr-4 rounded-xl bg-[#F8F8FC] border border-transparent text-sm text-gray-600 outline-none transition-all focus:bg-white focus:border-[#4D44B5]/30 focus:ring-4 focus:ring-[#4D44B5]/5 placeholder:text-gray-400"
+              className="w-full h-12 pl-11 pr-4 rounded-xl bg-white border border-[#E5E2FF] text-sm text-gray-700 outline-none transition-all focus:border-white focus:ring-4 focus:ring-white/20 placeholder:text-gray-400"
             />
           </div>
 
@@ -301,7 +301,7 @@ const Partner = () => {
                     !filterOpen
                   )
                 }
-                className="h-12 w-full px-4 rounded-xl border border-gray-200 bg-white text-sm font-medium text-gray-600 flex items-center justify-between gap-2 hover:border-[#4D44B5]/40 transition-all"
+                className="h-12 w-full px-4 rounded-xl border border-[#E5E2FF] bg-white text-sm font-medium text-[#4D44B5] flex items-center justify-between gap-2 hover:bg-[#F7F6FF] hover:border-white transition-all"
               >
                 <span>
                   {verificationFilter ===
@@ -311,7 +311,7 @@ const Partner = () => {
                 </span>
 
                 <FaChevronDown
-                  className={`text-[9px] transition-transform ${
+                  className={`text-[9px] text-[#4D44B5] transition-transform ${
                     filterOpen
                       ? "rotate-180"
                       : ""
@@ -320,7 +320,7 @@ const Partner = () => {
               </button>
 
               {filterOpen && (
-                <div className="absolute left-0 top-[56px] z-40 w-full bg-white rounded-xl border border-gray-100 shadow-xl p-1.5">
+                <div className="absolute left-0 top-[56px] z-40 w-full bg-white rounded-xl border border-[#E5E2FF] shadow-xl p-1.5">
                   {[
                     "All",
                     "Verified",
@@ -338,7 +338,7 @@ const Partner = () => {
                         verificationFilter ===
                         status
                           ? "bg-[#F2F0FF] text-[#4D44B5] font-medium"
-                          : "text-gray-500 hover:bg-gray-50"
+                          : "text-gray-600 hover:bg-[#F2F0FF] hover:text-[#4D44B5]"
                       }`}
                     >
                       {status}
@@ -359,8 +359,8 @@ const Partner = () => {
                   navigate("/add-partner")
                 }
                 hasBackground={true}
-                bgColor="#4D44B5"
-                className="h-12 w-full sm:w-auto text-white px-6"
+                bgColor="#FFFFFF"
+                className="h-12 w-full sm:w-auto text-[#4D44B5] px-6 border border-[#E5E2FF] hover:bg-[#F7F6FF] hover:text-[#4D44B5] transition-all"
               />
             </div>
           </div>
