@@ -373,32 +373,32 @@ const ChartOfAccount = () => {
               <table className="w-full min-w-[850px]">
 
                 <thead>
-                  <tr className="border-b border-gray-100 bg-gray-50/70">
-                    <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-gray-400">
+                  <tr className="border-b border-gray-100 bg-[#4D44B5] text-white">
+                    <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-white">
                       Code
                     </th>
 
-                    <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-gray-400">
+                    <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-white">
                       Account
                     </th>
 
-                    <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-gray-400">
+                    <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-white">
                       Type
                     </th>
 
-                    <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-gray-400">
+                    <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-white">
                       Parent Account
                     </th>
 
-                    <th className="px-6 py-4 text-right text-xs font-semibold uppercase tracking-wider text-gray-400">
+                    <th className="px-6 py-4 text-right text-xs font-semibold uppercase tracking-wider text-white">
                       Balance
                     </th>
 
-                    <th className="px-6 py-4 text-center text-xs font-semibold uppercase tracking-wider text-gray-400">
+                    <th className="px-6 py-4 text-center text-xs font-semibold uppercase tracking-wider text-white">
                       Status
                     </th>
 
-                    <th className="px-6 py-4 text-right text-xs font-semibold uppercase tracking-wider text-gray-400">
+                    <th className="px-6 py-4 text-right text-xs font-semibold uppercase tracking-wider text-white">
                       Action
                     </th>
                   </tr>
