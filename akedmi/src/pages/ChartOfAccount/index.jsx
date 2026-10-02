@@ -578,7 +578,7 @@ const AccountRow = ({ account }) => {
             <FiTrash2 size={15} />
           </button>
 
-          <button className="flex h-9 w-9 items-center justify-center rounded-lg text-gray-400 transition hover:bg-gray-100 hover:text-gray-700">
+          <button className="flex h-9 w-9 items-center justify-center rounded-lg text-[#4D44B5] transition hover:bg-gray-100 hover:text-gray-700">
             <FiMoreVertical size={17} />
           </button>
 
