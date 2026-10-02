@@ -267,15 +267,15 @@ const ChartOfAccount = () => {
           </section>
 
           {/* Account Structure */}
-          <section className="rounded-2xl border border-gray-200 bg-white px-5 py-5 shadow-sm md:px-6">
+          <section className="rounded-2xl border border-[#6B63C7] bg-[#4D44B5] px-5 py-5 shadow-sm md:px-6">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
 
               <div>
-                <h2 className="text-base font-bold text-gray-900">
+                <h2 className="text-base font-bold text-white">
                   Account Structure
                 </h2>
 
-                <p className="mt-1 text-sm text-gray-500">
+                <p className="mt-1 text-sm text-gray-100">
                   Accounts grouped by financial category
                 </p>
               </div>
