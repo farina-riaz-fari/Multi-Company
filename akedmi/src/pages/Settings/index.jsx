@@ -229,7 +229,13 @@ const Settings = () => {
                         {item.label}
                       </p>
 
-                      <p className="mt-0.5 truncate text-[10px] text-white/60">
+                      <p
+                        className={`mt-0.5 truncate text-[10px] ${
+                          isActive
+                            ? "text-[#6B63C7]"
+                            : "text-white/60"
+                        }`}
+                      >
                         {item.description}
                       </p>
                     </div>
