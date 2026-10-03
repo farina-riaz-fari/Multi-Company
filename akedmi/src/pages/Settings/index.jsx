@@ -175,18 +175,18 @@ const Settings = () => {
       <div className="mt-7 flex flex-col gap-6 lg:flex-row">
         {/* Sidebar */}
         <aside className="shrink-0 lg:w-[270px]">
-          <div className="rounded-2xl border border-gray-100 bg-white p-3 shadow-sm">
+          <div className="rounded-2xl border border-[#6B63C7] bg-[#4D44B5] p-3 shadow-sm">
             <div className="mb-2 hidden items-center gap-3 px-3 py-4 lg:flex">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#F1EFFF] text-[#4D44B5]">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/15 text-white">
                 <FaCog size={16} />
               </div>
 
               <div>
-                <p className="text-[10px] font-semibold uppercase tracking-wider text-gray-400">
+                <p className="text-[10px] font-semibold uppercase tracking-wider text-white/60">
                   Configuration
                 </p>
 
-                <h2 className="mt-0.5 text-sm font-semibold text-[#303972]">
+                <h2 className="mt-0.5 text-sm font-semibold text-white">
                   Settings Center
                 </h2>
               </div>
@@ -204,15 +204,15 @@ const Settings = () => {
                     onClick={() => setActiveSection(item.id)}
                     className={`flex w-full min-w-[190px] items-center gap-3 rounded-xl px-3 py-3 text-left transition-all lg:min-w-0 ${
                       isActive
-                        ? "bg-[#F2F0FF] text-[#4D44B5]"
-                        : "text-gray-500 hover:bg-gray-50"
+                        ? "bg-white text-[#4D44B5] shadow-sm"
+                        : "text-white/80 hover:bg-white/10"
                     }`}
                   >
                     <div
                       className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${
                         isActive
-                          ? "bg-white text-[#4D44B5]"
-                          : "bg-gray-50 text-gray-400"
+                          ? "bg-[#F1EFFF] text-[#4D44B5]"
+                          : "bg-white/10 text-white"
                       }`}
                     >
                       <Icon size={14} />
@@ -223,13 +223,13 @@ const Settings = () => {
                         className={`text-sm font-semibold ${
                           isActive
                             ? "text-[#4D44B5]"
-                            : "text-gray-600"
+                            : "text-white"
                         }`}
                       >
                         {item.label}
                       </p>
 
-                      <p className="mt-0.5 truncate text-[10px] text-gray-400">
+                      <p className="mt-0.5 truncate text-[10px] text-white/60">
                         {item.description}
                       </p>
                     </div>
@@ -238,7 +238,7 @@ const Settings = () => {
                       className={`hidden text-[9px] lg:block ${
                         isActive
                           ? "text-[#4D44B5]"
-                          : "text-gray-300"
+                          : "text-white/50"
                       }`}
                     />
                   </button>
