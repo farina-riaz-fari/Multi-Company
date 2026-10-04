@@ -572,22 +572,22 @@ const Settings = () => {
           {/* Account */}
           {activeSection === "account" && (
             <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
-              <div className="border-b border-gray-100 px-5 py-6 sm:px-7">
+              <div className="bg-[#4D44B5] border-b border-gray-100 px-5 py-6 sm:px-7">
                 <div className="flex items-start gap-4">
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#F1EFFF] text-[#4D44B5]">
                     <FaUserCircle size={18} />
                   </div>
 
                   <div>
-                    <p className="text-[10px] font-semibold uppercase tracking-wider text-gray-400">
+                    <p className="text-[10px] font-semibold uppercase tracking-wider text-gray-100">
                       Account Management
                     </p>
 
-                    <h2 className="mt-1 text-xl font-semibold text-[#303972]">
+                    <h2 className="mt-1 text-xl font-semibold text-white">
                       Account
                     </h2>
 
-                    <p className="mt-1 text-sm text-gray-400">
+                    <p className="mt-1 text-sm text-gray-200">
                       Manage your current application session.
                     </p>
                   </div>
