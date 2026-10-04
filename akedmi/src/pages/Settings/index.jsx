@@ -595,7 +595,7 @@ const Settings = () => {
               </div>
 
               <div className="p-5 sm:p-7">
-                <div className="rounded-2xl border border-gray-100 bg-[#FAFAFD] p-5 sm:p-6">
+                <div className="rounded-2xl border border-gray-200 bg-[#FAFAFD] p-5 sm:p-6">
                   <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-center">
                     <div className="flex items-start gap-4">
                       <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-gray-400 shadow-sm">
