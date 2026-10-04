@@ -454,22 +454,22 @@ const Settings = () => {
           {/* Notifications */}
           {activeSection === "notifications" && (
             <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
-              <div className="border-b border-gray-100 px-5 py-6 sm:px-7">
+              <div className="bg-[#4D44B5] border-b border-gray-100 px-5 py-6 sm:px-7">
                 <div className="flex items-start gap-4">
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#F1EFFF] text-[#4D44B5]">
                     <FaBell size={17} />
                   </div>
 
                   <div>
-                    <p className="text-[10px] font-semibold uppercase tracking-wider text-gray-400">
+                    <p className="text-[10px] font-semibold uppercase tracking-wider text-gray-100">
                       Application Alerts
                     </p>
 
-                    <h2 className="mt-1 text-xl font-semibold text-[#303972]">
+                    <h2 className="mt-1 text-xl font-semibold text-white">
                       Notifications
                     </h2>
 
-                    <p className="mt-1 text-sm text-gray-400">
+                    <p className="mt-1 text-sm text-gray-200">
                       Choose which types of application notifications you
                       want to receive.
                     </p>
