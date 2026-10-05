@@ -370,7 +370,7 @@ const Settings = () => {
                   </div>
 
                   {/* Time */}
-                  <div className="rounded-xl border border-gray-100 bg-[#FAFAFD] p-5 md:col-span-2">
+                  <div className="rounded-xl border border-gray-200 bg-[#FAFAFD] p-5 md:col-span-2">
                     <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-center">
                       <div className="flex items-center gap-3">
                         <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white text-[#4D44B5] shadow-sm">
