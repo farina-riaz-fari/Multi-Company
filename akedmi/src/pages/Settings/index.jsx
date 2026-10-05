@@ -285,7 +285,7 @@ const Settings = () => {
               <div className="p-5 sm:p-7">
                 <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
                   {/* Currency */}
-                  <div className="rounded-xl border border-gray-100 bg-[#FAFAFD] p-5">
+                  <div className="rounded-xl border border-gray-200 bg-[#FAFAFD] p-5">
                     <div className="mb-5 flex items-center gap-3">
                       <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white text-[#4D44B5] shadow-sm">
                         <FaGlobe size={14} />
