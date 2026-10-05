@@ -314,7 +314,7 @@ const Settings = () => {
                   </div>
 
                   {/* Date */}
-                  <div className="rounded-xl border border-gray-100 bg-[#FAFAFD] p-5">
+                  <div className="rounded-xl border border-gray-200 bg-[#FAFAFD] p-5">
                     <div className="mb-5 flex items-center gap-3">
                       <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white text-[#4D44B5] shadow-sm">
                         <FaCalendarAlt size={14} />
