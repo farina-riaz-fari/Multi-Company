@@ -337,24 +337,24 @@ const Payroll = () => {
       {/* Payroll Records */}
       <div className="mt-4 bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
         {/* Desktop Header */}
-        <div className="hidden lg:grid grid-cols-[1.5fr_1fr_1fr_1fr_130px] gap-4 px-6 py-3 bg-[#FAFAFD] border-b border-gray-100">
-          <p className="text-[10px] uppercase tracking-wider font-semibold text-gray-400">
+        <div className="hidden lg:grid grid-cols-[1.5fr_1fr_1fr_1fr_130px] gap-4 px-6 py-3 bg-[#4D44B5] border-b border-[#4D44B5]">
+          <p className="text-[10px] uppercase tracking-wider font-semibold text-white">
             Employee
           </p>
 
-          <p className="text-[10px] uppercase tracking-wider font-semibold text-gray-400">
+          <p className="text-[10px] uppercase tracking-wider font-semibold text-white">
             Company
           </p>
 
-          <p className="text-[10px] uppercase tracking-wider font-semibold text-gray-400">
+          <p className="text-[10px] uppercase tracking-wider font-semibold text-white">
             Salary
           </p>
 
-          <p className="text-[10px] uppercase tracking-wider font-semibold text-gray-400">
+          <p className="text-[10px] uppercase tracking-wider font-semibold text-white">
             Payment Method
           </p>
 
-          <p className="text-[10px] uppercase tracking-wider font-semibold text-gray-400">
+          <p className="text-[10px] uppercase tracking-wider font-semibold text-white">
             Status
           </p>
         </div>
