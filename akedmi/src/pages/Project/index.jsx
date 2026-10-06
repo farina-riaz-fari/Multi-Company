@@ -330,36 +330,36 @@ const Project = () => {
         <div className="overflow-x-auto">
           <table className="w-full min-w-[1100px]">
             <thead>
-              <tr className="border-b border-gray-100 bg-gray-50/70">
-                <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">
+              <tr className="border-b border-[#4D44B5] bg-[#4D44B5]">
+                <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wide text-white">
                   Project
                 </th>
 
-                <th className="px-5 py-4 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">
+                <th className="px-5 py-4 text-left text-xs font-semibold uppercase tracking-wide text-white">
                   Company
                 </th>
 
-                <th className="px-5 py-4 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">
+                <th className="px-5 py-4 text-left text-xs font-semibold uppercase tracking-wide text-white">
                   Client
                 </th>
 
-                <th className="px-5 py-4 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">
+                <th className="px-5 py-4 text-left text-xs font-semibold uppercase tracking-wide text-white">
                   Timeline
                 </th>
 
-                <th className="px-5 py-4 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">
+                <th className="px-5 py-4 text-left text-xs font-semibold uppercase tracking-wide text-white">
                   Budget
                 </th>
 
-                <th className="px-5 py-4 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">
+                <th className="px-5 py-4 text-left text-xs font-semibold uppercase tracking-wide text-white">
                   Progress
                 </th>
 
-                <th className="px-5 py-4 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">
+                <th className="px-5 py-4 text-left text-xs font-semibold uppercase tracking-wide text-white">
                   Status
                 </th>
 
-                <th className="px-5 py-4 text-right text-xs font-semibold uppercase tracking-wide text-gray-500">
+                <th className="px-5 py-4 text-right text-xs font-semibold uppercase tracking-wide text-white">
                   Action
                 </th>
               </tr>
@@ -400,7 +400,11 @@ const Project = () => {
 
                     <td className="px-5 py-5">
                       <div className="flex items-center gap-2 text-xs text-gray-500">
-                        <FiCalendar size={14} className="text-gray-400" />
+                        <FiCalendar
+                          size={14}
+                          className="text-gray-400"
+                        />
+
                         <div>
                           <p>{project.startDate}</p>
                           <p className="mt-1 text-gray-400">
