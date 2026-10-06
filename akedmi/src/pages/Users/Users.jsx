@@ -654,20 +654,20 @@ const User = () => {
 
         {/* Column labels */}
 
-        <div className="hidden lg:grid grid-cols-[minmax(260px,2.2fr)_1.15fr_1fr_110px] gap-6 px-6 py-3 bg-[#FBFBFD] border-b border-gray-100">
-          <span className="text-[10px] uppercase tracking-wider font-semibold text-gray-300">
+        <div className="hidden lg:grid grid-cols-[minmax(260px,2.2fr)_1.15fr_1fr_110px] gap-6 px-6 py-3 bg-[#4D44B5] border-b border-[#4D44B5]">
+          <span className="text-[10px] uppercase tracking-wider font-semibold text-white">
             User
           </span>
 
-          <span className="text-[10px] uppercase tracking-wider font-semibold text-gray-300">
+          <span className="text-[10px] uppercase tracking-wider font-semibold text-white">
             Company
           </span>
 
-          <span className="text-[10px] uppercase tracking-wider font-semibold text-gray-300">
+          <span className="text-[10px] uppercase tracking-wider font-semibold text-white">
             Role
           </span>
 
-          <span className="text-[10px] uppercase tracking-wider font-semibold text-gray-300">
+          <span className="text-[10px] uppercase tracking-wider font-semibold text-white">
             Status
           </span>
         </div>
