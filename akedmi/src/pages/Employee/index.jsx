@@ -320,6 +320,7 @@ const Employee = () => {
                 <span
                   className={`w-1.5 h-1.5 rounded-full ${statusStyles.dot}`}
                 />
+
                 {employee.status || "Unknown"}
               </span>
             </div>
@@ -425,7 +426,7 @@ const Employee = () => {
       </div>
 
       {/* Search and filters */}
-      <div className="mt-7 bg-white rounded-2xl border border-gray-100 shadow-sm p-3 sm:p-4">
+      <div className="mt-7 bg-[#4D44B5] rounded-2xl border border-[#4D44B5] shadow-sm p-3 sm:p-4">
         <div className="flex flex-col gap-3">
           {/* Search */}
           <div className="relative w-full">
