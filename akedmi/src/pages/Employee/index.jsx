@@ -542,8 +542,9 @@ const Employee = () => {
                 iconPrefix={<FaPlus size={12} />}
                 onClick={() => navigate("/addEmployee")}
                 hasBackground={true}
-                bgColor="#4D44B5"
-                className="h-12 w-full text-white px-5"
+                bgColor="#FFFFFF"
+                textColor="#4D44B5"
+                className="h-12 w-full"
               />
             </div>
           </div>
