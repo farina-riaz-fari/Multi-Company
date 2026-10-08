@@ -11,6 +11,7 @@ import {
   FaSignOutAlt,
   FaChevronRight,
   FaBell,
+  FaUsers,
   FaMoneyBillWave,
   FaProjectDiagram,
   FaBoxOpen,
@@ -36,6 +37,7 @@ const Settings = () => {
     timeFormat: "12-hour",
     notifications: {
       system: true,
+      employee: true,
       payroll: true,
       projects: true,
       lowStock: true,
@@ -56,6 +58,7 @@ const Settings = () => {
           timeFormat: settings.timeFormat || "12-hour",
           notifications: {
             system: settings.notifications?.system ?? true,
+            employee: settings.notifications?.employee ?? true,
             payroll: settings.notifications?.payroll ?? true,
             projects: settings.notifications?.projects ?? true,
             lowStock: settings.notifications?.lowStock ?? true,
@@ -132,6 +135,13 @@ const Settings = () => {
       description:
         "Receive important updates and general application alerts.",
       icon: FaBell,
+    },
+    {
+      id: "employee",
+      title: "Employee Notifications",
+      description:
+        "Receive updates and alerts related to employee activity.",
+      icon: FaUsers,
     },
     {
       id: "payroll",
