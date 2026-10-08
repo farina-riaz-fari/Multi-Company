@@ -40,6 +40,7 @@ const Settings = () => {
       system: true,
       employee: true,
       partner: true,
+      user: true,
       payroll: true,
       projects: true,
       lowStock: true,
@@ -62,6 +63,7 @@ const Settings = () => {
             system: settings.notifications?.system ?? true,
             employee: settings.notifications?.employee ?? true,
             partner: settings.notifications?.partner ?? true,
+            user: settings.notifications?.user ?? true,
             payroll: settings.notifications?.payroll ?? true,
             projects: settings.notifications?.projects ?? true,
             lowStock: settings.notifications?.lowStock ?? true,
@@ -152,6 +154,13 @@ const Settings = () => {
       description:
         "Receive updates and alerts related to partner activity.",
       icon: FaUserFriends,
+    },
+    {
+      id: "user",
+      title: "User Notifications",
+      description:
+        "Receive updates and alerts related to user activity.",
+      icon: FaUserCircle,
     },
     {
       id: "payroll",
