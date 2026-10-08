@@ -15,6 +15,7 @@ import {
   FaMoneyBillWave,
   FaProjectDiagram,
   FaBoxOpen,
+  FaUserFriends,
 } from "react-icons/fa";
 
 import { AuthContext } from "../../store/signupAndLoginContext";
@@ -38,6 +39,7 @@ const Settings = () => {
     notifications: {
       system: true,
       employee: true,
+      partner: true,
       payroll: true,
       projects: true,
       lowStock: true,
@@ -59,6 +61,7 @@ const Settings = () => {
           notifications: {
             system: settings.notifications?.system ?? true,
             employee: settings.notifications?.employee ?? true,
+            partner: settings.notifications?.partner ?? true,
             payroll: settings.notifications?.payroll ?? true,
             projects: settings.notifications?.projects ?? true,
             lowStock: settings.notifications?.lowStock ?? true,
@@ -142,6 +145,13 @@ const Settings = () => {
       description:
         "Receive updates and alerts related to employee activity.",
       icon: FaUsers,
+    },
+    {
+      id: "partner",
+      title: "Partner Notifications",
+      description:
+        "Receive updates and alerts related to partner activity.",
+      icon: FaUserFriends,
     },
     {
       id: "payroll",
@@ -269,7 +279,7 @@ const Settings = () => {
           {/* Preferences */}
           {activeSection === "preferences" && (
             <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
-              <div className="bg-[#4D44B5] border-b border-gray-100 px-5 py-6 sm:px-7">
+              <div className="border-b border-gray-100 bg-[#4D44B5] px-5 py-6 sm:px-7">
                 <div className="flex items-start gap-4">
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#F1EFFF] text-[#4D44B5]">
                     <FaSlidersH size={17} />
@@ -464,7 +474,7 @@ const Settings = () => {
           {/* Notifications */}
           {activeSection === "notifications" && (
             <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
-              <div className="bg-[#4D44B5] border-b border-gray-100 px-5 py-6 sm:px-7">
+              <div className="border-b border-gray-100 bg-[#4D44B5] px-5 py-6 sm:px-7">
                 <div className="flex items-start gap-4">
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#F1EFFF] text-[#4D44B5]">
                     <FaBell size={17} />
@@ -582,7 +592,7 @@ const Settings = () => {
           {/* Account */}
           {activeSection === "account" && (
             <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
-              <div className="bg-[#4D44B5] border-b border-gray-100 px-5 py-6 sm:px-7">
+              <div className="border-b border-gray-100 bg-[#4D44B5] px-5 py-6 sm:px-7">
                 <div className="flex items-start gap-4">
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#F1EFFF] text-[#4D44B5]">
                     <FaUserCircle size={18} />
