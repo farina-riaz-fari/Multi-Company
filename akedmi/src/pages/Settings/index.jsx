@@ -15,7 +15,7 @@ import {
   FaMoneyBillWave,
   FaProjectDiagram,
   FaBoxOpen,
-  FaUserFriends,
+  FaBuilding,
 } from "react-icons/fa";
 
 import { AuthContext } from "../../store/signupAndLoginContext";
@@ -41,6 +41,7 @@ const Settings = () => {
       employee: true,
       partner: true,
       user: true,
+      company: true,
       payroll: true,
       projects: true,
       lowStock: true,
@@ -64,6 +65,7 @@ const Settings = () => {
             employee: settings.notifications?.employee ?? true,
             partner: settings.notifications?.partner ?? true,
             user: settings.notifications?.user ?? true,
+            company: settings.notifications?.company ?? true,
             payroll: settings.notifications?.payroll ?? true,
             projects: settings.notifications?.projects ?? true,
             lowStock: settings.notifications?.lowStock ?? true,
@@ -153,7 +155,7 @@ const Settings = () => {
       title: "Partner Notifications",
       description:
         "Receive updates and alerts related to partner activity.",
-      icon: FaUserFriends,
+      icon: FaUsers,
     },
     {
       id: "user",
@@ -161,6 +163,13 @@ const Settings = () => {
       description:
         "Receive updates and alerts related to user activity.",
       icon: FaUserCircle,
+    },
+    {
+      id: "company",
+      title: "Company Notifications",
+      description:
+        "Receive updates and alerts related to company activity.",
+      icon: FaBuilding,
     },
     {
       id: "payroll",
