@@ -209,22 +209,44 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="mt-6 bg-white p-6 sm:p-8 lg:p-10 rounded-xl grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Dashboard Statistics Cards */}
+        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {STATS_CARDS.map((stat, idx) => (
-            <div key={idx} className="flex items-center space-x-4">
+            <div
+              key={idx}
+              className="group relative overflow-hidden rounded-2xl border border-[#E7E5F5] bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+            >
+              <div className="flex items-center justify-between gap-3">
+                <div>
+                  <p className="text-sm font-semibold text-gray-500">
+                    Total {stat.label}
+                  </p>
+
+                  <p className="mt-3 text-3xl font-extrabold tracking-tight text-[#303972]">
+                    {stat.value}
+                  </p>
+
+                  <p className="mt-2 text-xs font-medium text-gray-400">
+                    Current registered {stat.label.toLowerCase()}s
+                  </p>
+                </div>
+
+                <div
+                  className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl ${stat.bg} text-white shadow-md transition-transform duration-300 group-hover:scale-110`}
+                >
+                  <span className="text-2xl">{stat.icon}</span>
+                </div>
+              </div>
+
+              <div className="mt-5 h-1.5 overflow-hidden rounded-full bg-[#F0EFFA]">
+                <div
+                  className={`h-full w-full rounded-full ${stat.bg} opacity-80`}
+                />
+              </div>
+
               <div
-                className={`w-12 h-12 rounded-full flex items-center justify-center ${stat.bg}`}
-              >
-                <span className="text-white text-xl">{stat.icon}</span>
-              </div>
-              <div>
-                <p className="text-gray-400 text-lg font-medium">
-                  {stat.label}
-                </p>
-                <p className="text-[#303972] text-2xl font-bold">
-                  {stat.value}
-                </p>
-              </div>
+                className={`pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full ${stat.bg} opacity-[0.06] transition-transform duration-300 group-hover:scale-150`}
+              />
             </div>
           ))}
         </div>
