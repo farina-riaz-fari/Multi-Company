@@ -239,7 +239,10 @@ const Settings = () => {
                   <button
                     key={item.id}
                     type="button"
-                    onClick={() => setActiveSection(item.id)}
+                    onClick={() => {
+                      setActiveSection(item.id);
+                      setSaved(false);
+                    }}
                     className={`flex w-full min-w-[190px] items-center gap-3 rounded-xl px-3 py-3 text-left transition-all lg:min-w-0 ${
                       isActive
                         ? "bg-white text-[#4D44B5] shadow-sm"
@@ -259,9 +262,7 @@ const Settings = () => {
                     <div className="min-w-0 flex-1">
                       <p
                         className={`text-sm font-semibold ${
-                          isActive
-                            ? "text-[#4D44B5]"
-                            : "text-white"
+                          isActive ? "text-[#4D44B5]" : "text-white"
                         }`}
                       >
                         {item.label}
@@ -313,8 +314,8 @@ const Settings = () => {
                     </h2>
 
                     <p className="mt-1 text-sm text-gray-200">
-                      Choose how dates, times, and currency are
-                      displayed throughout the application.
+                      Choose how dates, times, and currency are displayed
+                      throughout the application.
                     </p>
                   </div>
                 </div>
@@ -351,7 +352,7 @@ const Settings = () => {
                     />
                   </div>
 
-                  {/* Date */}
+                  {/* Date Format */}
                   <div className="rounded-xl border border-gray-200 bg-[#FAFAFD] p-5">
                     <div className="mb-5 flex items-center gap-3">
                       <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white text-[#4D44B5] shadow-sm">
@@ -376,17 +377,9 @@ const Settings = () => {
                         onChange={handleChange}
                         className="block h-12 w-full appearance-none rounded-xl border border-gray-200 bg-white px-4 py-3 pr-10 text-sm text-gray-600 transition-all focus:border-[#4D44B5]/40 focus:outline-none focus:ring-4 focus:ring-[#4D44B5]/5"
                       >
-                        <option value="DD/MM/YYYY">
-                          DD/MM/YYYY
-                        </option>
-
-                        <option value="MM/DD/YYYY">
-                          MM/DD/YYYY
-                        </option>
-
-                        <option value="YYYY-MM-DD">
-                          YYYY-MM-DD
-                        </option>
+                        <option value="DD/MM/YYYY">DD/MM/YYYY</option>
+                        <option value="MM/DD/YYYY">MM/DD/YYYY</option>
+                        <option value="YYYY-MM-DD">YYYY-MM-DD</option>
                       </select>
 
                       <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-gray-400">
@@ -407,7 +400,7 @@ const Settings = () => {
                     </div>
                   </div>
 
-                  {/* Time */}
+                  {/* Time Format */}
                   <div className="rounded-xl border border-gray-200 bg-[#FAFAFD] p-5 md:col-span-2">
                     <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-center">
                       <div className="flex items-center gap-3">
@@ -457,7 +450,7 @@ const Settings = () => {
                   </div>
                 </div>
 
-                {/* Save Area */}
+                {/* Preferences Save Area */}
                 <div className="mt-7 flex flex-col justify-between gap-4 border-t border-gray-100 pt-6 sm:flex-row sm:items-center">
                   <div className="flex items-center gap-2">
                     {saved ? (
@@ -489,9 +482,10 @@ const Settings = () => {
             </div>
           )}
 
-          {/* Notifications */}
+          {/* All Notifications */}
           {activeSection === "notifications" && (
             <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
+              {/* Notifications Header */}
               <div className="border-b border-gray-100 bg-[#4D44B5] px-5 py-6 sm:px-7">
                 <div className="flex items-start gap-4">
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#F1EFFF] text-[#4D44B5]">
@@ -500,23 +494,65 @@ const Settings = () => {
 
                   <div>
                     <p className="text-[10px] font-semibold uppercase tracking-wider text-gray-100">
-                      Application Alerts
+                      Notification Management
                     </p>
 
                     <h2 className="mt-1 text-xl font-semibold text-white">
-                      Notifications
+                      All Notifications
                     </h2>
 
                     <p className="mt-1 text-sm text-gray-200">
-                      Choose which types of application notifications you
-                      want to receive.
+                      Manage system alerts and notifications for every
+                      module of your application.
                     </p>
                   </div>
                 </div>
               </div>
 
               <div className="p-5 sm:p-7">
-                <div className="space-y-3">
+                {/* Notification Summary */}
+                <div className="mb-6 rounded-xl border border-[#E4E1FF] bg-[#FAFAFD] p-4 sm:p-5">
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                    <div className="flex min-w-0 flex-1 items-center gap-3">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#F1EFFF] text-[#4D44B5]">
+                        <FaBell size={16} />
+                      </div>
+
+                      <div>
+                        <h3 className="text-sm font-semibold text-[#303972]">
+                          Notification Preferences
+                        </h3>
+
+                        <p className="mt-1 text-xs leading-5 text-gray-500">
+                          Enable the notifications you want to receive.
+                          Save your selections to keep your preferences.
+                        </p>
+                      </div>
+                    </div>
+
+                    <span className="inline-flex w-fit shrink-0 items-center rounded-lg bg-white px-3 py-2 text-xs font-semibold text-[#4D44B5] shadow-sm">
+                      {
+                        notificationItems.filter(
+                          (item) => formData.notifications[item.id]
+                        ).length
+                      }{" "}
+                      of {notificationItems.length} enabled
+                    </span>
+                  </div>
+                </div>
+
+                {/* Notification Categories */}
+                <div className="mb-4">
+                  <h3 className="text-sm font-semibold text-[#303972]">
+                    All Notification Categories
+                  </h3>
+
+                  <p className="mt-1 text-xs text-gray-400">
+                    Turn individual notification categories on or off.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 gap-3 xl:grid-cols-2">
                   {notificationItems.map((item) => {
                     const Icon = item.icon;
                     const enabled = formData.notifications[item.id];
@@ -524,32 +560,40 @@ const Settings = () => {
                     return (
                       <div
                         key={item.id}
-                        className={`flex flex-col gap-4 rounded-2xl border p-4 transition-all sm:flex-row sm:items-center sm:justify-between sm:p-5 ${
+                        className={`flex min-w-0 items-center gap-3 rounded-2xl border p-4 transition-all sm:gap-4 sm:p-5 ${
                           enabled
                             ? "border-[#E4E1FF] bg-[#FAFAFD]"
-                            : "border-gray-100 bg-white"
+                            : "border-gray-200 bg-white"
                         }`}
                       >
-                        <div className="flex min-w-0 items-start gap-4">
-                          <div
-                            className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-all ${
+                        <div
+                          className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-colors ${
+                            enabled
+                              ? "bg-[#F1EFFF] text-[#4D44B5]"
+                              : "bg-gray-100 text-gray-400"
+                          }`}
+                        >
+                          <Icon size={16} />
+                        </div>
+
+                        <div className="min-w-0 flex-1">
+                          <p className="text-sm font-semibold text-[#303972]">
+                            {item.title}
+                          </p>
+
+                          <p className="mt-1 text-xs leading-5 text-gray-500">
+                            {item.description}
+                          </p>
+
+                          <span
+                            className={`mt-2 inline-flex rounded-md px-2 py-1 text-[10px] font-semibold ${
                               enabled
-                                ? "bg-[#F1EFFF] text-[#4D44B5]"
-                                : "bg-gray-50 text-gray-400"
+                                ? "bg-[#EAE8FF] text-[#4D44B5]"
+                                : "bg-gray-100 text-gray-500"
                             }`}
                           >
-                            <Icon size={15} />
-                          </div>
-
-                          <div className="min-w-0">
-                            <p className="text-sm font-semibold text-[#303972]">
-                              {item.title}
-                            </p>
-
-                            <p className="mt-1 max-w-xl text-xs leading-5 text-gray-400">
-                              {item.description}
-                            </p>
-                          </div>
+                            {enabled ? "Enabled" : "Disabled"}
+                          </span>
                         </div>
 
                         <button
@@ -557,11 +601,10 @@ const Settings = () => {
                           onClick={() =>
                             handleNotificationChange(item.id)
                           }
+                          aria-label={`${enabled ? "Disable" : "Enable"} ${item.title}`}
                           aria-pressed={enabled}
-                          className={`relative h-7 w-12 shrink-0 rounded-full transition-all ${
-                            enabled
-                              ? "bg-[#5B52C7]"
-                              : "bg-gray-200"
+                          className={`relative h-7 w-12 shrink-0 rounded-full transition-colors focus:outline-none focus:ring-4 focus:ring-[#4D44B5]/15 ${
+                            enabled ? "bg-[#4D44B5]" : "bg-gray-300"
                           }`}
                         >
                           <span
@@ -575,20 +618,21 @@ const Settings = () => {
                   })}
                 </div>
 
-                {/* Save Area */}
+                {/* Notifications Save Area */}
                 <div className="mt-7 flex flex-col justify-between gap-4 border-t border-gray-100 pt-6 sm:flex-row sm:items-center">
                   <div className="flex items-center gap-2">
                     {saved ? (
                       <>
-                        <FaCheckCircle className="text-sm text-emerald-500" />
+                        <FaCheckCircle className="shrink-0 text-sm text-emerald-500" />
 
                         <span className="text-sm font-medium text-emerald-600">
-                          Notification settings saved
+                          Notification settings saved successfully
                         </span>
                       </>
                     ) : (
-                      <p className="text-xs text-gray-400">
-                        Notification preferences are stored locally.
+                      <p className="text-xs leading-5 text-gray-400">
+                        Remember to save your changes after updating
+                        your notification preferences.
                       </p>
                     )}
                   </div>
