@@ -22,7 +22,6 @@ import { PartnerContext } from "../../store/PartnerContext";
 import { EmployeeContext } from "../../store/EmployeeContext";
 import { FaUserGroup } from "react-icons/fa6";
 
-// Register Chart.js components
 ChartJS.register(
   LineElement,
   PointElement,
@@ -153,10 +152,12 @@ const financeChartOptions = {
 
 const Dashboard = () => {
   const [currentPage, setCurrentPage] = useState(1);
+
   const { companies } = useContext(CompanyContext);
   const { users } = useContext(UserContext);
   const { employees } = useContext(EmployeeContext);
   const { partners } = useContext(PartnerContext);
+
   const company = (companies || []).length;
   const employee = (employees || []).length;
   const partner = (partners || []).length;
@@ -168,28 +169,49 @@ const Dashboard = () => {
       value: company,
       icon: <FaBuilding />,
       bg: "bg-[#4D44B5]",
+      accent: "border-l-[#4D44B5]",
+      iconBg: "bg-[#F0EEFF]",
+      iconColor: "text-[#4D44B5]",
     },
-    { label: "User", value: user, icon: <FaUser />, bg: "bg-[#FB7D5B]" },
+    {
+      label: "User",
+      value: user,
+      icon: <FaUser />,
+      bg: "bg-[#FB7D5B]",
+      accent: "border-l-[#FB7D5B]",
+      iconBg: "bg-[#FFF0EB]",
+      iconColor: "text-[#FB7D5B]",
+    },
     {
       label: "Employee",
       value: employee,
       icon: <FaUserGroup />,
       bg: "bg-[#FCC43E]",
+      accent: "border-l-[#FCC43E]",
+      iconBg: "bg-[#FFF8E5]",
+      iconColor: "text-[#B8860B]",
     },
     {
       label: "Partner",
       value: partner,
       icon: <FaHandsHelping />,
       bg: "bg-[#303972]",
+      accent: "border-l-[#303972]",
+      iconBg: "bg-[#EBEDFA]",
+      iconColor: "text-[#303972]",
     },
   ];
 
   const handleNext = () => {
-    if (currentPage < TOTAL_PAGES) setCurrentPage((prev) => prev + 1);
+    if (currentPage < TOTAL_PAGES) {
+      setCurrentPage((prev) => prev + 1);
+    }
   };
 
   const handlePrevious = () => {
-    if (currentPage > 1) setCurrentPage((prev) => prev - 1);
+    if (currentPage > 1) {
+      setCurrentPage((prev) => prev - 1);
+    }
   };
 
   const currentTableData = TABLE_DATA.slice(
@@ -198,74 +220,75 @@ const Dashboard = () => {
   );
 
   return (
-    <div className="flex flex-col lg:flex-row min-h-screen">
+    <div className="flex min-h-screen flex-col lg:flex-row">
       <div className="flex-1 bg-[#F3F4FF] p-4 sm:p-6 lg:p-10">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-[#303972] mt-6 lg:mt-0">
+        <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+          <h1 className="mt-6 text-3xl font-extrabold text-[#303972] sm:text-4xl lg:mt-0">
             Dashboard
           </h1>
-          <div className="relative w-full md:w-[300px] mt-6 md:mt-10 lg:mt-0 shadow-md rounded-full">
+
+          <div className="relative mt-6 w-full rounded-full shadow-md md:mt-10 md:w-[300px] lg:mt-0">
             <Searchbar />
           </div>
         </div>
 
         {/* Dashboard Statistics Cards */}
-        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          {STATS_CARDS.map((stat, idx) => (
+        <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
+          {STATS_CARDS.map((stat) => (
             <div
-              key={idx}
-              className="group relative overflow-hidden rounded-2xl border border-[#E7E5F5] bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              key={stat.label}
+              className={`group relative overflow-hidden rounded-xl border border-[#E7E5F5] border-l-4 ${stat.accent} bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg`}
             >
-              <div className="flex items-center justify-between gap-3">
-                <div>
-                  <p className="text-sm font-semibold text-gray-500">
+              <div className="flex items-center justify-between gap-4">
+                <div className="min-w-0">
+                  <p className="text-sm font-semibold tracking-wide text-gray-500">
                     Total {stat.label}
                   </p>
 
-                  <p className="mt-3 text-3xl font-extrabold tracking-tight text-[#303972]">
+                  <p className="mt-3 text-4xl font-extrabold tracking-tight text-[#303972]">
                     {stat.value}
                   </p>
 
                   <p className="mt-2 text-xs font-medium text-gray-400">
-                    Current registered {stat.label.toLowerCase()}s
+                    Registered {stat.label.toLowerCase()}s
                   </p>
                 </div>
 
                 <div
-                  className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl ${stat.bg} text-white shadow-md transition-transform duration-300 group-hover:scale-110`}
+                  className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-xl ${stat.iconBg} ${stat.iconColor} transition-transform duration-300 group-hover:scale-110`}
                 >
                   <span className="text-2xl">{stat.icon}</span>
                 </div>
               </div>
 
-              <div className="mt-5 h-1.5 overflow-hidden rounded-full bg-[#F0EFFA]">
-                <div
-                  className={`h-full w-full rounded-full ${stat.bg} opacity-80`}
-                />
+              <div className="mt-5 border-t border-gray-100 pt-3">
+                <div className="flex items-center gap-2">
+                  <span className={`h-2 w-2 rounded-full ${stat.bg}`} />
+                  <span className="text-xs font-medium text-gray-500">
+                    Current total
+                  </span>
+                </div>
               </div>
-
-              <div
-                className={`pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full ${stat.bg} opacity-[0.06] transition-transform duration-300 group-hover:scale-150`}
-              />
             </div>
           ))}
         </div>
 
-        <div className="w-full bg-white rounded-xl p-6 mt-6">
-          <div className="flex justify-between items-center mb-6">
+        <div className="mt-6 w-full rounded-xl bg-white p-6">
+          <div className="mb-6 flex items-center justify-between">
             <h2 className="text-xl font-bold text-[#303972]">
               Company Performance
             </h2>
           </div>
+
           <div className="h-[300px]">
             <Line data={chartData} options={chartOptions} />
           </div>
         </div>
 
-        <div className="mt-6 flex flex-col lg:flex-row gap-4">
+        <div className="mt-6 flex flex-col gap-4 lg:flex-row">
           {/* Company Calendar */}
-          <div className="flex-1 bg-white p-6 rounded-xl shadow-md">
-            <h3 className="text-2xl font-bold text-[#303972] mb-6">
+          <div className="flex-1 rounded-xl bg-white p-6 shadow-md">
+            <h3 className="mb-6 text-2xl font-bold text-[#303972]">
               Company Calendar
             </h3>
 
@@ -300,7 +323,7 @@ const Dashboard = () => {
                   key={index}
                   className="flex items-center gap-4 border-b border-gray-100 pb-3 last:border-0"
                 >
-                  <div className="w-14 h-14 bg-[#F3F4FF] rounded-lg flex flex-col items-center justify-center">
+                  <div className="flex h-14 w-14 flex-col items-center justify-center rounded-lg bg-[#F3F4FF]">
                     <span className="text-xs font-bold text-[#4D44B5]">
                       {event.month}
                     </span>
@@ -319,28 +342,28 @@ const Dashboard = () => {
           </div>
 
           {/* Company Finance */}
-          <div className="flex-1 bg-white p-6 rounded-xl shadow-md">
-            <h3 className="text-2xl font-bold text-[#303972] mb-4">
+          <div className="flex-1 rounded-xl bg-white p-6 shadow-md">
+            <h3 className="mb-4 text-2xl font-bold text-[#303972]">
               Company Finance
             </h3>
 
-            <div className="grid grid-cols-2 gap-3 mb-4">
-              <div className="bg-[#F3F4FF] rounded-lg p-3">
+            <div className="mb-4 grid grid-cols-2 gap-3">
+              <div className="rounded-lg bg-[#F3F4FF] p-3">
                 <p className="text-sm text-gray-400">Revenue</p>
                 <p className="text-xl font-bold text-[#303972]">$125,000</p>
               </div>
 
-              <div className="bg-[#FFF4EF] rounded-lg p-3">
+              <div className="rounded-lg bg-[#FFF4EF] p-3">
                 <p className="text-sm text-gray-400">Expenses</p>
                 <p className="text-xl font-bold text-[#303972]">$78,500</p>
               </div>
 
-              <div className="bg-[#F0FDF4] rounded-lg p-3">
+              <div className="rounded-lg bg-[#F0FDF4] p-3">
                 <p className="text-sm text-gray-400">Net Profit</p>
                 <p className="text-xl font-bold text-[#303972]">$46,500</p>
               </div>
 
-              <div className="bg-[#FFF9E6] rounded-lg p-3">
+              <div className="rounded-lg bg-[#FFF9E6] p-3">
                 <p className="text-sm text-gray-400">Pending</p>
                 <p className="text-xl font-bold text-[#303972]">$12,300</p>
               </div>
@@ -352,56 +375,66 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="mt-6 bg-white p-6 rounded-xl shadow-md overflow-auto">
-          <h3 className="text-2xl font-bold text-[#303972] mb-6">
+        <div className="mt-6 overflow-auto rounded-xl bg-white p-6 shadow-md">
+          <h3 className="mb-6 text-2xl font-bold text-[#303972]">
             Unpaid Company Intuition
           </h3>
-          <table className="min-w-[600px] w-full table-auto">
+
+          <table className="w-full min-w-[600px] table-auto">
             <tbody>
               {currentTableData.map((row, index) => (
                 <tr key={index}>
-                  <td className="py-4 px-6 flex items-center space-x-4">
-                    <div className="w-[48px] h-[48px] bg-[#C1BBEB] rounded-full flex items-center justify-center" />
-                    <span className="font-bold text-[#303972]">{row.name}</span>
+                  <td className="flex items-center space-x-4 px-6 py-4">
+                    <div className="flex h-[48px] w-[48px] items-center justify-center rounded-full bg-[#C1BBEB]" />
+                    <span className="font-bold text-[#303972]">
+                      {row.name}
+                    </span>
                   </td>
-                  <td className="py-4 px-6 text-[#4D44B5] font-bold">
+
+                  <td className="px-6 py-4 font-bold text-[#4D44B5]">
                     {row.id}
                   </td>
-                  <td className="py-4 px-6 flex items-center">
-                    <div className="w-[48px] h-[48px] bg-[#FB7D5B] rounded-full flex items-center justify-center">
+
+                  <td className="flex items-center px-6 py-4">
+                    <div className="flex h-[48px] w-[48px] items-center justify-center rounded-full bg-[#FB7D5B]">
                       <FaBuilding className="text-white" />
                     </div>
+
                     <div className="ml-3 text-sm text-[#303972]">
                       <span className="block text-sm text-gray-500">Class</span>
                       <p className="font-semibold">VII A</p>
                     </div>
                   </td>
-                  <td className="py-4 px-6 text-[#303972] font-bold">
+
+                  <td className="px-6 py-4 font-bold text-[#303972]">
                     {row.amount}
                   </td>
-                  <td className="py-4 px-6 flex items-center">
-                    <BsPrinter className="text-gray-400 w-7 h-7" />
+
+                  <td className="flex items-center px-6 py-4">
+                    <BsPrinter className="h-7 w-7 text-gray-400" />
                   </td>
-                  <td className="py-4 px-6 text-gray-500 font-bold">...</td>
+
+                  <td className="px-6 py-4 font-bold text-gray-500">...</td>
                 </tr>
               ))}
             </tbody>
           </table>
 
-          <div className="flex justify-end items-center pt-6 space-x-2">
+          <div className="flex items-center justify-end space-x-2 pt-6">
             <IoCaretBackOutline
               onClick={handlePrevious}
-              className={`text-2xl cursor-pointer ${
+              className={`cursor-pointer text-2xl ${
                 currentPage === 1
-                  ? "opacity-50 pointer-events-none"
+                  ? "pointer-events-none opacity-50"
                   : "text-[#4D44B5]"
               }`}
             />
+
             {[...Array(TOTAL_PAGES)].map((_, index) => (
               <div
                 key={index}
                 onClick={() => setCurrentPage(index + 1)}
-                className={`w-10 h-10 flex items-center justify-center rounded-full cursor-pointer ${
+                className={`flex h-10 w-10 cursor-pointer items-center justify-center rounded-full ${
                   currentPage === index + 1
                     ? "bg-[#4D44B5] text-white"
                     : "text-[#4D44B5]"
@@ -410,11 +443,12 @@ const Dashboard = () => {
                 {index + 1}
               </div>
             ))}
+
             <IoCaretForwardOutline
               onClick={handleNext}
-              className={`text-2xl cursor-pointer ${
+              className={`cursor-pointer text-2xl ${
                 currentPage === TOTAL_PAGES
-                  ? "opacity-50 pointer-events-none"
+                  ? "pointer-events-none opacity-50"
                   : "text-[#4D44B5]"
               }`}
             />
