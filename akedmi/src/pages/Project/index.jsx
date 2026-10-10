@@ -12,6 +12,7 @@ import {
   FiActivity,
   FiChevronDown,
 } from "react-icons/fi";
+import ProfileGroup from "../../components/ProfileGroup";
 
 const projectsData = [
   {
@@ -156,6 +157,20 @@ const Project = () => {
 
   return (
     <div className="min-h-screen bg-[#F7F7FB] p-4 md:p-6 lg:p-8">
+      {/* Page Toolbar */}
+      <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <h1 className="text-2xl font-bold text-[#303972] sm:text-3xl">
+            Projects
+          </h1>
+          <p className="mt-1 text-sm text-gray-500">
+            Manage your projects and track their progress.
+          </p>
+        </div>
+
+        <ProfileGroup />
+      </div>
+
       {/* Header */}
       <div className="overflow-hidden rounded-3xl bg-gradient-to-br from-[#443B9A] via-[#5B52C7] to-[#7067D8] shadow-xl">
         <div className="relative px-5 py-7 sm:px-7 lg:px-9 lg:py-8">
@@ -400,10 +415,7 @@ const Project = () => {
 
                     <td className="px-5 py-5">
                       <div className="flex items-center gap-2 text-xs text-gray-500">
-                        <FiCalendar
-                          size={14}
-                          className="text-gray-400"
-                        />
+                        <FiCalendar size={14} className="text-gray-400" />
 
                         <div>
                           <p>{project.startDate}</p>
@@ -491,9 +503,7 @@ const Project = () => {
             projects
           </span>
 
-          <span className="text-xs text-gray-400">
-            Project workspace
-          </span>
+          <span className="text-xs text-gray-400">Project workspace</span>
         </div>
       </div>
     </div>
