@@ -13,6 +13,8 @@ import {
   FiEdit2,
   FiLayers,
 } from "react-icons/fi";
+import Navbar from "../../components/Navbar";
+import ProfileGroup from "../../components/ProfileGroup";
 
 const categoriesData = [
   {
@@ -151,6 +153,19 @@ const ProductCategory = () => {
 
   return (
     <div className="min-h-screen bg-[#F7F7FB] p-4 md:p-6 lg:p-8">
+      {/* Shared Navbar and Profile Group */}
+      <div className="mb-6 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <Navbar title="Product Categories" />
+
+          <p className="mt-1 ml-1 text-sm text-gray-400">
+            Organize and manage your product category structure.
+          </p>
+        </div>
+
+        <ProfileGroup gap="gap-8" />
+      </div>
+
       {/* Page Header Card */}
       <div className="mb-6 overflow-hidden rounded-2xl bg-[#5B52C7] shadow-lg shadow-indigo-200/30">
         <div className="flex flex-col gap-5 px-5 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-7">
@@ -163,9 +178,9 @@ const ProductCategory = () => {
               Product Organization
             </div>
 
-            <h1 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+            <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
               Product Categories
-            </h1>
+            </h2>
 
             <p className="mt-2 max-w-2xl text-sm leading-6 text-indigo-100">
               Organize your inventory with a clear category structure and
@@ -183,7 +198,7 @@ const ProductCategory = () => {
         </div>
       </div>
 
-      {/* Search & Filters */}
+      {/* Search and Filters */}
       <div className="mb-6 rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
         <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <div className="relative w-full md:max-w-md">

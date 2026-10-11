@@ -167,7 +167,7 @@ const Project = () => {
           </p>
         </div>
 
-        <ProfileGroup />
+        <ProfileGroup gap="gap-8"/>
       </div>
 
       {/* Header */}
