@@ -13,6 +13,7 @@ import {
   FiChevronDown,
 } from "react-icons/fi";
 import ProfileGroup from "../../components/ProfileGroup";
+import Navbar from "../../components/Navbar";
 
 const projectsData = [
   {
@@ -160,9 +161,7 @@ const Project = () => {
       {/* Page Toolbar */}
       <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-[#303972] sm:text-3xl">
-            Projects
-          </h1>
+          <Navbar title="Projects" />
           <p className="mt-1 text-sm text-gray-500">
             Manage your projects and track their progress.
           </p>
