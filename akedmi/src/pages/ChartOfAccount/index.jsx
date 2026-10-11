@@ -13,6 +13,7 @@ import {
 } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
+import ProfileGroup from "../../components/ProfileGroup";
 
 const accountsData = [
   {
@@ -129,7 +130,7 @@ const ChartOfAccount = () => {
 
   const filteredAccounts = useMemo(() => {
     return accountsData.filter((account) => {
-      const searchValue = search.toLowerCase();
+      const searchValue = search.toLowerCase().trim();
 
       const matchesSearch =
         account.name.toLowerCase().includes(searchValue) ||
@@ -170,12 +171,22 @@ const ChartOfAccount = () => {
   ).length;
 
   return (
-    <div className="min-h-screen bg-[#F7F7FB]">
-      <Navbar />
+    <div className="flex-1 min-h-screen bg-[#F7F7FB] px-4 sm:px-7 lg:px-10 py-5 sm:py-7 lg:py-9">
+      {/* Header - Same as Employee page */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+        <div>
+          <Navbar title="Chart of Accounts" />
 
-      <main className="px-4 py-6 md:px-6 lg:px-8">
+          <p className="text-sm text-gray-400 mt-1 ml-1">
+            Organize and manage your financial accounts
+          </p>
+        </div>
+
+        <ProfileGroup gap="gap-8" />
+      </div>
+
+      <main className="mt-7">
         <div className="mx-auto max-w-[1500px] space-y-6">
-
           {/* Header */}
           <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#443B9A] via-[#5B52C7] to-[#7067D8] shadow-lg">
             <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
@@ -183,7 +194,6 @@ const ChartOfAccount = () => {
 
             <div className="relative p-7 md:p-9">
               <div className="flex flex-col gap-7 lg:flex-row lg:items-center lg:justify-between">
-
                 {/* Header Content */}
                 <div>
                   <div className="flex items-center gap-4">
@@ -224,6 +234,7 @@ const ChartOfAccount = () => {
                   </div>
 
                   <button
+                    type="button"
                     onClick={() => navigate("/add-account")}
                     className="flex items-center gap-2 rounded-xl bg-white px-5 py-2.5 text-sm font-semibold text-[#5B52C7] shadow-sm transition hover:bg-purple-50"
                   >
@@ -269,7 +280,6 @@ const ChartOfAccount = () => {
           {/* Account Structure */}
           <section className="rounded-2xl border border-[#6B63C7] bg-[#4D44B5] px-5 py-5 shadow-sm md:px-6">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-
               <div>
                 <h2 className="text-base font-bold text-white">
                   Account Structure
@@ -316,7 +326,6 @@ const ChartOfAccount = () => {
 
           {/* Account List */}
           <section className="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm">
-
             {/* Table Header */}
             <div className="flex flex-col gap-4 border-b border-gray-100 p-5 md:flex-row md:items-center md:justify-between">
               <div>
@@ -331,7 +340,6 @@ const ChartOfAccount = () => {
 
               {/* Search + Filter */}
               <div className="flex flex-col gap-3 sm:flex-row">
-
                 <div className="relative">
                   <FiSearch
                     className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400"
@@ -371,7 +379,6 @@ const ChartOfAccount = () => {
             {/* Table */}
             <div className="overflow-x-auto">
               <table className="w-full min-w-[850px]">
-
                 <thead>
                   <tr className="border-b border-gray-100 bg-[#4D44B5] text-white">
                     <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-white">
@@ -406,10 +413,7 @@ const ChartOfAccount = () => {
 
                 <tbody>
                   {filteredAccounts.map((account) => (
-                    <AccountRow
-                      key={account.id}
-                      account={account}
-                    />
+                    <AccountRow key={account.id} account={account} />
                   ))}
                 </tbody>
               </table>
@@ -462,34 +466,20 @@ const StructureItem = ({ label, count, dot }) => (
   <div className="flex items-center gap-2 rounded-xl border border-gray-100 bg-gray-50 px-3.5 py-2">
     <span className={`h-2 w-2 rounded-full ${dot}`} />
 
-    <span className="text-xs font-medium text-gray-600">
-      {label}
-    </span>
+    <span className="text-xs font-medium text-gray-600">{label}</span>
 
-    <span className="text-sm font-bold text-gray-900">
-      {count}
-    </span>
+    <span className="text-sm font-bold text-gray-900">{count}</span>
   </div>
 );
 
 /* Statistic Card */
-const StatCard = ({
-  icon,
-  label,
-  value,
-  description,
-}) => (
+const StatCard = ({ icon, label, value, description }) => (
   <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
     <div className="flex items-start justify-between">
-
       <div>
-        <p className="text-sm font-medium text-gray-500">
-          {label}
-        </p>
+        <p className="text-sm font-medium text-gray-500">{label}</p>
 
-        <h3 className="mt-2 text-2xl font-bold text-gray-900">
-          {value}
-        </h3>
+        <h3 className="mt-2 text-2xl font-bold text-gray-900">{value}</h3>
       </div>
 
       <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#F0EEFF] text-[#5B52C7]">
@@ -497,9 +487,7 @@ const StatCard = ({
       </div>
     </div>
 
-    <p className="mt-3 text-xs text-gray-400">
-      {description}
-    </p>
+    <p className="mt-3 text-xs text-gray-400">{description}</p>
   </div>
 );
 
@@ -509,7 +497,6 @@ const AccountRow = ({ account }) => {
 
   return (
     <tr className="border-b border-gray-100 last:border-0 transition hover:bg-[#fafaff]">
-
       {/* Code */}
       <td className="px-6 py-4">
         <span className="rounded-lg bg-gray-100 px-3 py-1.5 font-mono text-xs font-semibold text-gray-600">
@@ -535,9 +522,7 @@ const AccountRow = ({ account }) => {
         <span
           className={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold ${style.badge}`}
         >
-          <span
-            className={`h-1.5 w-1.5 rounded-full ${style.dot}`}
-          />
+          <span className={`h-1.5 w-1.5 rounded-full ${style.dot}`} />
 
           {account.type}
         </span>
@@ -545,9 +530,7 @@ const AccountRow = ({ account }) => {
 
       {/* Parent */}
       <td className="px-6 py-4">
-        <span className="text-sm text-gray-600">
-          {account.parent}
-        </span>
+        <span className="text-sm text-gray-600">{account.parent}</span>
       </td>
 
       {/* Balance */}
@@ -569,19 +552,29 @@ const AccountRow = ({ account }) => {
       {/* Actions */}
       <td className="px-6 py-4">
         <div className="flex items-center justify-end gap-1">
-
-          <button className="flex h-9 w-9 items-center justify-center rounded-lg text-gray-400 transition hover:bg-purple-50 hover:text-[#5B52C7]">
+          <button
+            type="button"
+            aria-label={`Edit ${account.name}`}
+            className="flex h-9 w-9 items-center justify-center rounded-lg text-gray-400 transition hover:bg-purple-50 hover:text-[#5B52C7]"
+          >
             <FiEdit2 size={15} />
           </button>
 
-          <button className="flex h-9 w-9 items-center justify-center rounded-lg text-gray-400 transition hover:bg-red-50 hover:text-red-500">
+          <button
+            type="button"
+            aria-label={`Delete ${account.name}`}
+            className="flex h-9 w-9 items-center justify-center rounded-lg text-gray-400 transition hover:bg-red-50 hover:text-red-500"
+          >
             <FiTrash2 size={15} />
           </button>
 
-          <button className="flex h-9 w-9 items-center justify-center rounded-lg text-[#4D44B5] transition hover:bg-gray-100 hover:text-gray-700">
+          <button
+            type="button"
+            aria-label={`More actions for ${account.name}`}
+            className="flex h-9 w-9 items-center justify-center rounded-lg text-[#4D44B5] transition hover:bg-gray-100 hover:text-gray-700"
+          >
             <FiMoreVertical size={17} />
           </button>
-
         </div>
       </td>
     </tr>
