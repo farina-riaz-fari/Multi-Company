@@ -149,11 +149,10 @@ const Products = () => {
 
   return (
     <div className="flex-1 min-h-screen bg-[#F7F7FC] px-4 sm:px-7 lg:px-10 py-5 sm:py-7 lg:py-9">
-      {/* Top Navigation - Same layout as Employee page */}
+      {/* Top Navigation */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-5">
         <div>
           <Navbar title="Product Management" />
-
           <p className="text-sm text-gray-400 mt-1 ml-1">
             Manage your products, stock levels, and inventory
           </p>
@@ -163,7 +162,7 @@ const Products = () => {
       </div>
 
       {/* Hero */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#39318F] via-[#4D44B5] to-[#7067D8] shadow-lg">
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#39318F] via-[#4D44B5] to-[#7067D8] shadow-lg mt-7">
         {/* Decorative Shapes */}
         <div className="absolute -right-20 -top-28 w-80 h-80 rounded-full border border-white/10 bg-white/[0.04]" />
 
@@ -297,7 +296,7 @@ const Products = () => {
         </div>
       </div>
 
-      {/* Statistics */}
+      {/* Statistics Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mt-6">
         <StatCard
           title="Total Products"
@@ -443,7 +442,8 @@ const StatCard = ({ title, value, subtitle, icon }) => {
     <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="text-sm text-gray-400">
+          {/* Updated: Card title is now bold */}
+          <p className="text-sm font-bold text-gray-400">
             {title}
           </p>
 
