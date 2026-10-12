@@ -148,12 +148,18 @@ const Products = () => {
   };
 
   return (
-    <div className="min-h-screen px-4 py-5 md:px-8 lg:px-10">
-      {/* Top Navigation */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-7">
-        <Navbar title="Product Management" />
+    <div className="flex-1 min-h-screen bg-[#F7F7FC] px-4 sm:px-7 lg:px-10 py-5 sm:py-7 lg:py-9">
+      {/* Top Navigation - Same layout as Employee page */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+        <div>
+          <Navbar title="Product Management" />
 
-        <ProfileGroup gap="gap-10" />
+          <p className="text-sm text-gray-400 mt-1 ml-1">
+            Manage your products, stock levels, and inventory
+          </p>
+        </div>
+
+        <ProfileGroup gap="gap-8" />
       </div>
 
       {/* Hero */}
