@@ -318,7 +318,7 @@ const Company = () => {
                     }
                     hasBorder={true}
                     borderColor="#4D44B5"
-                    className="w-full justify-center"
+                    className="w-full justify-center border-[#4D44B5] border"
                   />
                 </div>
               </div>

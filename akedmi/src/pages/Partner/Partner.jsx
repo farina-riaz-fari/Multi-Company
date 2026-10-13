@@ -405,7 +405,7 @@ const Partner = () => {
             </button>
           )}
 
-          <p className="text-xs text-gray-400">
+          <p className="text-sm font-semibold text-[#4D44B5]">
             {filteredPartners.length}{" "}
             {filteredPartners.length === 1
               ? "partner"
