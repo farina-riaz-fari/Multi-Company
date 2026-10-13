@@ -358,15 +358,12 @@ const Partner = () => {
             <div className="sm:ml-auto">
               <Button
                 text="Add Partner"
-                iconPrefix={
-                  <FaPlus size={12} />
-                }
-                onClick={() =>
-                  navigate("/add-partner")
-                }
+                iconPrefix={<FaPlus size={12} />}
+                onClick={() => navigate("/add-partner")}
                 hasBackground={true}
                 bgColor="#FFFFFF"
-                className="h-12 w-full sm:w-auto text-[#4D44B5] px-6 border border-[#E5E2FF] hover:bg-[#F7F6FF] hover:text-[#4D44B5] transition-all"
+                textColor="#4D44B5"
+                className="h-12 w-full sm:w-auto px-6 border border-[#E5E2FF] hover:bg-[#F7F6FF] transition-all"
               />
             </div>
           </div>
