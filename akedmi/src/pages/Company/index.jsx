@@ -25,10 +25,7 @@ const Company = () => {
 
   const { companies = [], deleteCompany } = useContext(CompanyContext);
 
-  // --------------------------------------------------
   // Company statistics
-  // --------------------------------------------------
-
   const totalCompanies = companies.length;
 
   const activeCompanies = companies.filter(
@@ -46,10 +43,7 @@ const Company = () => {
       .map((country) => country.toLowerCase())
   ).size;
 
-  // --------------------------------------------------
   // Search
-  // --------------------------------------------------
-
   const filteredCompanies = useMemo(() => {
     const query = searchQuery.toLowerCase().trim();
 
@@ -71,10 +65,7 @@ const Company = () => {
     setSearchQuery(e.target.value);
   };
 
-  // --------------------------------------------------
   // Status
-  // --------------------------------------------------
-
   const getStatusClass = (status) => {
     const normalized = status?.toLowerCase();
 
@@ -89,10 +80,7 @@ const Company = () => {
     return "bg-gray-100 text-gray-600";
   };
 
-  // --------------------------------------------------
   // Delete
-  // --------------------------------------------------
-
   const handleDelete = () => {
     if (selectedCompany) {
       deleteCompany(selectedCompany.email);
@@ -107,10 +95,7 @@ const Company = () => {
     setSelectedCompany(null);
   };
 
-  // --------------------------------------------------
   // Table columns
-  // --------------------------------------------------
-
   const columns = [
     {
       key: "companyName",
@@ -200,10 +185,7 @@ const Company = () => {
     },
   ];
 
-  // --------------------------------------------------
   // Summary cards
-  // --------------------------------------------------
-
   const summaryCards = [
     {
       title: "Total Companies",
@@ -293,7 +275,7 @@ const Company = () => {
               </div>
 
               <div>
-                <p className="text-sm text-gray-400 font-medium">
+                <p className="text-sm text-gray-400 font-bold">
                   {card.title}
                 </p>
 
