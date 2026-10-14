@@ -119,15 +119,31 @@ const AddProject = () => {
                 Company
               </label>
 
-              <select
-                required
-                className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-700 outline-none transition focus:border-[#5B52C7] focus:bg-white focus:ring-2 focus:ring-[#5B52C7]/10"
-              >
-                <option value="">Select company</option>
-                <option>Tech Solutions</option>
-                <option>Digital Works</option>
-                <option>Creative Hub</option>
-              </select>
+              <div className="relative">
+                <select
+                  required
+                  className="w-full appearance-none rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 pr-10 text-sm text-gray-700 outline-none transition focus:border-[#5B52C7] focus:bg-white focus:ring-2 focus:ring-[#5B52C7]/10"
+                >
+                  <option value="">Select company</option>
+                  <option>Tech Solutions</option>
+                  <option>Digital Works</option>
+                  <option>Creative Hub</option>
+                </select>
+
+                <svg
+                  className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              </div>
             </div>
 
             <div className="sm:col-span-2">
