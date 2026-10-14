@@ -1,5 +1,7 @@
 import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "../../components/Navbar";
 import ProfileGroup from "../../components/ProfileGroup";
 
@@ -349,28 +351,42 @@ const Products = () => {
 
             {/* Filters */}
             <div className="flex flex-col sm:flex-row gap-3">
-              <select
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-                className="h-11 px-4 rounded-xl border border-gray-200 bg-white text-sm text-gray-600 outline-none focus:border-[#4D44B5]"
-              >
-                {categories.map((item) => (
-                  <option key={item} value={item}>
-                    {item}
-                  </option>
-                ))}
-              </select>
+              <div className="relative">
+                <select
+                  value={category}
+                  onChange={(e) => setCategory(e.target.value)}
+                  className="h-11 w-full sm:w-auto min-w-[175px] appearance-none pl-4 pr-9 rounded-xl border border-gray-200 bg-white text-sm text-gray-600 outline-none focus:border-[#4D44B5] cursor-pointer"
+                >
+                  {categories.map((item) => (
+                    <option key={item} value={item}>
+                      {item}
+                    </option>
+                  ))}
+                </select>
 
-              <select
-                value={stockFilter}
-                onChange={(e) => setStockFilter(e.target.value)}
-                className="h-11 px-4 rounded-xl border border-gray-200 bg-white text-sm text-gray-600 outline-none focus:border-[#4D44B5]"
-              >
-                <option>All Stock</option>
-                <option>In Stock</option>
-                <option>Low Stock</option>
-                <option>Out of Stock</option>
-              </select>
+                <FontAwesomeIcon
+                  icon={faChevronDown}
+                  className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-gray-500"
+                />
+              </div>
+
+              <div className="relative">
+                <select
+                  value={stockFilter}
+                  onChange={(e) => setStockFilter(e.target.value)}
+                  className="h-11 w-full sm:w-auto min-w-[150px] appearance-none pl-4 pr-9 rounded-xl border border-gray-200 bg-white text-sm text-gray-600 outline-none focus:border-[#4D44B5] cursor-pointer"
+                >
+                  <option>All Stock</option>
+                  <option>In Stock</option>
+                  <option>Low Stock</option>
+                  <option>Out of Stock</option>
+                </select>
+
+                <FontAwesomeIcon
+                  icon={faChevronDown}
+                  className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-gray-500"
+                />
+              </div>
             </div>
           </div>
         </div>
