@@ -1,7 +1,10 @@
 import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronDown,
+  faMagnifyingGlass,
+} from "@fortawesome/free-solid-svg-icons";
 import Navbar from "../../components/Navbar";
 import ProfileGroup from "../../components/ProfileGroup";
 
@@ -336,9 +339,10 @@ const Products = () => {
           <div className="flex flex-col xl:flex-row xl:items-center gap-4">
             {/* Search */}
             <div className="relative flex-1">
-              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
-                ⌕
-              </span>
+              <FontAwesomeIcon
+                icon={faMagnifyingGlass}
+                className="absolute left-4 top-1/2 -translate-y-1/2 text-base text-gray-400"
+              />
 
               <input
                 type="text"
