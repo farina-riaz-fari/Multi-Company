@@ -481,6 +481,7 @@ const UserForm = () => {
                     value={formData.email}
                     onChange={handleChange}
                     type="email"
+                    placeholder="Enter email"
                     error={errors.email}
                   />
 
@@ -489,6 +490,7 @@ const UserForm = () => {
                     name="phoneNumber"
                     value={formData.phoneNumber}
                     onChange={handleChange}
+                    placeholder="Enter phone number"
                   />
 
                   <Input
