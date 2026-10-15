@@ -462,6 +462,7 @@ const UserForm = () => {
                     name="firstName"
                     value={formData.firstName}
                     onChange={handleChange}
+                    placeholder="Enter first name"
                     error={errors.firstName}
                   />
 
@@ -470,6 +471,7 @@ const UserForm = () => {
                     name="lastName"
                     value={formData.lastName}
                     onChange={handleChange}
+                    placeholder="Enter last name"
                     error={errors.lastName}
                   />
 
