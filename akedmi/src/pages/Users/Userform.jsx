@@ -515,6 +515,7 @@ const UserForm = () => {
                     value={formData.gender}
                     onChange={handleChange}
                     options={["Male", "Female", "Other"]}
+                    placeholder="Select gender"
                     error={errors.gender}
                   />
                 </div>
