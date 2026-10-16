@@ -535,6 +535,7 @@ const UserForm = () => {
                     value={formData.companyId}
                     onChange={handleChange}
                     options={companies.map((c) => c.companyName)}
+                    placeholder="Select company"
                     error={errors.companyId}
                   />
 
@@ -544,6 +545,7 @@ const UserForm = () => {
                     value={formData.role}
                     onChange={handleChange}
                     options={["Owner", "Partner", "Employee"]}
+                    placeholder="Select role"
                     error={errors.role}
                   />
 
