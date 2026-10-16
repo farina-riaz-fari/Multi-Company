@@ -614,6 +614,7 @@ const UserForm = () => {
                     value={formData.confirmPassword || ""}
                     onChange={handleChange}
                     type="password"
+                    placeholder="Re-enter password"
                     error={errors.confirmPassword}
                   />
 
