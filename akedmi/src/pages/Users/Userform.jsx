@@ -257,40 +257,6 @@ const UserForm = () => {
           <ProfileGroup gap="gap-10" />
         </div>
 
-        {/* PAGE INTRO */}
-        <div className="mb-6">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
-            <div>
-              <p className="text-xs uppercase tracking-[0.14em] text-[#8E91A7] font-semibold">
-                User Management
-              </p>
-
-              <h1 className="text-[#303972] text-2xl sm:text-3xl font-bold mt-1">
-                {editingUser
-                  ? "Update User Account"
-                  : "Create User Account"}
-              </h1>
-
-              <p className="text-[#9295AA] text-sm mt-1">
-                Manage profile information, company access, and
-                account security.
-              </p>
-            </div>
-
-            <span
-              className={`w-fit px-3 py-1.5 rounded-full text-xs font-semibold ${
-                formData.status === "Inactive"
-                  ? "bg-gray-100 text-gray-600"
-                  : formData.status === "Suspended"
-                  ? "bg-red-50 text-red-600"
-                  : "bg-green-50 text-green-600"
-              }`}
-            >
-              ● {formData.status || "Active"}
-            </span>
-          </div>
-        </div>
-
         <form onSubmit={handleSubmit}>
           {/* MAIN CONTENT GRID */}
           <div className="grid grid-cols-1 xl:grid-cols-[300px_minmax(0,1fr)] gap-6">
@@ -354,7 +320,28 @@ const UserForm = () => {
                   </p>
                 </div>
 
-                <div className="mt-6 pt-5 border-t border-[#EEEEF4] space-y-4">
+                {/* ACCOUNT STATUS */}
+                <div className="mt-5 flex items-center justify-between gap-3">
+                  <span className="text-sm font-semibold text-[#555A75]">
+                    Account Status
+                  </span>
+
+                  <span
+                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold ${
+                      formData.status === "Inactive"
+                        ? "bg-gray-100 text-gray-600"
+                        : formData.status === "Suspended"
+                        ? "bg-red-50 text-red-600"
+                        : "bg-green-50 text-green-600"
+                    }`}
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-current" />
+                    {formData.status || "Active"}
+                  </span>
+                </div>
+
+                <div className="mt-5 pt-5 border-t border-[#EEEEF4] space-y-4">
+                  {/* ROLE */}
                   <div>
                     <p className="text-[11px] uppercase tracking-wide text-[#A0A2B2]">
                       Role
@@ -365,6 +352,7 @@ const UserForm = () => {
                     </p>
                   </div>
 
+                  {/* COMPANY */}
                   <div>
                     <p className="text-[11px] uppercase tracking-wide text-[#A0A2B2]">
                       Company
@@ -375,6 +363,7 @@ const UserForm = () => {
                     </p>
                   </div>
 
+                  {/* JOINED */}
                   <div>
                     <p className="text-[11px] uppercase tracking-wide text-[#A0A2B2]">
                       Joined
@@ -424,9 +413,7 @@ const UserForm = () => {
                     </span>
 
                     <span className="text-xs font-semibold">
-                      {formData.isVerified
-                        ? "Enabled"
-                        : "Disabled"}
+                      {formData.isVerified ? "Enabled" : "Disabled"}
                     </span>
                   </div>
 
@@ -574,8 +561,7 @@ const UserForm = () => {
                     onChange={(e) =>
                       setFormData((prev) => ({
                         ...prev,
-                        isVerified:
-                          e.target.value === "Yes",
+                        isVerified: e.target.value === "Yes",
                       }))
                     }
                     options={["Yes", "No"]}
@@ -621,16 +607,11 @@ const UserForm = () => {
                   <Select
                     label="Two-Factor Authentication *"
                     name="twoFactorEnabled"
-                    value={
-                      formData.twoFactorEnabled
-                        ? "Yes"
-                        : "No"
-                    }
+                    value={formData.twoFactorEnabled ? "Yes" : "No"}
                     onChange={(e) =>
                       setFormData((prev) => ({
                         ...prev,
-                        twoFactorEnabled:
-                          e.target.value === "Yes",
+                        twoFactorEnabled: e.target.value === "Yes",
                       }))
                     }
                     options={["Yes", "No"]}
@@ -655,9 +636,7 @@ const UserForm = () => {
                   label="Created At"
                   value={
                     formData.createdAt
-                      ? new Date(
-                          formData.createdAt
-                        ).toLocaleString()
+                      ? new Date(formData.createdAt).toLocaleString()
                       : "—"
                   }
                 />
@@ -667,9 +646,7 @@ const UserForm = () => {
                     label="Updated At"
                     value={
                       formData.updatedAt
-                        ? new Date(
-                            formData.updatedAt
-                          ).toLocaleString()
+                        ? new Date(formData.updatedAt).toLocaleString()
                         : "Not updated yet"
                     }
                   />
@@ -711,9 +688,7 @@ const UserForm = () => {
                   </p>
 
                   <p className="text-sm font-semibold text-[#4D44B5] mt-2">
-                    {formData.isVerified
-                      ? "Verified"
-                      : "Not Verified"}
+                    {formData.isVerified ? "Verified" : "Not Verified"}
                   </p>
                 </div>
 
@@ -724,9 +699,7 @@ const UserForm = () => {
                   </p>
 
                   <p className="text-sm font-semibold text-[#4D44B5] mt-2">
-                    {formData.twoFactorEnabled
-                      ? "Enabled"
-                      : "Disabled"}
+                    {formData.twoFactorEnabled ? "Enabled" : "Disabled"}
                   </p>
                 </div>
               </div>
@@ -750,11 +723,7 @@ const UserForm = () => {
 
               <Button
                 type="submit"
-                text={
-                  editingUser
-                    ? "Update User"
-                    : "Create User"
-                }
+                text={editingUser ? "Update User" : "Create User"}
                 hasBackground={true}
                 bgColor="#4D44B5"
                 className="text-white px-7 sm:px-10 whitespace-nowrap min-w-[140px]"
