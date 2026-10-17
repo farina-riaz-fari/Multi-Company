@@ -216,15 +216,37 @@ const AddEmployee = () => {
         <form onSubmit={handleSubmit}>
           {/* Profile Header */}
           <div className="bg-white rounded-2xl border border-[#E8E8F2] shadow-sm overflow-hidden mb-6">
-            <div className="h-24 sm:h-28 bg-gradient-to-r from-[#4D44B5] via-[#6259C8] to-[#8179DD] relative">
+            {/* Gradient Banner */}
+            <div className="h-24 sm:h-28 bg-gradient-to-r from-[#4D44B5] via-[#6259C8] to-[#8179DD] relative overflow-hidden">
               <div className="absolute inset-0 opacity-20">
                 <div className="absolute -right-10 -top-20 w-64 h-64 rounded-full border-[40px] border-white/20" />
                 <div className="absolute right-32 top-5 w-28 h-28 rounded-full border-[20px] border-white/10" />
+                <div className="absolute right-1/3 -bottom-16 w-40 h-40 rounded-full border-[25px] border-white/10" />
+              </div>
+
+              <div className="relative h-full flex items-start justify-between gap-3 px-5 sm:px-8 pt-5">
+                <div>
+                  <p className="text-white/90 text-xs font-semibold tracking-[0.18em] uppercase">
+                    Employee Profile
+                  </p>
+
+                  <p className="text-white/70 text-xs mt-1">
+                    {employeeData
+                      ? "Manage employee information"
+                      : "Create a new employee record"}
+                  </p>
+                </div>
+
+                <span className="inline-flex items-center gap-2 rounded-full bg-white/15 border border-white/20 px-3 py-1.5 text-white text-xs font-medium backdrop-blur-sm whitespace-nowrap">
+                  <span className="w-1.5 h-1.5 rounded-full bg-white" />
+                  {employeeData ? "Edit Mode" : "New Record"}
+                </span>
               </div>
             </div>
 
-            <div className="px-5 sm:px-8 pb-7">
-              <div className="flex flex-col md:flex-row md:items-end gap-5 -mt-14 relative">
+            {/* Profile Content */}
+            <div className="px-5 sm:px-8 pb-6 sm:pb-7">
+              <div className="flex flex-col lg:flex-row lg:items-center gap-5 lg:gap-7 -mt-12 sm:-mt-14 relative">
                 {/* Avatar */}
                 <label className="group relative w-28 h-28 sm:w-32 sm:h-32 shrink-0 rounded-2xl border-4 border-white bg-[#F2F1FA] shadow-lg overflow-hidden cursor-pointer">
                   {formData.profileImage ? (
@@ -257,7 +279,9 @@ const AddEmployee = () => {
 
                   <div className="absolute inset-0 bg-black/45 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                     <span className="text-white text-xs font-semibold">
-                      {formData.profileImage ? "Change" : "Upload"}
+                      {formData.profileImage
+                        ? "Change Photo"
+                        : "Upload Photo"}
                     </span>
                   </div>
 
@@ -269,46 +293,135 @@ const AddEmployee = () => {
                   />
                 </label>
 
-                {/* Employee identity */}
-                <div className="flex-1 pb-1">
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
-                    <h1 className="text-[#303972] text-2xl sm:text-3xl font-bold">
+                {/* Employee Identity */}
+                <div className="flex-1 min-w-0 lg:py-3">
+                  <div className="flex flex-wrap items-center gap-2.5 mb-2">
+                    <h1 className="text-[#303972] text-2xl sm:text-3xl font-bold tracking-tight break-words">
                       {formData.first_name || formData.last_name
                         ? `${formData.first_name} ${formData.last_name}`.trim()
                         : "New Employee"}
                     </h1>
 
-                    <span className="w-fit px-3 py-1 rounded-full bg-[#EAF8EF] text-[#249653] text-xs font-semibold">
+                    <span
+                      className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold ${
+                        (formData.status || "Active") === "Active"
+                          ? "bg-[#EAF8EF] text-[#249653]"
+                          : (formData.status || "Active") === "On Leave"
+                          ? "bg-amber-50 text-amber-700"
+                          : "bg-[#F1F1F7] text-[#777B91]"
+                      }`}
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-current" />
                       {formData.status || "Active"}
                     </span>
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-2 text-sm text-[#8B8EA3]">
-                    <span>
-                      {formData.employee_code || "Employee Code"}
-                    </span>
+                  <p className="text-[#777B91] text-sm sm:text-base font-medium">
+                    {formData.job_title || "Job Title not assigned"}
+                  </p>
 
-                    <span className="hidden sm:block w-1 h-1 rounded-full bg-[#C8C9D4]" />
-
-                    <span>
-                      {formData.job_title || "Job Title"}
-                    </span>
-
-                    <span className="hidden sm:block w-1 h-1 rounded-full bg-[#C8C9D4]" />
-
-                    <span>
-                      {formData.company || "Company"}
-                    </span>
-                  </div>
+                  <p className="text-[#9A9CAF] text-sm mt-1">
+                    {employeeData
+                      ? "Employee information and employment details"
+                      : "Complete the sections below to add employee details"}
+                  </p>
                 </div>
 
-                {/* Edit mode indicator */}
-                <div className="hidden md:block pb-2">
-                  <span className="text-xs text-[#9A9CAF]">
-                    {employeeData
-                      ? "Editing existing record"
-                      : "Creating new record"}
-                  </span>
+                {/* Employee Details Panel */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3 gap-3 lg:gap-4 lg:min-w-[300px] xl:min-w-[390px] lg:border-l lg:border-[#E8E8F2] lg:pl-6 lg:py-2">
+                  {/* Employee Code */}
+                  <div className="flex items-center gap-3 rounded-xl bg-[#F8F8FC] border border-[#EEEEF6] px-3.5 py-3">
+                    <div className="w-10 h-10 shrink-0 rounded-xl bg-[#EEECFC] flex items-center justify-center text-[#4D44B5]">
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <rect
+                          x="4"
+                          y="4"
+                          width="16"
+                          height="16"
+                          rx="3"
+                          strokeWidth="1.7"
+                        />
+                        <path
+                          d="M8 9h8M8 12h5M8 15h3"
+                          strokeWidth="1.7"
+                          strokeLinecap="round"
+                        />
+                      </svg>
+                    </div>
+
+                    <div className="min-w-0">
+                      <p className="text-[11px] text-[#9295AA] font-medium mb-1">
+                        Employee Code
+                      </p>
+
+                      <p className="text-sm font-semibold text-[#303972] truncate">
+                        {formData.employee_code || "Not assigned"}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Company */}
+                  <div className="flex items-center gap-3 rounded-xl bg-[#F8F8FC] border border-[#EEEEF6] px-3.5 py-3">
+                    <div className="w-10 h-10 shrink-0 rounded-xl bg-[#E8F5FF] flex items-center justify-center text-[#3484C5]">
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M3.5 20h17M5.5 20V6.5L12 3l6.5 3.5V20M9 9h.01M15 9h.01M9 13h.01M15 13h.01M10 20v-4h4v4"
+                          strokeWidth="1.7"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </div>
+
+                    <div className="min-w-0">
+                      <p className="text-[11px] text-[#9295AA] font-medium mb-1">
+                        Company
+                      </p>
+
+                      <p className="text-sm font-semibold text-[#303972] truncate">
+                        {formData.company || "Not assigned"}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Employment Type */}
+                  <div className="flex items-center gap-3 rounded-xl bg-[#F8F8FC] border border-[#EEEEF6] px-3.5 py-3">
+                    <div className="w-10 h-10 shrink-0 rounded-xl bg-[#EAF8EF] flex items-center justify-center text-[#249653]">
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M8 7V5.5A1.5 1.5 0 019.5 4h5A1.5 1.5 0 0116 5.5V7M4 8h16v11H4zM4 12h16M10 12v2h4v-2"
+                          strokeWidth="1.7"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </div>
+
+                    <div className="min-w-0">
+                      <p className="text-[11px] text-[#9295AA] font-medium mb-1">
+                        Employment Type
+                      </p>
+
+                      <p className="text-sm font-semibold text-[#303972] truncate">
+                        {formData.employment_type || "Not assigned"}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
