@@ -296,7 +296,7 @@ const AddEmployee = () => {
                 {/* Employee Identity */}
                 <div className="flex-1 min-w-0 lg:py-3">
                   <div className="flex flex-wrap items-center gap-2.5 mb-2">
-                    <h1 className="text-[#303972] text-2xl sm:text-3xl font-bold tracking-tight break-words">
+                    <h1 className="text-[#FFFFFF] text-2xl sm:text-3xl font-bold tracking-tight break-words">
                       {formData.first_name || formData.last_name
                         ? `${formData.first_name} ${formData.last_name}`.trim()
                         : "New Employee"}
