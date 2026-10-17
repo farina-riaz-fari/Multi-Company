@@ -9,6 +9,8 @@ import {
   FiFileText,
   FiPlus,
 } from "react-icons/fi";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 const AddProject = () => {
   const navigate = useNavigate();
@@ -130,19 +132,10 @@ const AddProject = () => {
                   <option>Creative Hub</option>
                 </select>
 
-                <svg
-                  className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="m6 9 6 6 6-6" />
-                </svg>
+                <FontAwesomeIcon
+                  icon={faChevronDown}
+                  className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-gray-500"
+                />
               </div>
             </div>
 
@@ -228,19 +221,27 @@ const AddProject = () => {
               </div>
             </div>
 
+            {/* STATUS */}
             <div>
               <label className="mb-2 block text-sm font-semibold text-gray-700">
                 Status
               </label>
 
-              <select
-                defaultValue="Planning"
-                className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-700 outline-none transition focus:border-[#5B52C7] focus:bg-white focus:ring-2 focus:ring-[#5B52C7]/10"
-              >
-                <option>Planning</option>
-                <option>In Progress</option>
-                <option>Completed</option>
-              </select>
+              <div className="relative">
+                <select
+                  defaultValue="Planning"
+                  className="w-full appearance-none rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 pr-10 text-sm text-gray-700 outline-none transition focus:border-[#5B52C7] focus:bg-white focus:ring-2 focus:ring-[#5B52C7]/10"
+                >
+                  <option>Planning</option>
+                  <option>In Progress</option>
+                  <option>Completed</option>
+                </select>
+
+                <FontAwesomeIcon
+                  icon={faChevronDown}
+                  className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-gray-500"
+                />
+              </div>
             </div>
           </div>
         </section>
