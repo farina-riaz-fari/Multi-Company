@@ -484,9 +484,9 @@ const ProductCategory = () => {
               <div className="p-5 sm:p-6">
                 <div className="grid gap-3 sm:grid-cols-3">
                   <div className="rounded-xl bg-gray-50 p-4">
-                    <div className="flex items-center gap-2 text-[#4D44B5] font-medium">
+                    <div className="flex items-center gap-2 text-gray-500">
                       <FiPackage size={16} />
-                      <span className="text-xs font-medium">
+                      <span className="text-xs font-bold">
                         Products
                       </span>
                     </div>
@@ -497,9 +497,9 @@ const ProductCategory = () => {
                   </div>
 
                   <div className="rounded-xl bg-gray-50 p-4">
-                    <div className="flex items-center gap-2 text-gray-400">
+                    <div className="flex items-center gap-2 text-gray-500">
                       <FiFolder size={16} />
-                      <span className="text-xs font-medium">
+                      <span className="text-xs font-bold">
                         Parent Category
                       </span>
                     </div>
@@ -510,9 +510,9 @@ const ProductCategory = () => {
                   </div>
 
                   <div className="rounded-xl bg-gray-50 p-4">
-                    <div className="flex items-center gap-2 text-gray-400">
+                    <div className="flex items-center gap-2 text-gray-500">
                       <FiCheckCircle size={16} />
-                      <span className="text-xs font-medium">
+                      <span className="text-xs font-bold">
                         Created
                       </span>
                     </div>
