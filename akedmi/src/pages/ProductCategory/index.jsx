@@ -548,7 +548,7 @@ const ProductCategory = () => {
                     <button
                       type="button"
                       onClick={() => navigate("/add-category")}
-                      className="flex items-center gap-1.5 text-xs font-semibold text-[#5B52C7] hover:text-[#443B9A]"
+                      className="flex items-center gap-2 px-4 py-1 rounded-full border border-[#4D44B5] bg-[#4D44B5] text-white hover:bg-[#3F3799] hover:border-[#3F3799] transition-colors"
                     >
                       <FiPlus size={14} />
                       Add
