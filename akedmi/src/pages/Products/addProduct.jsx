@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const AddProduct = () => {
   const navigate = useNavigate();
@@ -54,8 +56,12 @@ const AddProduct = () => {
                   onClick={() => navigate("/products")}
                   className="inline-flex items-center gap-2 mb-4 text-sm font-medium text-white/70 hover:text-white transition-colors"
                 >
-                  <span className="text-lg leading-none">←</span>
-                  Back to Products
+                  <FontAwesomeIcon
+                    icon={faArrowLeft}
+                    className="text-xs shrink-0"
+                  />
+
+                  <span>Back to Products</span>
                 </button>
 
                 <div className="flex items-center gap-2 mb-2">
