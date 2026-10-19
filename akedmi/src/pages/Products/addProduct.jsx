@@ -330,7 +330,7 @@ const AddProduct = () => {
 const SectionHeader = ({ number, title, description }) => (
   <div className="px-6 md:px-8 lg:px-10 py-5 border-b border-gray-100">
     <div className="flex items-center gap-3">
-      <div className="w-10 h-10 rounded-xl bg-[#EEECFF] text-[#4D44B5] flex items-center justify-center font-bold text-sm">
+      <div className="w-10 h-10 rounded-xl bg-[#4D44B5] text-white flex items-center justify-center font-bold text-sm shadow-sm">
         {number}
       </div>
 
