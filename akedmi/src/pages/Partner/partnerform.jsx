@@ -11,6 +11,8 @@ import Button from "../../components/Button";
 import ProfileGroup from "../../components/ProfileGroup";
 import Navbar from "../../components/Navbar";
 import { CompanyContext } from "../../store/CompanyContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 const PartnerForm = () => {
   const navigate = useNavigate();
@@ -273,7 +275,8 @@ const PartnerForm = () => {
 
                 {formData.isVerified && (
                   <span className="text-xs px-3 py-1 rounded-full bg-emerald-400/20 text-emerald-100">
-                    ✓ Verified
+                    <FontAwesomeIcon icon={faCheck} className="mr-1" />
+                    Verified
                   </span>
                 )}
 
