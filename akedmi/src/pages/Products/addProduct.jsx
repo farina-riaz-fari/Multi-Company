@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowLeft,
+  faChevronDown,
+} from "@fortawesome/free-solid-svg-icons";
 
 const AddProduct = () => {
   const navigate = useNavigate();
@@ -406,7 +409,7 @@ const Select = ({
         value={value}
         onChange={onChange}
         required={required}
-        className="appearance-none w-full rounded-xl border border-[#D9D6F2] px-4 py-3 text-sm text-gray-700 bg-white outline-none focus:ring-2 focus:ring-[#6C63CE]/20 focus:border-[#6C63CE]"
+        className="appearance-none w-full rounded-xl border border-[#D9D6F2] px-4 py-3 pr-10 text-sm text-gray-700 bg-white outline-none transition-colors focus:ring-2 focus:ring-[#6C63CE]/20 focus:border-[#6C63CE] cursor-pointer"
       >
         {placeholder && (
           <option value="" disabled>
@@ -421,8 +424,11 @@ const Select = ({
         ))}
       </select>
 
-      <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">
-        ▾
+      <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 flex items-center justify-center">
+        <FontAwesomeIcon
+          icon={faChevronDown}
+          className="text-xs"
+        />
       </span>
     </div>
   </div>
