@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronDown,
   faMagnifyingGlass,
+  faCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "../../components/Navbar";
 import ProfileGroup from "../../components/ProfileGroup";
@@ -314,7 +315,7 @@ const Products = () => {
           title="In Stock"
           value={inStock}
           subtitle="Healthy inventory"
-          icon="✓"
+          icon={<FontAwesomeIcon icon={faCheck} />}
         />
 
         <StatCard
