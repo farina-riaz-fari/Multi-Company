@@ -5,6 +5,8 @@ import {
   faChevronDown,
   faMagnifyingGlass,
   faCheck,
+  faXmark,
+  faEllipsisVertical,
 } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "../../components/Navbar";
 import ProfileGroup from "../../components/ProfileGroup";
@@ -169,7 +171,6 @@ const Products = () => {
 
       {/* Hero */}
       <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#39318F] via-[#4D44B5] to-[#7067D8] shadow-lg mt-7">
-        {/* Decorative Shapes */}
         <div className="absolute -right-20 -top-28 w-80 h-80 rounded-full border border-white/10 bg-white/[0.04]" />
 
         <div className="absolute right-16 -bottom-28 w-64 h-64 rounded-full border border-white/10 bg-white/[0.03]" />
@@ -329,7 +330,7 @@ const Products = () => {
           title="Out of Stock"
           value={outOfStock}
           subtitle="Currently unavailable"
-          icon="×"
+          icon={<FontAwesomeIcon icon={faXmark} className="text-xs font-bold"/>}
         />
       </div>
 
@@ -463,7 +464,6 @@ const StatCard = ({ title, value, subtitle, icon }) => {
     <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
       <div className="flex items-start justify-between gap-4">
         <div>
-          {/* Updated: Card title is now bold */}
           <p className="text-sm font-bold text-gray-400">
             {title}
           </p>
@@ -574,7 +574,7 @@ const ProductRow = ({
           onClick={onMenu}
           className="w-9 h-9 rounded-lg hover:bg-gray-100 text-gray-400 hover:text-gray-600 transition"
         >
-          ⋮
+          <FontAwesomeIcon icon={faEllipsisVertical} className="text-xs font-bold"/>
         </button>
 
         {menuOpen && (
