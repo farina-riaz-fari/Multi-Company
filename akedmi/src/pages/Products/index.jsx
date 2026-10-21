@@ -8,6 +8,7 @@ import {
   faXmark,
   faEllipsisVertical,
   faExclamation,
+  faBuilding,
 } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "../../components/Navbar";
 import ProfileGroup from "../../components/ProfileGroup";
@@ -310,7 +311,7 @@ const Products = () => {
           title="Total Products"
           value={totalProducts}
           subtitle="Products in system"
-          icon="▦"
+          icon={<FontAwesomeIcon icon={faBuilding} className="text-xs font-bold"/>}
         />
 
         <StatCard
