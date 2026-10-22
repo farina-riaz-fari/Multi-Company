@@ -10,6 +10,7 @@ import {
   faExclamation,
   faBuilding,
   faTableCells,
+  faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "../../components/Navbar";
 import ProfileGroup from "../../components/ProfileGroup";
@@ -206,8 +207,8 @@ const Products = () => {
                 onClick={() => navigate("/add-product")}
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-[#4D44B5] font-semibold text-sm shadow-md hover:bg-gray-50 hover:-translate-y-0.5 transition-all duration-200"
               >
-                <span className="text-lg leading-none">+</span>
-                Add Product
+                <FontAwesomeIcon icon={faPlus} className="text-xs" />
+                  Add Product
               </button>
 
               <div className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 border border-white/10">
