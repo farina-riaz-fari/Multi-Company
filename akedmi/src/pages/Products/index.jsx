@@ -9,6 +9,7 @@ import {
   faEllipsisVertical,
   faExclamation,
   faBuilding,
+  faTableCells,
 } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "../../components/Navbar";
 import ProfileGroup from "../../components/ProfileGroup";
@@ -235,8 +236,8 @@ const Products = () => {
                   </p>
                 </div>
 
-                <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-white text-lg">
-                  ▦
+                <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-white text-sm">
+                  <FontAwesomeIcon icon={faTableCells} />
                 </div>
               </div>
 
