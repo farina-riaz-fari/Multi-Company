@@ -430,7 +430,7 @@ const Products = () => {
           ) : (
             <div className="py-16 text-center">
               <div className="text-3xl text-gray-300 mb-3">
-                ▦
+                <FontAwesomeIcon icon={faTableCells} />
               </div>
 
               <h3 className="font-semibold text-gray-600">
