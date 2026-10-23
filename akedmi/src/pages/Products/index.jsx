@@ -11,6 +11,7 @@ import {
   faBuilding,
   faTableCells,
   faPlus,
+  faCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "../../components/Navbar";
 import ProfileGroup from "../../components/ProfileGroup";
@@ -185,7 +186,10 @@ const Products = () => {
           {/* Left Content */}
           <div className="text-white max-w-2xl">
             <div className="flex items-center gap-2 mb-3">
-              <span className="w-2 h-2 rounded-full bg-white" />
+              <FontAwesomeIcon
+                icon={faCircle}
+                className="text-[8px] text-white"
+              />
 
               <span className="text-xs font-semibold uppercase tracking-[0.18em] text-white/70">
                 Inventory Management
