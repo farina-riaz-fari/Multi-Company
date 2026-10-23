@@ -222,7 +222,7 @@ const Employee = () => {
       }`.trim();
 
     return (
-      <div className="group bg-red-500 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden">
+      <div className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden">
         {/* Top accent */}
         <div className="h-1 bg-gradient-to-r from-[#4D44B5] via-[#746BDA] to-[#9B95EA] opacity-70 group-hover:opacity-100 transition-opacity" />
 
