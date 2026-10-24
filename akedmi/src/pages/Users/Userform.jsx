@@ -11,6 +11,8 @@ import {
   Select,
 } from "../Partner/CommonComponent/PartnerComponent";
 import UserContext from "../../store/UserContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-regular-svg-icons";
 
 const UserForm = () => {
   const navigate = useNavigate();
@@ -274,17 +276,7 @@ const UserForm = () => {
                       />
                     ) : (
                       <div className="w-full h-full flex flex-col items-center justify-center text-[#4D44B5]">
-                        <svg
-                          className="w-11 h-11"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeWidth="1.5"
-                            d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.5 20.25a8.25 8.25 0 0115 0"
-                          />
-                        </svg>
+                        <FontAwesomeIcon icon={faUser} className="w-11 h-11" />
                       </div>
                     )}
 
