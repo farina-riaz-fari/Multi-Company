@@ -13,6 +13,7 @@ import {
 import UserContext from "../../store/UserContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
+import { faShieldHalved } from "@fortawesome/free-solid-svg-icons";
 
 const UserForm = () => {
   const navigate = useNavigate();
@@ -382,19 +383,7 @@ const UserForm = () => {
                   </div>
 
                   <div className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center">
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeWidth="1.7"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7l7-4z"
-                      />
-                    </svg>
+                   <FontAwesomeIcon icon={faShieldHalved} className="w-5 h-5" />
                   </div>
                 </div>
 
