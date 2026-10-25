@@ -17,6 +17,8 @@ import {
   FaBoxOpen,
   FaBuilding,
 } from "react-icons/fa";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 import { AuthContext } from "../../store/signupAndLoginContext";
 import Navbar from "../../components/Navbar";
@@ -383,19 +385,10 @@ const Settings = () => {
                       </select>
 
                       <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-gray-400">
-                        <svg
-                          className="h-4 w-4"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M19 9l-7 7-7-7"
-                          />
-                        </svg>
+                        <FontAwesomeIcon
+                          icon={faChevronDown}
+                          className="h-3 w-3"
+                        />
                       </div>
                     </div>
                   </div>
