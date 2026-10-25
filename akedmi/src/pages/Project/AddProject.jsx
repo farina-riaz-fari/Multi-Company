@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  FiArrowLeft,
   FiFolder,
   FiInfo,
   FiCalendar,
@@ -10,7 +9,7 @@ import {
   FiPlus,
 } from "react-icons/fi";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const AddProject = () => {
   const navigate = useNavigate();
@@ -37,7 +36,7 @@ const AddProject = () => {
               onClick={() => navigate("/project")}
               className="mb-6 flex items-center gap-2 text-sm font-medium text-indigo-100 transition hover:text-white"
             >
-              <FiArrowLeft size={17} />
+              <FontAwesomeIcon icon={faArrowLeft} />
               Back to Projects
             </button>
 
