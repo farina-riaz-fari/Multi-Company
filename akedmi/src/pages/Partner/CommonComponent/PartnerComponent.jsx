@@ -57,9 +57,7 @@ export const Select = ({
         ))}
       </select>
       <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-400">
-        <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-400">
           <FontAwesomeIcon icon={faChevronDown} className="text-xs" />
-        </div>
       </div>
     </div>
     {error && <p className="text-sm text-red-500 font-medium mt-1">{error}</p>}
