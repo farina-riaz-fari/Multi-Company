@@ -9,6 +9,8 @@ import { DateTimeInput } from "../../components/DateAndTimeDropdown";
 import Button from "../../components/Button";
 import { CompanyContext } from "../../store/CompanyContext";
 import { useNavigate, useLocation } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-regular-svg-icons";
 
 const AddEmployee = () => {
   const navigate = useNavigate();
@@ -257,19 +259,10 @@ const AddEmployee = () => {
                     />
                   ) : (
                     <div className="w-full h-full flex flex-col items-center justify-center text-[#4D44B5]">
-                      <svg
+                      <FontAwesomeIcon
+                        icon={faUser}
                         className="w-10 h-10 mb-1"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="1.5"
-                          d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.5 20.25a8.25 8.25 0 0115 0"
-                        />
-                      </svg>
+                      />
 
                       <span className="text-xs font-medium">
                         Add Photo
