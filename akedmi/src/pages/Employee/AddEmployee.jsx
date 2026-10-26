@@ -10,7 +10,7 @@ import Button from "../../components/Button";
 import { CompanyContext } from "../../store/CompanyContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-regular-svg-icons";
+import { faAddressCard, faUser } from "@fortawesome/free-regular-svg-icons";
 
 const AddEmployee = () => {
   const navigate = useNavigate();
@@ -325,26 +325,10 @@ const AddEmployee = () => {
                   {/* Employee Code */}
                   <div className="flex items-center gap-3 rounded-xl bg-[#F8F8FC] border border-[#EEEEF6] px-3.5 py-3">
                     <div className="w-10 h-10 shrink-0 rounded-xl bg-[#EEECFC] flex items-center justify-center text-[#4D44B5]">
-                      <svg
+                      <FontAwesomeIcon
+                        icon={faAddressCard}
                         className="w-5 h-5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <rect
-                          x="4"
-                          y="4"
-                          width="16"
-                          height="16"
-                          rx="3"
-                          strokeWidth="1.7"
-                        />
-                        <path
-                          d="M8 9h8M8 12h5M8 15h3"
-                          strokeWidth="1.7"
-                          strokeLinecap="round"
-                        />
-                      </svg>
+                      />
                     </div>
 
                     <div className="min-w-0">
