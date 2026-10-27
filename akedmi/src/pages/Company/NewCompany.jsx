@@ -12,6 +12,8 @@ import Button from "../../components/Button";
 import UserContext from "../../store/UserContext";
 import { PartnerContext } from "../../store/PartnerContext";
 import { EmployeeContext } from "../../store/EmployeeContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBuilding } from "@fortawesome/free-solid-svg-icons";
 
 const NewCompany = () => {
   const navigate = useNavigate();
@@ -279,7 +281,7 @@ const NewCompany = () => {
             </div>
 
             <div className="hidden h-24 w-24 items-center justify-center rounded-2xl bg-white/10 text-5xl lg:flex">
-              🏢
+              <FontAwesomeIcon icon={faBuilding} />
             </div>
           </div>
         </div>
