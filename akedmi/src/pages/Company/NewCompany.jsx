@@ -13,7 +13,7 @@ import UserContext from "../../store/UserContext";
 import { PartnerContext } from "../../store/PartnerContext";
 import { EmployeeContext } from "../../store/EmployeeContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBuilding } from "@fortawesome/free-solid-svg-icons";
+import { faBuilding, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
 const NewCompany = () => {
   const navigate = useNavigate();
@@ -182,7 +182,7 @@ const NewCompany = () => {
       number: "02",
       title: "Contact Information",
       description: "Add the company's communication and location details.",
-      icon: "📍",
+      icon: faLocationDot,
     },
     {
       id: "financial",
@@ -217,11 +217,11 @@ const NewCompany = () => {
   const renderSectionHeader = (section) => (
     <div className="flex items-start gap-4 border-b border-slate-100 px-5 py-5 sm:px-7">
       <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#4D44B5]/10 text-xl text-[#4D44B5]">
-        {section.id === "basic" ? (
-          <FontAwesomeIcon icon={section.icon} />
-        ) : (
-          section.icon
-        )}
+      {typeof section.icon === "string" ? (
+        section.icon
+      ) : (
+        <FontAwesomeIcon icon={section.icon} />
+      )}
       </div>
 
       <div className="min-w-0 flex-1">
