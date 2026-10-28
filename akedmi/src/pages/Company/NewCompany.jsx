@@ -175,7 +175,7 @@ const NewCompany = () => {
       number: "01",
       title: "Company Information",
       description: "Enter the basic details of your company.",
-      icon: "🏢",
+      icon: faBuilding,
     },
     {
       id: "contact",
@@ -216,8 +216,12 @@ const NewCompany = () => {
 
   const renderSectionHeader = (section) => (
     <div className="flex items-start gap-4 border-b border-slate-100 px-5 py-5 sm:px-7">
-      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#4D44B5]/10 text-xl">
-        {section.icon}
+      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#4D44B5]/10 text-xl text-[#4D44B5]">
+        {section.id === "basic" ? (
+          <FontAwesomeIcon icon={section.icon} />
+        ) : (
+          section.icon
+        )}
       </div>
 
       <div className="min-w-0 flex-1">
