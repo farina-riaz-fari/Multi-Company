@@ -13,7 +13,7 @@ import UserContext from "../../store/UserContext";
 import { PartnerContext } from "../../store/PartnerContext";
 import { EmployeeContext } from "../../store/EmployeeContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBuilding, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { faBuilding, faCreditCard, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
 const NewCompany = () => {
   const navigate = useNavigate();
@@ -189,7 +189,7 @@ const NewCompany = () => {
       number: "03",
       title: "Financial Information",
       description: "Configure financial identification and currency settings.",
-      icon: "💳",
+      icon: faCreditCard,
     },
     {
       id: "operations",
