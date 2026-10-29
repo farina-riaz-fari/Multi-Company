@@ -13,7 +13,7 @@ import UserContext from "../../store/UserContext";
 import { PartnerContext } from "../../store/PartnerContext";
 import { EmployeeContext } from "../../store/EmployeeContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBuilding, faCreditCard, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { faBuilding, faCreditCard, faGear, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
 const NewCompany = () => {
   const navigate = useNavigate();
@@ -196,7 +196,7 @@ const NewCompany = () => {
       number: "04",
       title: "Operational Details",
       description: "Define company status, registration, and hierarchy.",
-      icon: "⚙️",
+      icon: faGear,
     },
     {
       id: "ownership",
