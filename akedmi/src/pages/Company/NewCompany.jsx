@@ -13,7 +13,7 @@ import UserContext from "../../store/UserContext";
 import { PartnerContext } from "../../store/PartnerContext";
 import { EmployeeContext } from "../../store/EmployeeContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBuilding, faCreditCard, faGear, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { faBuilding, faCreditCard, faGear, faLocationDot, faShieldHalved } from "@fortawesome/free-solid-svg-icons";
 
 const NewCompany = () => {
   const navigate = useNavigate();
@@ -203,7 +203,7 @@ const NewCompany = () => {
       number: "05",
       title: "Ownership & Compliance",
       description: "Set ownership and verification information.",
-      icon: "🛡️",
+      icon: faShieldHalved,
     },
     {
       id: "timestamps",
