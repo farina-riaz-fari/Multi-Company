@@ -13,7 +13,7 @@ import UserContext from "../../store/UserContext";
 import { PartnerContext } from "../../store/PartnerContext";
 import { EmployeeContext } from "../../store/EmployeeContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBuilding, faCreditCard, faGear, faLocationDot, faShieldHalved } from "@fortawesome/free-solid-svg-icons";
+import { faBuilding, faClock, faCreditCard, faGear, faLocationDot, faShieldHalved } from "@fortawesome/free-solid-svg-icons";
 
 const NewCompany = () => {
   const navigate = useNavigate();
@@ -210,7 +210,7 @@ const NewCompany = () => {
       number: "06",
       title: "Record Information",
       description: "Review system-generated record timestamps.",
-      icon: "🕒",
+      icon: faClock,
     },
   ];
 
