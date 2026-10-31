@@ -15,7 +15,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import ProfileGroup from "../../components/ProfileGroup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBookOpen, faDollarSign } from "@fortawesome/free-solid-svg-icons";
+import { faBookOpen, faDollarSign, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
 
 const accountsData = [
   {
@@ -265,7 +265,7 @@ const ChartOfAccount = () => {
             />
 
             <StatCard
-              icon={<FiLayers />}
+              icon={<FontAwesomeIcon icon={faLayerGroup} />}
               label="Liabilities"
               value={totalLiabilities}
               description="Current liability accounts"
