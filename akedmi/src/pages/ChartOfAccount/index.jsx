@@ -1,21 +1,16 @@
 import { useMemo, useState } from "react";
 import {
-  FiPlus,
   FiSearch,
   FiFilter,
   FiMoreVertical,
   FiEdit2,
   FiTrash2,
-  FiBookOpen,
-  FiDollarSign,
-  FiLayers,
-  FiCheckCircle,
 } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import ProfileGroup from "../../components/ProfileGroup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBookOpen, faCircleCheck, faDollarSign, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
+import { faBookOpen, faCircleCheck, faDollarSign, faLayerGroup, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const accountsData = [
   {
@@ -240,7 +235,7 @@ const ChartOfAccount = () => {
                     onClick={() => navigate("/add-account")}
                     className="flex items-center gap-2 rounded-xl bg-white px-5 py-2.5 text-sm font-semibold text-[#5B52C7] shadow-sm transition hover:bg-purple-50"
                   >
-                    <FiPlus size={17} />
+                    <FontAwesomeIcon icon={faPlus} />
                     Add Account
                   </button>
                 </div>
