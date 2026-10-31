@@ -15,7 +15,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import ProfileGroup from "../../components/ProfileGroup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBookOpen, faDollarSign, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
+import { faBookOpen, faCircleCheck, faDollarSign, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
 
 const accountsData = [
   {
@@ -272,7 +272,7 @@ const ChartOfAccount = () => {
             />
 
             <StatCard
-              icon={<FiCheckCircle />}
+              icon={<FontAwesomeIcon icon={faCircleCheck} />}
               label="Active Accounts"
               value={activeAccounts}
               description="Currently in use"
