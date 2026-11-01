@@ -420,7 +420,7 @@ const ChartOfAccount = () => {
             {filteredAccounts.length === 0 && (
               <div className="px-6 py-16 text-center">
                 <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-gray-100 text-gray-400">
-                  <FiSearch size={22} />
+                  <FontAwesomeIcon icon={faMagnifyingGlass} />
                 </div>
 
                 <h3 className="mt-4 font-semibold text-gray-900">
