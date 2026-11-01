@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import ProfileGroup from "../../components/ProfileGroup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBookOpen, faCircleCheck, faDollarSign, faLayerGroup, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faBookOpen, faCircleCheck, faDollarSign, faLayerGroup, faMagnifyingGlass, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const accountsData = [
   {
@@ -338,9 +338,9 @@ const ChartOfAccount = () => {
               {/* Search + Filter */}
               <div className="flex flex-col gap-3 sm:flex-row">
                 <div className="relative">
-                  <FiSearch
+                  <FontAwesomeIcon
+                    icon={faMagnifyingGlass}
                     className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400"
-                    size={17}
                   />
 
                   <input
