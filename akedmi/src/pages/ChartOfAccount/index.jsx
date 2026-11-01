@@ -1,7 +1,5 @@
 import { useMemo, useState } from "react";
 import {
-  FiSearch,
-  FiFilter,
   FiMoreVertical,
   FiEdit2,
   FiTrash2,
@@ -10,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import ProfileGroup from "../../components/ProfileGroup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBookOpen, faCircleCheck, faDollarSign, faLayerGroup, faMagnifyingGlass, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faBookOpen, faCircleCheck, faDollarSign, faFilter, faLayerGroup, faMagnifyingGlass, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const accountsData = [
   {
@@ -353,9 +351,9 @@ const ChartOfAccount = () => {
                 </div>
 
                 <div className="relative">
-                  <FiFilter
+                  <FontAwesomeIcon
+                    icon={faFilter}
                     className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400"
-                    size={16}
                   />
 
                   <select
