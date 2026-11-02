@@ -1,13 +1,9 @@
 import { useMemo, useState } from "react";
-import {
-  FiMoreVertical,
-  FiTrash2,
-} from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import ProfileGroup from "../../components/ProfileGroup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBookOpen, faCircleCheck, faDollarSign, faFilter, faLayerGroup, faMagnifyingGlass, faPenToSquare, faPlus, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { faBookOpen, faCircleCheck, faDollarSign, faEllipsisVertical, faFilter, faLayerGroup, faMagnifyingGlass, faPenToSquare, faPlus, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 const accountsData = [
   {
@@ -567,7 +563,7 @@ const AccountRow = ({ account }) => {
             aria-label={`More actions for ${account.name}`}
             className="flex h-9 w-9 items-center justify-center rounded-lg text-[#4D44B5] transition hover:bg-gray-100 hover:text-gray-700"
           >
-            <FiMoreVertical size={17} />
+            <FontAwesomeIcon icon={faEllipsisVertical} />
           </button>
         </div>
       </td>
