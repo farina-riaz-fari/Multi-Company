@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import ProfileGroup from "../../components/ProfileGroup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBookOpen, faCircleCheck, faDollarSign, faFilter, faLayerGroup, faMagnifyingGlass, faPenToSquare, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faBookOpen, faCircleCheck, faDollarSign, faFilter, faLayerGroup, faMagnifyingGlass, faPenToSquare, faPlus, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 const accountsData = [
   {
@@ -559,7 +559,7 @@ const AccountRow = ({ account }) => {
             aria-label={`Delete ${account.name}`}
             className="flex h-9 w-9 items-center justify-center rounded-lg text-gray-400 transition hover:bg-red-50 hover:text-red-500"
           >
-            <FiTrash2 size={15} />
+            <FontAwesomeIcon icon={faTrashCan} />
           </button>
 
           <button
