@@ -1,14 +1,13 @@
 import { useMemo, useState } from "react";
 import {
   FiMoreVertical,
-  FiEdit2,
   FiTrash2,
 } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import ProfileGroup from "../../components/ProfileGroup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBookOpen, faCircleCheck, faDollarSign, faFilter, faLayerGroup, faMagnifyingGlass, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faBookOpen, faCircleCheck, faDollarSign, faFilter, faLayerGroup, faMagnifyingGlass, faPenToSquare, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const accountsData = [
   {
@@ -552,7 +551,7 @@ const AccountRow = ({ account }) => {
             aria-label={`Edit ${account.name}`}
             className="flex h-9 w-9 items-center justify-center rounded-lg text-gray-400 transition hover:bg-purple-50 hover:text-[#5B52C7]"
           >
-            <FiEdit2 size={15} />
+            <FontAwesomeIcon icon={faPenToSquare} />
           </button>
 
           <button
