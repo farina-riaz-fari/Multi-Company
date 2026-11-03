@@ -6,7 +6,7 @@ import {
   FiChevronDown,
 } from "react-icons/fi";
 import Navbar from "../../components/Navbar";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faBookOpen } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const AddAccount = () => {
@@ -63,7 +63,7 @@ const AddAccount = () => {
 
               <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white/15 text-white backdrop-blur-sm">
-                  <FiBookOpen size={26} />
+                  <FontAwesomeIcon icon={faBookOpen} />
                 </div>
 
                 <div>
