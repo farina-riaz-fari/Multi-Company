@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  FiArrowLeft,
   FiBookOpen,
   FiCheck,
   FiChevronDown,
 } from "react-icons/fi";
 import Navbar from "../../components/Navbar";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const AddAccount = () => {
   const navigate = useNavigate();
@@ -56,7 +57,7 @@ const AddAccount = () => {
                 onClick={() => navigate("/chart")}
                 className="mb-6 flex items-center gap-2 text-sm font-medium text-purple-100 transition hover:text-white"
               >
-                <FiArrowLeft size={17} />
+                <FontAwesomeIcon icon={faArrowLeft} />
                 Back to Chart of Accounts
               </button>
 
