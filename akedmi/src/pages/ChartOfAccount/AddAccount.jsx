@@ -6,7 +6,7 @@ import {
   FiChevronDown,
 } from "react-icons/fi";
 import Navbar from "../../components/Navbar";
-import { faArrowLeft, faBookOpen } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faBookOpen, faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const AddAccount = () => {
@@ -258,7 +258,7 @@ const AddAccount = () => {
                 type="submit"
                 className="flex items-center justify-center gap-2 rounded-xl bg-[#5B52C7] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#4d45b0]"
               >
-                <FiCheck size={17} />
+                <FontAwesomeIcon icon={faCheck} />
                 Add Account
               </button>
             </div>
