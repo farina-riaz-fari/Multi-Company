@@ -1,7 +1,6 @@
-import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { IoCaretForwardOutline } from "react-icons/io5";
+import { IoCaretBackOutline } from "react-icons/io5";
 
 const TableWithPagination = ({
   columns,
@@ -73,7 +72,7 @@ const TableWithPagination = ({
           disabled={currentPage === 1}
           className="mx-2 disabled:opacity-40"
         >
-          <FontAwesomeIcon icon={faChevronLeft} />
+          <IoCaretBackOutline />
         </button>
 
         <div className="flex items-center space-x-2">
