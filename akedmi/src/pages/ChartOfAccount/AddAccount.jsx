@@ -6,7 +6,7 @@ import {
   FiChevronDown,
 } from "react-icons/fi";
 import Navbar from "../../components/Navbar";
-import { faArrowLeft, faBookOpen, faCheck } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faBookOpen, faCheck, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const AddAccount = () => {
@@ -332,9 +332,9 @@ const SelectField = ({
         ))}
       </select>
 
-      <FiChevronDown
-        className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"
-        size={17}
+      <FontAwesomeIcon
+        icon={faChevronDown}
+        className="pointer-events-none text-xs absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"
       />
     </div>
   </div>
