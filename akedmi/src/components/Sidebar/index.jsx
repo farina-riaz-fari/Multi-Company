@@ -10,14 +10,14 @@ import {
   FaBars,
   FaTimes,
 } from "react-icons/fa";
-import { IoMdHeart } from "react-icons/io";
-import { FiHome } from "react-icons/fi";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import { FaGear, FaUserGroup } from "react-icons/fa6";
 import { BiSolidCategoryAlt } from "react-icons/bi";
 import { AiFillProduct } from "react-icons/ai";
 
 const sidebarItems = [
-  { id: 1, icon: <FiHome />, label: "Dashboard", path: "/" },
+  { id: 1, icon: <FontAwesomeIcon icon={faHouse} />, label: "Dashboard", path: "/" },
   { id: 2, icon: <FaBuilding />, label: "Company", path: "/company" },
   { id: 3, icon: <FaUser />, label: "Users", path: "/users" },
   { id: 4, icon: <FaTasks />, label: "Project", path: "/project" },
