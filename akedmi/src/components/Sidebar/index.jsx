@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import {
-  FaHandsHelping,
   FaChartBar,
   FaMoneyBillAlt,
   FaBars,
   FaTimes,
 } from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse, faBuilding, faUser, faListCheck, faUserGroup } from "@fortawesome/free-solid-svg-icons";
+import { faHouse, faBuilding, faUser, faListCheck, faUserGroup, faHandshakeAngle } from "@fortawesome/free-solid-svg-icons";
 import { FaGear } from "react-icons/fa6";
 import { BiSolidCategoryAlt } from "react-icons/bi";
 import { AiFillProduct } from "react-icons/ai";
@@ -19,7 +18,7 @@ const sidebarItems = [
   { id: 3, icon: <FontAwesomeIcon icon={faUser} />, label: "Users", path: "/users" },
   { id: 4, icon: <FontAwesomeIcon icon={faListCheck} />, label: "Project", path: "/project" },
   { id: 5, icon: <FontAwesomeIcon icon={faUserGroup} />, label: "Employee", path: "/employee" },
-  { id: 6, icon: <FaHandsHelping />, label: "Partner", path: "/partner" },
+  { id: 6, icon: <FontAwesomeIcon icon={faHandshakeAngle} className="text-[16px]" />, label: "Partner", path: "/partner" },
   {
     id: 7,
     icon: <BiSolidCategoryAlt />,
