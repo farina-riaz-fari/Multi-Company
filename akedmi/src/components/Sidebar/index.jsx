@@ -7,9 +7,8 @@ import {
   FaTimes,
 } from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse, faBuilding, faUser, faListCheck, faUserGroup, faHandshakeAngle } from "@fortawesome/free-solid-svg-icons";
+import { faHouse, faBuilding, faUser, faListCheck, faUserGroup, faHandshakeAngle, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
 import { FaGear } from "react-icons/fa6";
-import { BiSolidCategoryAlt } from "react-icons/bi";
 import { AiFillProduct } from "react-icons/ai";
 
 const sidebarItems = [
@@ -21,7 +20,7 @@ const sidebarItems = [
   { id: 6, icon: <FontAwesomeIcon icon={faHandshakeAngle} className="text-[16px]" />, label: "Partner", path: "/partner" },
   {
     id: 7,
-    icon: <BiSolidCategoryAlt />,
+    icon: <FontAwesomeIcon icon={faLayerGroup} className="text-[16px]"/>,
     label: "Product Category",
     path: "/product-category",
   },
