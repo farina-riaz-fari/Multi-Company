@@ -5,7 +5,7 @@ import {
   FaTimes,
 } from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse, faBuilding, faUser, faListCheck, faUserGroup, faHandshakeAngle, faLayerGroup, faBoxOpen, faChartColumn, faMoneyBill } from "@fortawesome/free-solid-svg-icons";
+import { faHouse, faBuilding, faUser, faListCheck, faUserGroup, faHandshakeAngle, faLayerGroup, faBoxOpen, faChartColumn, faMoneyBill, faGear } from "@fortawesome/free-solid-svg-icons";
 import { FaGear } from "react-icons/fa6";
 
 const sidebarItems = [
@@ -24,7 +24,7 @@ const sidebarItems = [
   { id: 8, icon: <FontAwesomeIcon icon={faBoxOpen} />, label: "Products", path: "/products" },
   { id: 9, icon: <FontAwesomeIcon icon={faChartColumn} className="text-[16px]" />, label: "Chart of Account", path: "/chart" },
   { id: 10, icon: <FontAwesomeIcon icon={faMoneyBill} />, label: "Payroll", path: "/payroll" },
-  { id: 11, icon: <FaGear />, label: "Settings", path: "/settings" },
+  { id: 11, icon: <FontAwesomeIcon icon={faGear} className="text-[16px]"/>, label: "Settings", path: "/settings" },
 ];
 
 const Sidebar = () => {
