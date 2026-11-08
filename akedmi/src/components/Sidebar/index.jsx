@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import {
-  FaBars,
-  FaTimes,
-} from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse, faBuilding, faUser, faListCheck, faUserGroup, faHandshakeAngle, faLayerGroup, faBoxOpen, faChartColumn, faMoneyBill, faGear } from "@fortawesome/free-solid-svg-icons";
-import { FaGear } from "react-icons/fa6";
+import { faHouse, faBuilding, faUser, faListCheck, faUserGroup, faHandshakeAngle, faLayerGroup, faBoxOpen, faChartColumn, faMoneyBill, faGear, faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const sidebarItems = [
   { id: 1, icon: <FontAwesomeIcon icon={faHouse} />, label: "Dashboard", path: "/" },
@@ -39,7 +34,7 @@ const Sidebar = () => {
           onClick={toggleSidebar}
           className="text-white bg-[#4D44B5] p-1 rounded"
         >
-          {isOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+          {isOpen ? <FontAwesomeIcon icon={faXmark} /> : <FontAwesomeIcon icon={faBars} />}
         </button>
       </div>
 
