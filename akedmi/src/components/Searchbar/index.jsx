@@ -1,12 +1,17 @@
-import { FiSearch } from "react-icons/fi";
+
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 const Searchbar = ({ value, onChange }) => {
   return (
     <form>
       <div className="relative shadow-md rounded-full">
         <div className="absolute inset-y-0 left-0 flex items-center pl-5 pointer-events-none bg-white rounded-l-full">
-          <FiSearch className="text-[24px] text-[#4D44B5]" />
+          <FontAwesomeIcon
+            icon={faMagnifyingGlass}
+            className="text-[24px] text-[#4D44B5]"
+          />
         </div>
         <input
           type="search"
