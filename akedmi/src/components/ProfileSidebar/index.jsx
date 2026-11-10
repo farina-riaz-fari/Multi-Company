@@ -1,8 +1,7 @@
 import { useState } from "react";
 import ProfileGroup from "../ProfileGroup";
-import { FaTimes, FaUser } from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faPlus, faUser, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const ProfileSidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -64,7 +63,7 @@ const ProfileSidebar = () => {
           {isOpen ? (
             <FontAwesomeIcon icon={faXmark} />
           ) : (
-            <FaUser size={20} />
+            <FontAwesomeIcon icon={faUser} className="text-[20px]" />
           )}
         </button>
       </div>
