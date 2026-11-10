@@ -2,7 +2,7 @@ import { useState } from "react";
 import ProfileGroup from "../ProfileGroup";
 import { FaTimes, FaUser } from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const ProfileSidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -126,18 +126,12 @@ const ProfileSidebar = () => {
                         : "border-[#A098AE]"
                     }`}
                   >
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M20 4.00011H4C3.20435 4.00011 2.44129 4.31619 1.87868 4.87879C1.31607 5.4414 1 6.20446 1 7.00011V17.0001C1 17.7958 1.31607 18.5588 1.87868 19.1214C2.44129 19.684 3.20435 20.0001 4 20.0001H20C20.7956 20.0001 21.5587 19.684 22.1213 19.1214C22.6839 18.5588 23 17.7958 23 17.0001V7.00011C23 6.20446 22.6839 5.4414 22.1213 4.87879C21.5587 4.31619 20.7956 4.00011 20 4.00011ZM21 16.7501L16.1 12.3501L21 8.92011V16.7501ZM3 8.92011L7.9 12.3501L3 16.7501V8.92011ZM9.58 13.5301L11.43 14.8201C11.5974 14.9362 11.7963 14.9985 12 14.9985C12.2037 14.9985 12.4026 14.9362 12.57 14.8201L14.42 13.5301L19.42 18.0001H4.6L9.58 13.5301ZM4 6.00011H20C20.1857 6.0016 20.3673 6.05478 20.5245 6.15369C20.6817 6.2526 20.8083 6.39333 20.89 6.56011L12 12.7801L3.11 6.56011C3.19171 6.39333 3.31826 6.2526 3.47545 6.15369C3.63265 6.05478 3.81428 6.0016 4 6.00011Z"
-                        fill={student.active ? "white" : "#A098AE"}
-                      />
-                    </svg>
+                    <FontAwesomeIcon
+                      icon={faEnvelope}
+                      className={`text-[24px] ${
+                        student.active ? "text-white" : "text-[#A098AE]"
+                      }`}
+                    />
                   </div>
                 </div>
               </div>
