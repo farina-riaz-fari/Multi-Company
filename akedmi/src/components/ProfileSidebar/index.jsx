@@ -2,7 +2,7 @@ import { useState } from "react";
 import ProfileGroup from "../ProfileGroup";
 import { FaTimes, FaUser } from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const ProfileSidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -96,19 +96,8 @@ const ProfileSidebar = () => {
                     </div>
                   </div>
                 </div>
-                <div className="p-3 sm:p-4 bg-[#4D44B5] rounded-full">
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 14 14"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M5.132 8.652H0.4V5.292H5.132V0.587999H8.492V5.292H13.28V8.652H8.492V13.412H5.132V8.652Z"
-                      fill="white"
-                    />
-                  </svg>
+                <div className="p-3 sm:p-4 flex items-center justify-center bg-[#4D44B5] rounded-full">
+                  <FontAwesomeIcon icon={faPlus} className="text-white text-[14px]" />
                 </div>
               </div>
             </div>
