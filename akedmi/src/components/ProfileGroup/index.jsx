@@ -8,6 +8,8 @@ import {
 } from "react-icons/fa";
 import { PiGearBold } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheckDouble } from "@fortawesome/free-solid-svg-icons";
 
 const INITIAL_NOTIFICATIONS = [
   {
@@ -176,7 +178,7 @@ const ProfileGroup = ({ gap = "none" }) => {
               disabled={unreadCount === 0}
               className="flex items-center gap-1.5 text-xs font-semibold text-[#4D44B5] transition hover:text-[#38308F] disabled:cursor-not-allowed disabled:text-gray-400"
             >
-              <FaCheckDouble />
+              <FontAwesomeIcon icon={faCheckDouble} />
               Mark all read
             </button>
           </div>
