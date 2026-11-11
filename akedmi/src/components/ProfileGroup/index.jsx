@@ -4,12 +4,11 @@ import {
   FaRegBell,
   FaCheck,
   FaCheckDouble,
-  FaRegClock,
 } from "react-icons/fa";
 import { PiGearBold } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckDouble, faBell } from "@fortawesome/free-solid-svg-icons";
+import { faCheckDouble, faBell, faClock } from "@fortawesome/free-solid-svg-icons";
 
 const INITIAL_NOTIFICATIONS = [
   {
@@ -239,7 +238,7 @@ const ProfileGroup = ({ gap = "none" }) => {
 
                     <div className="mt-2 flex items-center justify-between gap-2">
                       <span className="flex items-center gap-1 text-[11px] text-[#A098AE]">
-                        <FaRegClock size={10} />
+                        <FontAwesomeIcon icon={faClock} className="text-[10px]" />
                         {notification.time}
                       </span>
 
