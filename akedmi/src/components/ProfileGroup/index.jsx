@@ -9,7 +9,7 @@ import {
 import { PiGearBold } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckDouble } from "@fortawesome/free-solid-svg-icons";
+import { faCheckDouble, faBell } from "@fortawesome/free-solid-svg-icons";
 
 const INITIAL_NOTIFICATIONS = [
   {
@@ -219,7 +219,7 @@ const ProfileGroup = ({ gap = "none" }) => {
                   }`}
                 >
                   <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#EEECFF] text-[#4D44B5]">
-                    <FaRegBell size={15} />
+                    <FontAwesomeIcon icon={faBell} className="text-[15px]" />
                   </div>
 
                   <div className="min-w-0 flex-1">
