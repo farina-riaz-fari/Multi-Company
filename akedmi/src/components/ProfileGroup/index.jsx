@@ -4,10 +4,9 @@ import {
   FaRegBell,
   FaCheckDouble,
 } from "react-icons/fa";
-import { PiGearBold } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckDouble, faBell, faClock, faCheck } from "@fortawesome/free-solid-svg-icons";
+import { faCheckDouble, faBell, faClock, faCheck, faGear } from "@fortawesome/free-solid-svg-icons";
 
 const INITIAL_NOTIFICATIONS = [
   {
@@ -318,7 +317,10 @@ const ProfileGroup = ({ gap = "none" }) => {
           className="rounded-full bg-white p-3 shadow transition-colors hover:bg-[#F7F6FC]"
           onClick={() => navigate("/settings")}
         >
-          <PiGearBold className="text-[24px] text-[#A098AE]" />
+          <FontAwesomeIcon
+            icon={faGear}
+            className="text-[20px] text-[#A098AE]"
+          />
         </button>
       </div>
 
