@@ -2,13 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import {
   FaRegBell,
-  FaCheck,
   FaCheckDouble,
 } from "react-icons/fa";
 import { PiGearBold } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckDouble, faBell, faClock } from "@fortawesome/free-solid-svg-icons";
+import { faCheckDouble, faBell, faClock, faCheck } from "@fortawesome/free-solid-svg-icons";
 
 const INITIAL_NOTIFICATIONS = [
   {
@@ -248,7 +247,7 @@ const ProfileGroup = ({ gap = "none" }) => {
                           onClick={() => handleMarkAsRead(notification.id)}
                           className="flex items-center gap-1 text-[11px] font-semibold text-[#4D44B5] hover:text-[#38308F]"
                         >
-                          <FaCheck size={10} />
+                          <FontAwesomeIcon icon={faCheck} className="text-[10px]" />
                           Mark read
                         </button>
                       )}
