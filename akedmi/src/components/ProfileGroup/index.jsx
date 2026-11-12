@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import {
-  FaRegBell,
   FaCheckDouble,
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckDouble, faBell, faClock, faCheck, faGear } from "@fortawesome/free-solid-svg-icons";
+import { faBell as faBellRegular } from "@fortawesome/free-regular-svg-icons";
 
 const INITIAL_NOTIFICATIONS = [
   {
@@ -301,7 +301,10 @@ const ProfileGroup = ({ gap = "none" }) => {
               isOpen ? "ring-2 ring-[#4D44B5]/20" : "hover:bg-[#F7F6FC]"
             }`}
           >
-            <FaRegBell className="text-[24px] text-[#A098AE]" />
+            <FontAwesomeIcon
+              icon={faBellRegular}
+              className="text-[22px] text-[#A098AE]"
+            />
 
             {unreadCount > 0 && (
               <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-[#4D44B5] px-1 text-[10px] font-bold text-white">
