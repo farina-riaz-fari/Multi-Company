@@ -1,8 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import {
-  FaCheckDouble,
-} from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckDouble, faBell, faClock, faCheck, faGear } from "@fortawesome/free-solid-svg-icons";
@@ -257,7 +254,10 @@ const ProfileGroup = ({ gap = "none" }) => {
             ) : (
               <div className="flex flex-col items-center px-5 py-10 text-center">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#F0EEFF] text-[#4D44B5]">
-                  <FaCheckDouble size={20} />
+                  <FontAwesomeIcon
+                    icon={faCheckDouble}
+                    className="text-[20px]"
+                  />
                 </div>
 
                 <h4 className="mt-3 text-sm font-semibold text-[#303972]">
