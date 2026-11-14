@@ -414,9 +414,9 @@ const Dashboard = () => {
 
                   <td className="flex items-center px-6 py-4">
                     <FontAwesomeIcon
-  icon={faPrint}
-  className="h-7 w-7 text-gray-400"
-/>
+                      icon={faPrint}
+                      className="h-7 w-7 text-gray-400"
+                    />
                   </td>
 
                   <td className="px-6 py-4 font-bold text-gray-500">...</td>
