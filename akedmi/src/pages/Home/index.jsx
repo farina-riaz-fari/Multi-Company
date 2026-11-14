@@ -21,6 +21,8 @@ import UserContext from "../../store/UserContext";
 import { PartnerContext } from "../../store/PartnerContext";
 import { EmployeeContext } from "../../store/EmployeeContext";
 import { FaUserGroup } from "react-icons/fa6";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBuilding } from "@fortawesome/free-solid-svg-icons";
 
 ChartJS.register(
   LineElement,
@@ -397,7 +399,7 @@ const Dashboard = () => {
 
                   <td className="flex items-center px-6 py-4">
                     <div className="flex h-[48px] w-[48px] items-center justify-center rounded-full bg-[#FB7D5B]">
-                      <FaBuilding className="text-white" />
+                     <FontAwesomeIcon icon={faBuilding} className="text-white" />
                     </div>
 
                     <div className="ml-3 text-sm text-[#303972]">
