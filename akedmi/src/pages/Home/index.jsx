@@ -14,7 +14,6 @@ import {
 import { Line, Bar } from "react-chartjs-2";
 import ProfileSidebar from "../../components/ProfileSidebar";
 import Searchbar from "../../components/Searchbar";
-import { IoCaretBackOutline, IoCaretForwardOutline } from "react-icons/io5";
 import { CompanyContext } from "../../store/CompanyContext";
 import UserContext from "../../store/UserContext";
 import { PartnerContext } from "../../store/PartnerContext";
@@ -450,14 +449,14 @@ const Dashboard = () => {
             ))}
 
             <FontAwesomeIcon
-  icon={faCaretRight}
-  onClick={handleNext}
-  className={`cursor-pointer text-2xl ${
-    currentPage === TOTAL_PAGES
-      ? "pointer-events-none opacity-50"
-      : "text-[#4D44B5]"
-  }`}
-/>
+              icon={faCaretRight}
+              onClick={handleNext}
+              className={`cursor-pointer text-2xl ${
+                currentPage === TOTAL_PAGES
+                  ? "pointer-events-none opacity-50"
+                  : "text-[#4D44B5]"
+              }`}
+            />
           </div>
         </div>
       </div>
