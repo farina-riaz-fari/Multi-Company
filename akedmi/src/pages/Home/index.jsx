@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import { FaBuilding, FaUser, FaHandsHelping } from "react-icons/fa";
-import { BsPrinter } from "react-icons/bs";
 import {
   Chart as ChartJS,
   LineElement,
@@ -22,7 +21,7 @@ import { PartnerContext } from "../../store/PartnerContext";
 import { EmployeeContext } from "../../store/EmployeeContext";
 import { FaUserGroup } from "react-icons/fa6";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBuilding, faPrint } from "@fortawesome/free-solid-svg-icons";
+import { faBuilding, faCaretLeft, faPrint } from "@fortawesome/free-solid-svg-icons";
 
 ChartJS.register(
   LineElement,
@@ -426,7 +425,8 @@ const Dashboard = () => {
           </table>
 
           <div className="flex items-center justify-end space-x-2 pt-6">
-            <IoCaretBackOutline
+            <FontAwesomeIcon
+              icon={faCaretLeft}
               onClick={handlePrevious}
               className={`cursor-pointer text-2xl ${
                 currentPage === 1
