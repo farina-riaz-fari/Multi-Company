@@ -21,7 +21,7 @@ import { PartnerContext } from "../../store/PartnerContext";
 import { EmployeeContext } from "../../store/EmployeeContext";
 import { FaUserGroup } from "react-icons/fa6";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBuilding, faCaretLeft, faPrint } from "@fortawesome/free-solid-svg-icons";
+import { faBuilding, faCaretLeft, faCaretRight, faPrint } from "@fortawesome/free-solid-svg-icons";
 
 ChartJS.register(
   LineElement,
@@ -449,14 +449,15 @@ const Dashboard = () => {
               </div>
             ))}
 
-            <IoCaretForwardOutline
-              onClick={handleNext}
-              className={`cursor-pointer text-2xl ${
-                currentPage === TOTAL_PAGES
-                  ? "pointer-events-none opacity-50"
-                  : "text-[#4D44B5]"
-              }`}
-            />
+            <FontAwesomeIcon
+  icon={faCaretRight}
+  onClick={handleNext}
+  className={`cursor-pointer text-2xl ${
+    currentPage === TOTAL_PAGES
+      ? "pointer-events-none opacity-50"
+      : "text-[#4D44B5]"
+  }`}
+/>
           </div>
         </div>
       </div>
