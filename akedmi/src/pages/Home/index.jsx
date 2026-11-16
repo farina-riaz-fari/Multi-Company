@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { FaUser, FaHandsHelping } from "react-icons/fa";
+import { FaHandsHelping } from "react-icons/fa";
 import {
   Chart as ChartJS,
   LineElement,
@@ -20,7 +20,7 @@ import { PartnerContext } from "../../store/PartnerContext";
 import { EmployeeContext } from "../../store/EmployeeContext";
 import { FaUserGroup } from "react-icons/fa6";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBuilding, faCaretLeft, faCaretRight, faPrint } from "@fortawesome/free-solid-svg-icons";
+import { faBuilding, faCaretLeft, faCaretRight, faPrint, faUser } from "@fortawesome/free-solid-svg-icons";
 
 ChartJS.register(
   LineElement,
@@ -176,7 +176,7 @@ const Dashboard = () => {
     {
       label: "User",
       value: user,
-      icon: <FaUser />,
+      icon: <FontAwesomeIcon icon={faUser} />,
       bg: "bg-[#FB7D5B]",
       accent: "border-l-[#FB7D5B]",
       iconBg: "bg-[#FFF0EB]",
