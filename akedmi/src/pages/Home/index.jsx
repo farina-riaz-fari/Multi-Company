@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { FaBuilding, FaUser, FaHandsHelping } from "react-icons/fa";
+import { FaUser, FaHandsHelping } from "react-icons/fa";
 import {
   Chart as ChartJS,
   LineElement,
@@ -167,7 +167,7 @@ const Dashboard = () => {
     {
       label: "Company",
       value: company,
-      icon: <FaBuilding />,
+      icon: <FontAwesomeIcon icon={faBuilding} />,
       bg: "bg-[#4D44B5]",
       accent: "border-l-[#4D44B5]",
       iconBg: "bg-[#F0EEFF]",
