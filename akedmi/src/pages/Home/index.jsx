@@ -18,9 +18,8 @@ import { CompanyContext } from "../../store/CompanyContext";
 import UserContext from "../../store/UserContext";
 import { PartnerContext } from "../../store/PartnerContext";
 import { EmployeeContext } from "../../store/EmployeeContext";
-import { FaUserGroup } from "react-icons/fa6";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBuilding, faCaretLeft, faCaretRight, faPrint, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faBuilding, faCaretLeft, faCaretRight, faPrint, faUser, faUsers } from "@fortawesome/free-solid-svg-icons";
 
 ChartJS.register(
   LineElement,
@@ -185,7 +184,7 @@ const Dashboard = () => {
     {
       label: "Employee",
       value: employee,
-      icon: <FaUserGroup />,
+      icon: <FontAwesomeIcon icon={faUsers} />,
       bg: "bg-[#FCC43E]",
       accent: "border-l-[#FCC43E]",
       iconBg: "bg-[#FFF8E5]",
