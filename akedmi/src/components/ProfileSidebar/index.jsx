@@ -1,10 +1,19 @@
+
 import { useState } from "react";
 import ProfileGroup from "../ProfileGroup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faPlus, faUser, faXmark } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEnvelope,
+  faPlus,
+  faUser,
+  faXmark,
+  faUtensils,
+  faArrowRight,
+} from "@fortawesome/free-solid-svg-icons";
 
 const ProfileSidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
   const toggleSidebar = () => setIsOpen(!isOpen);
 
   const students = [
@@ -53,159 +62,196 @@ const ProfileSidebar = () => {
     },
   ];
 
+  const SectionHeading = ({ title, subtitle, action }) => (
+    <div className="flex items-center justify-between mb-5">
+      <div>
+        <h3 className="text-lg font-bold text-[#303972]">{title}</h3>
+        {subtitle && (
+          <p className="text-xs text-[#A098AE] mt-1">{subtitle}</p>
+        )}
+      </div>
+      {action}
+    </div>
+  );
+
+  const ViewMore = () => (
+    <button className="w-full flex items-center justify-center gap-2 py-3 mt-4 rounded-xl bg-[#4D44B5]/10 text-[#4D44B5] text-sm font-semibold hover:bg-[#4D44B5]/15 transition-colors">
+      View More
+      <FontAwesomeIcon icon={faArrowRight} className="text-xs" />
+    </button>
+  );
+
   return (
     <>
+      {/* Mobile Toggle */}
       <div className="xl:hidden fixed top-4 right-4 z-50">
         <button
           onClick={toggleSidebar}
-          className="text-white bg-[#C1BBEB] p-2 rounded-full"
+          aria-label={isOpen ? "Close sidebar" : "Open sidebar"}
+          className="w-11 h-11 flex items-center justify-center rounded-full bg-[#4D44B5] text-white shadow-lg hover:bg-[#40389B] transition-colors"
         >
-          {isOpen ? (
-            <FontAwesomeIcon icon={faXmark} />
-          ) : (
-            <FontAwesomeIcon icon={faUser} className="text-[20px]" />
-          )}
+          <FontAwesomeIcon
+            icon={isOpen ? faXmark : faUser}
+            className="text-lg"
+          />
         </button>
       </div>
 
+      {/* Overlay */}
       <div
-        className={`fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300 ${
-          isOpen ? "opacity-30 visible" : "opacity-0 invisible"
-        } lg:hidden`}
+        className={`fixed inset-0 bg-black/40 z-40 transition-opacity duration-300 ${
+          isOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        } xl:hidden`}
         onClick={toggleSidebar}
-      ></div>
+      />
 
-      <div
-        className={`fixed top-0 right-0 h-full w-[90%] sm:w-[70%] md:w-[50%] bg-white z-50 transform transition-transform duration-300 ease-in-out ${
+      {/* Sidebar */}
+      <aside
+        className={`fixed top-0 right-0 z-50 h-full w-[90%] sm:w-[70%] md:w-[50%] xl:w-full bg-[#F8F8FC] border-l border-[#E9E7F3] transform transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "translate-x-full"
-        } xl:translate-x-0 xl:static xl:w-full`}
+        } xl:translate-x-0 xl:static`}
       >
-        <div className="overflow-y-auto h-full">
-          <div className="bg-white flex flex-col justify-center p-4 sm:p-8">
-            <ProfileGroup />
-            <div className="flex justify-between items-center w-full pt-10">
-              <div className="w-full gap-10 flex flex-row items-center">
-                <div className="flex flex-row w-full">
-                  <div className="flex flex-col justify-center items-start">
-                    <div className="text-lg sm:text-xl font-[700] text-[#303972]">
-                      Recent Students
-                    </div>
-                    <div className="text-[12px] sm:text-[14px] font-[400] text-[#A098AE]">
-                      You have 456 Students
-                    </div>
-                  </div>
-                </div>
-                <div className="p-3 sm:p-4 flex items-center justify-center bg-[#4D44B5] rounded-full">
-                  <FontAwesomeIcon icon={faPlus} className="text-white text-[14px]" />
-                </div>
-              </div>
+        <div className="h-full overflow-y-auto">
+          <div className="flex flex-col gap-7 p-4 sm:p-6">
+
+            {/* Profile */}
+            <div className="bg-white rounded-2xl p-4 shadow-sm border border-[#EEEEF5]">
+              <ProfileGroup />
             </div>
 
-            {students.map((student, index) => (
-              <div
-                key={index}
-                className="flex justify-between items-center w-full pt-6"
-              >
-                <div className="w-full gap-10 flex flex-row items-center">
-                  <div className="flex flex-row w-full">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#C1BBEB]" />
-                    <div className="flex flex-col justify-center items-start ps-2 sm:ps-4">
-                      <div className="text-md sm:text-lg font-bold text-[#303972]">
-                        {student.name}
+            {/* Recent Students */}
+            <section className="bg-white rounded-2xl p-4 shadow-sm border border-[#EEEEF5]">
+              <SectionHeading
+                title="Recent Students"
+                subtitle="You have 456 students"
+                action={
+                  <button
+                    aria-label="Add student"
+                    className="w-10 h-10 flex items-center justify-center rounded-xl bg-[#4D44B5] text-white hover:bg-[#40389B] transition-colors"
+                  >
+                    <FontAwesomeIcon icon={faPlus} />
+                  </button>
+                }
+              />
+
+              <div className="flex flex-col gap-4">
+                {students.map((student, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center justify-between gap-3"
+                  >
+                    <div className="flex items-center gap-3 min-w-0">
+                      <div className="w-11 h-11 shrink-0 rounded-full bg-[#EAE7FA] flex items-center justify-center text-[#4D44B5] font-bold">
+                        {student.name
+                          .split(" ")
+                          .map((part) => part[0])
+                          .join("")}
                       </div>
-                      <div className="text-[12px] sm:text-[14px] text-[#A098AE]">
-                        {student.className}
+
+                      <div className="min-w-0">
+                        <p className="text-sm font-semibold text-[#303972] truncate">
+                          {student.name}
+                        </p>
+                        <p className="text-xs text-[#A098AE] mt-1">
+                          {student.className}
+                        </p>
                       </div>
                     </div>
+
+                    <button
+                      aria-label={`Message ${student.name}`}
+                      className={`w-9 h-9 shrink-0 rounded-xl flex items-center justify-center transition-colors ${
+                        student.active
+                          ? "bg-[#4D44B5] text-white"
+                          : "bg-[#F2F1F8] text-[#A098AE] hover:bg-[#EAE7FA]"
+                      }`}
+                    >
+                      <FontAwesomeIcon icon={faEnvelope} className="text-sm" />
+                    </button>
                   </div>
+                ))}
+              </div>
+
+              <ViewMore />
+            </section>
+
+            {/* Messages */}
+            <section className="bg-white rounded-2xl p-4 shadow-sm border border-[#EEEEF5]">
+              <SectionHeading
+                title="Messages"
+                subtitle="Your recent conversations"
+              />
+
+              <div className="flex flex-col">
+                {messages.map((msg, index) => (
                   <div
-                    className={`p-2 sm:p-4 border-2 rounded-full ${
-                      student.active
-                        ? "bg-[#4D44B5] border-[#4D44B5]"
-                        : "border-[#A098AE]"
+                    key={index}
+                    className={`flex items-start gap-3 py-4 ${
+                      index !== 0 ? "border-t border-[#EEEEF5]" : ""
                     }`}
                   >
-                    <FontAwesomeIcon
-                      icon={faEnvelope}
-                      className={`text-[24px] ${
-                        student.active ? "text-white" : "text-[#A098AE]"
-                      }`}
-                    />
-                  </div>
-                </div>
-              </div>
-            ))}
+                    <div className="w-11 h-11 shrink-0 rounded-full bg-[#EAE7FA] flex items-center justify-center text-[#4D44B5] font-bold">
+                      SW
+                    </div>
 
-            <div className="flex flex-col w-full pt-10 pb-12">
-              <button className="flex flex-row text-center text-md sm:text-lg font-bold justify-center items-center w-full gap-4 bg-[#4D44B51A] text-[#4D44B5] p-4 rounded-full">
-                View More
-              </button>
-            </div>
-
-            <div className="flex flex-col w-full pb-6">
-              <div className="text-xl font-[800] text-[#303972] text-start pb-6">
-                Messages
-              </div>
-              {messages.map((msg, index) => (
-                <div
-                  key={index}
-                  className={`w-full flex flex-row justify-between border-b-2 border-[#A098AE] ${
-                    index !== 0 ? "pt-6" : ""
-                  }`}
-                >
-                  <div className="flex flex-row items-center pb-3">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#C1BBEB]" />
-                    <div className="flex flex-col justify-center items-start ps-2 sm:ps-4">
-                      <div className="text-md sm:text-lg font-bold text-[#303972]">
-                        {msg.name}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between gap-2">
+                        <p className="text-sm font-semibold text-[#303972] truncate">
+                          {msg.name}
+                        </p>
+                        <span className="text-[10px] text-[#A098AE] shrink-0">
+                          {msg.time}
+                        </span>
                       </div>
-                      <div className="text-[12px] sm:text-[14px] font-[400] text-[#A098AE]">
+                      <p className="text-xs text-[#A098AE] mt-1 truncate">
                         {msg.message}
-                      </div>
+                      </p>
                     </div>
                   </div>
-                  <div className="text-xs sm:text-sm text-[#A098AE]">
-                    {msg.time}
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
 
-              <div className="flex flex-col w-full pt-8 pb-10">
-                <button className="flex flex-row text-center text-md sm:text-lg font-bold justify-center items-center w-full gap-4 bg-[#4D44B51A] text-[#4D44B5] p-4 rounded-full">
-                  View More
-                </button>
-              </div>
-            </div>
+              <ViewMore />
+            </section>
 
-            <div className="flex flex-col w-full pb-6">
-              <div className="text-xl font-[800] text-[#363B64] text-start pb-6">
-                Current Foods Menu
-              </div>
-              {foodItems.map((item, index) => (
-                <div
-                  key={index}
-                  className={`w-full ${index === 0 ? "pt-4" : "pt-8"}`}
-                >
-                  <div className="p-20 bg-[#C1BBEB] rounded-2xl" />
-                  <div className="flex justify-start flex-col items-start pt-6">
-                    <div className="text-md sm:text-lg font-bold text-[#363B64]">
-                      {item.title}
+            {/* Current Foods Menu */}
+            <section className="bg-white rounded-2xl p-4 shadow-sm border border-[#EEEEF5]">
+              <SectionHeading
+                title="Current Foods Menu"
+                subtitle="Today's available menu"
+              />
+
+              <div className="flex flex-col gap-4">
+                {foodItems.map((item, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center gap-3 p-3 rounded-xl bg-[#F8F7FC] border border-[#EEEEF5]"
+                  >
+                    <div className="w-16 h-16 shrink-0 rounded-xl bg-[#EAE7FA] flex items-center justify-center text-[#4D44B5]">
+                      <FontAwesomeIcon
+                        icon={faUtensils}
+                        className="text-xl"
+                      />
                     </div>
-                    <div className="text-[12px] sm:text-[14px] font-[400] text-[#A098AE]">
-                      {item.description}
+
+                    <div className="min-w-0">
+                      <p className="text-sm font-semibold text-[#303972]">
+                        {item.title}
+                      </p>
+                      <p className="text-xs text-[#A098AE] mt-1">
+                        {item.description}
+                      </p>
                     </div>
                   </div>
-                </div>
-              ))}
-              <div className="flex flex-col w-full pt-10 pb-10">
-                <button className="flex flex-row text-center text-md sm:text-lg font-bold justify-center items-center w-full gap-4 bg-[#4D44B51A] text-[#4D44B5] p-4 rounded-full">
-                  View More
-                </button>
+                ))}
               </div>
-            </div>
+
+              <ViewMore />
+            </section>
+
           </div>
         </div>
-      </div>
+      </aside>
     </>
   );
 };
