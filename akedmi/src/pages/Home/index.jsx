@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import { FaHandsHelping } from "react-icons/fa";
 import {
   Chart as ChartJS,
   LineElement,
@@ -19,7 +18,7 @@ import UserContext from "../../store/UserContext";
 import { PartnerContext } from "../../store/PartnerContext";
 import { EmployeeContext } from "../../store/EmployeeContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBuilding, faCaretLeft, faCaretRight, faPrint, faUser, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { faBuilding, faCaretLeft, faCaretRight, faHandshake, faPrint, faUser, faUsers } from "@fortawesome/free-solid-svg-icons";
 
 ChartJS.register(
   LineElement,
@@ -193,7 +192,7 @@ const Dashboard = () => {
     {
       label: "Partner",
       value: partner,
-      icon: <FaHandsHelping />,
+      icon: <FontAwesomeIcon icon={faHandshake} />,
       bg: "bg-[#303972]",
       accent: "border-l-[#303972]",
       iconBg: "bg-[#EBEDFA]",
