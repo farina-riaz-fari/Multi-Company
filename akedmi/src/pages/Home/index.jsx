@@ -18,7 +18,15 @@ import UserContext from "../../store/UserContext";
 import { PartnerContext } from "../../store/PartnerContext";
 import { EmployeeContext } from "../../store/EmployeeContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBuilding, faCaretLeft, faCaretRight, faHandshake, faPrint, faUser, faUsers } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBuilding,
+  faCaretLeft,
+  faCaretRight,
+  faHandshake,
+  faPrint,
+  faUser,
+  faUsers,
+} from "@fortawesome/free-solid-svg-icons";
 
 ChartJS.register(
   LineElement,
@@ -271,11 +279,29 @@ const Dashboard = () => {
           ))}
         </div>
 
+        {/* Company Performance */}
         <div className="mt-6 w-full rounded-xl bg-white p-6">
-          <div className="mb-6 flex items-center justify-between">
+          <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
             <h2 className="text-xl font-bold text-[#303972]">
               Company Performance
             </h2>
+
+            {/* Chart Legend */}
+            <div className="flex items-center gap-5">
+              <div className="flex items-center gap-2">
+                <span className="h-3 w-3 rounded-full bg-[#FDCB4E]" />
+                <span className="text-sm font-medium text-gray-500">
+                  This Week
+                </span>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <span className="h-3 w-3 rounded-full bg-[#FF6B6B]" />
+                <span className="text-sm font-medium text-gray-500">
+                  Last Week
+                </span>
+              </div>
+            </div>
           </div>
 
           <div className="h-[300px]">
@@ -373,95 +399,99 @@ const Dashboard = () => {
           </div>
         </div>
 
-        
-          <div className="mt-6 overflow-hidden rounded-2xl border border-[#ECEBF4] bg-white shadow-sm">
-            {/* Header */}
-            <div className="flex flex-col gap-2 border-b border-[#F0EFF5] px-6 py-5 sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                <h3 className="text-xl font-bold text-[#303972]">
-                  Unpaid Company Intuition
-                </h3>
-                <p className="mt-1 text-sm text-gray-400">
-                  Overview of outstanding student payments
-                </p>
-              </div>
-
-              <span className="w-fit rounded-full bg-[#FFF3EC] px-4 py-2 text-xs font-semibold text-[#FB7D5B]">
-                Unpaid Records
-              </span>
+        {/* Unpaid Company Intuition */}
+        <div className="mt-6 overflow-hidden rounded-2xl border border-[#ECEBF4] bg-white shadow-sm">
+          {/* Header */}
+          <div className="flex flex-col gap-2 border-b border-[#F0EFF5] px-6 py-5 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <h3 className="text-xl font-bold text-[#303972]">
+                Unpaid Company Intuition
+              </h3>
+              <p className="mt-1 text-sm text-gray-400">
+                Overview of outstanding student payments
+              </p>
             </div>
 
-            {/* Table */}
-            <div className="overflow-x-auto px-4 sm:px-6">
-              <table className="w-full min-w-[650px] table-auto">
-                <tbody>
-                  {currentTableData.map((row, index) => (
-                    <tr
-                      key={index}
-                      className="border-b border-[#F1F0F6] transition-colors last:border-0 hover:bg-[#FAF9FE]"
-                    >
-                      <td className="px-4 py-4">
-                        <div className="flex items-center gap-3">
-                          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#EAE7FA] text-sm font-bold text-[#4D44B5]">
-                            {row.name
-                              .split(" ")
-                              .map((part) => part[0])
-                              .join("")
-                              .slice(0, 2)
-                              .toUpperCase()}
-                          </div>
-                          <span className="font-semibold text-[#303972]">
-                            {row.name}
+            <span className="w-fit rounded-full bg-[#FFF3EC] px-4 py-2 text-xs font-semibold text-[#FB7D5B]">
+              Unpaid Records
+            </span>
+          </div>
+
+          {/* Table */}
+          <div className="overflow-x-auto px-4 sm:px-6">
+            <table className="w-full min-w-[650px] table-auto">
+              <tbody>
+                {currentTableData.map((row, index) => (
+                  <tr
+                    key={index}
+                    className="border-b border-[#F1F0F6] transition-colors last:border-0 hover:bg-[#FAF9FE]"
+                  >
+                    <td className="px-4 py-4">
+                      <div className="flex items-center gap-3">
+                        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#EAE7FA] text-sm font-bold text-[#4D44B5]">
+                          {row.name
+                            .split(" ")
+                            .map((part) => part[0])
+                            .join("")
+                            .slice(0, 2)
+                            .toUpperCase()}
+                        </div>
+                        <span className="font-semibold text-[#303972]">
+                          {row.name}
+                        </span>
+                      </div>
+                    </td>
+
+                    <td className="px-4 py-4">
+                      <span className="rounded-lg bg-[#F5F4FB] px-3 py-2 text-sm font-semibold text-[#4D44B5]">
+                        {row.id}
+                      </span>
+                    </td>
+
+                    <td className="px-4 py-4">
+                      <div className="flex items-center gap-3">
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#FFF0EB]">
+                          <FontAwesomeIcon
+                            icon={faBuilding}
+                            className="text-[#FB7D5B]"
+                          />
+                        </div>
+                        <div>
+                          <span className="block text-xs text-gray-400">
+                            Class
                           </span>
+                          <p className="text-sm font-semibold text-[#303972]">
+                            VII A
+                          </p>
                         </div>
-                      </td>
+                      </div>
+                    </td>
 
-                      <td className="px-4 py-4">
-                        <span className="rounded-lg bg-[#F5F4FB] px-3 py-2 text-sm font-semibold text-[#4D44B5]">
-                          {row.id}
-                        </span>
-                      </td>
+                    <td className="px-4 py-4">
+                      <span className="inline-flex rounded-lg bg-[#FFF3EC] px-3 py-2 text-sm font-bold text-[#E9784F]">
+                        {row.amount}
+                      </span>
+                    </td>
 
-                      <td className="px-4 py-4">
-                        <div className="flex items-center gap-3">
-                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#FFF0EB]">
-                            <FontAwesomeIcon
-                              icon={faBuilding}
-                              className="text-[#FB7D5B]"
-                            />
-                          </div>
-                          <div>
-                            <span className="block text-xs text-gray-400">Class</span>
-                            <p className="text-sm font-semibold text-[#303972]">VII A</p>
-                          </div>
-                        </div>
-                      </td>
+                    <td className="px-4 py-4">
+                      <button
+                        type="button"
+                        className="flex h-9 w-9 items-center justify-center rounded-lg text-gray-400 transition hover:bg-[#F0EEFA] hover:text-[#4D44B5]"
+                      >
+                        <FontAwesomeIcon icon={faPrint} />
+                      </button>
+                    </td>
 
-                      <td className="px-4 py-4">
-                        <span className="inline-flex rounded-lg bg-[#FFF3EC] px-3 py-2 text-sm font-bold text-[#E9784F]">
-                          {row.amount}
-                        </span>
-                      </td>
-
-                      <td className="px-4 py-4">
-                        <button
-                          type="button"
-                          className="flex h-9 w-9 items-center justify-center rounded-lg text-gray-400 transition hover:bg-[#F0EEFA] hover:text-[#4D44B5]"
-                        >
-                          <FontAwesomeIcon icon={faPrint} />
-                        </button>
-                      </td>
-
-                      <td className="px-4 py-4 text-center">
-                        <span className="cursor-pointer text-lg font-bold text-gray-400 hover:text-[#4D44B5]">
-                          ...
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                    <td className="px-4 py-4 text-center">
+                      <span className="cursor-pointer text-lg font-bold text-gray-400 hover:text-[#4D44B5]">
+                        ...
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
 
           {/* Pagination */}
           <div className="flex items-center justify-between border-t border-[#F0EFF5] px-6 py-4">
@@ -505,7 +535,6 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-
       </div>
 
       <div className="w-auto">
