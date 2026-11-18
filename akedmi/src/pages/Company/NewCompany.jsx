@@ -1,3 +1,4 @@
+
 import React, { useContext, useMemo, useState } from "react";
 import { useNavigate, useLocation } from "react-router";
 import { CompanyContext } from "../../store/CompanyContext";
@@ -12,16 +13,27 @@ import Button from "../../components/Button";
 import UserContext from "../../store/UserContext";
 import { PartnerContext } from "../../store/PartnerContext";
 import { EmployeeContext } from "../../store/EmployeeContext";
+import { AuthContext } from "../../store/signupAndLoginContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBuilding, faClock, faCreditCard, faGear, faLocationDot, faShieldHalved } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBuilding,
+  faClock,
+  faCreditCard,
+  faGear,
+  faLocationDot,
+  faShieldHalved,
+} from "@fortawesome/free-solid-svg-icons";
 
 const NewCompany = () => {
   const navigate = useNavigate();
   const location = useLocation();
+
   const { addCompany, updateCompany } = useContext(CompanyContext);
   const { users } = useContext(UserContext);
   const { partners } = useContext(PartnerContext);
   const { employees } = useContext(EmployeeContext);
+  const { currentUser } = useContext(AuthContext);
+
   const companyData = location.state?.company;
   const [formErrors, setFormErrors] = useState({});
 
@@ -101,6 +113,7 @@ const NewCompany = () => {
     e.preventDefault();
 
     const newFormErrors = {};
+
     requiredFields.forEach((field) => {
       if (!formData[field]) {
         const label = fieldLabels[field] || field;
@@ -151,23 +164,57 @@ const NewCompany = () => {
     navigate("/company");
   };
 
-  const ownerOptions = useMemo(
-    () => [
+  // Owner dropdown includes the logged-in account and existing records.
+  const ownerOptions = useMemo(() => {
+    const currentUserName =
+      [
+        currentUser?.firstName || currentUser?.first_name,
+        currentUser?.lastName || currentUser?.last_name,
+      ]
+        .filter(Boolean)
+        .join(" ") ||
+      currentUser?.name ||
+      currentUser?.fullName ||
+      currentUser?.email ||
+      "";
+
+    const options = [
+      ...(currentUserName
+        ? [
+            {
+              value: currentUserName,
+              label: currentUserName,
+            },
+          ]
+        : []),
+
       ...users.map((user) => ({
         value: `${user.firstName} ${user.lastName}`,
         label: `${user.firstName} ${user.lastName}`,
       })),
+
       ...employees.map((employee) => ({
         value: `${employee.first_name} ${employee.last_name}`,
         label: `${employee.first_name} ${employee.last_name}`,
       })),
+
       ...partners.map((partner) => ({
         value: `${partner.firstName} ${partner.lastName}`,
         label: `${partner.firstName} ${partner.lastName}`,
       })),
-    ],
-    [users, employees, partners]
-  );
+    ];
+
+    return [
+      ...new Map(
+        options
+          .filter((option) => option.value.trim())
+          .map((option) => [
+            option.value.trim().toLowerCase(),
+            option,
+          ])
+      ).values(),
+    ];
+  }, [currentUser, users, employees, partners]);
 
   const sectionConfig = [
     {
@@ -217,11 +264,11 @@ const NewCompany = () => {
   const renderSectionHeader = (section) => (
     <div className="flex items-start gap-4 border-b border-slate-100 px-5 py-5 sm:px-7">
       <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#4D44B5]/10 text-xl text-[#4D44B5]">
-      {typeof section.icon === "string" ? (
-        section.icon
-      ) : (
-        <FontAwesomeIcon icon={section.icon} />
-      )}
+        {typeof section.icon === "string" ? (
+          section.icon
+        ) : (
+          <FontAwesomeIcon icon={section.icon} />
+        )}
       </div>
 
       <div className="min-w-0 flex-1">
@@ -303,6 +350,7 @@ const NewCompany = () => {
                 handleChange={handleChange}
                 error={formErrors.companyName}
               />
+
               <FormInput
                 label="Registration Number"
                 name="registrationNo"
@@ -341,6 +389,7 @@ const NewCompany = () => {
                 handleChange={handleChange}
                 error={formErrors.email}
               />
+
               <FormInput
                 label="Phone Number"
                 name="phoneNumber"
@@ -350,6 +399,7 @@ const NewCompany = () => {
                 handleChange={handleChange}
                 error={formErrors.phoneNumber}
               />
+
               <FormInput
                 label="Country"
                 name="country"
@@ -440,6 +490,7 @@ const NewCompany = () => {
                 handleChange={handleChange}
                 error={formErrors.status}
               />
+
               <DateTimeInput
                 label="Registration Date"
                 name="registrationDate"
@@ -483,6 +534,7 @@ const NewCompany = () => {
                 handleChange={handleChange}
                 error={formErrors.owner}
               />
+
               <FormSelect
                 label="Business Type"
                 name="businessType"

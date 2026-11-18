@@ -1,3 +1,4 @@
+
 import { createContext, useState, useEffect } from "react";
 import {
   deleteAuthFromDB,
@@ -7,6 +8,7 @@ import {
 
 export const AuthContext = createContext({
   auth: [],
+  currentUser: null,
   isAuthenticated: false,
   addAuth: async () => "",
   loginAuth: async () => false,
@@ -16,38 +18,55 @@ export const AuthContext = createContext({
 
 export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState([]);
+  const [currentUser, setCurrentUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    const user = localStorage.getItem("auth-user");
-    if (user) {
-      setIsAuthenticated(true);
+    const savedUser = localStorage.getItem("auth-user");
+
+    if (savedUser) {
+      try {
+        const user = JSON.parse(savedUser);
+        setCurrentUser(user);
+        setIsAuthenticated(true);
+      } catch {
+        localStorage.removeItem("auth-user");
+      }
     }
   }, []);
 
   const addAuth = async (authData) => {
     const existing = await getAuthFromDB(authData.email);
+
     if (existing) return "User already exists";
-    if (authData.password !== authData.confirmPassword)
+
+    if (authData.password !== authData.confirmPassword) {
       return "Passwords do not match";
+    }
 
     await saveAuthToDB(authData);
     setAuth((prev) => [...prev, authData]);
+
     return "User registered successfully";
   };
 
   const loginAuth = async (email, password) => {
     const user = await getAuthFromDB(email);
+
     if (user && user.password === password) {
       localStorage.setItem("auth-user", JSON.stringify(user));
+      setCurrentUser(user);
       setIsAuthenticated(true);
+
       return true;
     }
+
     return false;
   };
 
   const logoutAuth = () => {
     localStorage.removeItem("auth-user");
+    setCurrentUser(null);
     setIsAuthenticated(false);
   };
 
@@ -60,6 +79,7 @@ export const AuthProvider = ({ children }) => {
     <AuthContext.Provider
       value={{
         auth,
+        currentUser,
         isAuthenticated,
         addAuth,
         loginAuth,
