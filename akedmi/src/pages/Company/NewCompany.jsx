@@ -113,7 +113,6 @@ const NewCompany = () => {
     e.preventDefault();
 
     const newFormErrors = {};
-
     requiredFields.forEach((field) => {
       if (!formData[field]) {
         const label = fieldLabels[field] || field;
